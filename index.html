@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Noa เรียนสนุก v2.0</title>
+<title>Noa เรียนสนุก v3.0</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -208,6 +208,57 @@ input[type=checkbox]{width:calc(20px*var(--k));height:calc(20px*var(--k))}
 .note-s{font-size:calc(14px*var(--k));color:var(--muted);line-height:1.5}
 .gate{max-width:calc(420px*var(--k));margin:12vh auto;background:var(--card);border-radius:20px;padding:24px;text-align:center;font-family:system-ui,sans-serif}
 .gate input{width:calc(120px*var(--k));text-align:center;font-size:calc(24px*var(--k));margin:12px 0}
+/* v3.0 : bouton ?, défis, nouvelles matières, écriture */
+.qhr{display:flex;align-items:center;gap:10px}
+.qhelp{width:calc(38px*var(--k));height:calc(38px*var(--k));min-width:40px;min-height:40px;border-radius:50%;background:#fff;color:#22214a;font-weight:700;font-size:calc(22px*var(--k));display:grid;place-items:center;flex:none;box-shadow:0 2px 0 rgba(0,0,0,.25);animation:wig 2.4s ease-in-out 1.2s 2}
+@keyframes wig{10%,30%{transform:rotate(-14deg) scale(1.08)}20%,40%{transform:rotate(14deg) scale(1.08)}50%{transform:none}}
+.defi{text-align:center;font-weight:700;color:#7a4b00;background:#ffe9a8;border-radius:99px;padding:4px 14px;margin:0 auto 10px;width:fit-content;max-width:100%}
+.defi .fr{color:#7a4b00}
+.exbox{margin:12px 0 4px;background:#eaf6ff;color:#12324a;border:2px solid #9cd0f5;border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;animation:pop .3s ease}
+.exbox .mini{width:calc(64px*var(--k));height:calc(56px*var(--k));flex:none}
+.exbox>div{flex:1 1 auto}
+.ext{display:block;font-size:calc(15px*var(--k));color:#0d6a9a}.ext .fr{color:#0d6a9a}
+.exth{font-size:calc(20px*var(--k));font-weight:600;line-height:1.75}
+.exbox .fr{color:#35556e}
+.exsay{margin-top:6px;display:inline-flex;gap:6px;align-items:center;padding:6px 12px;border-radius:99px;background:#fff;border:2px solid #9cd0f5;font-size:calc(14px*var(--k));min-height:40px;color:#12324a}
+.exsay svg{width:1.1em;height:1.1em}
+.exq{background:#fff;color:#22214a;border:2px solid rgba(0,0,0,.15);border-radius:14px;padding:10px 14px;font-weight:700;min-height:48px;font-size:calc(16px*var(--k));margin-left:auto;flex:none}
+.fb .exq+.next{margin-left:0}
+.ch{position:relative}.kn{position:absolute;top:4px;left:9px;font-size:calc(12px*var(--k));opacity:.55;font-weight:700}
+.kbd{font-size:calc(12px*var(--k));color:var(--muted);text-align:center;margin-top:10px}
+.big{display:inline-block;animation:bob 2.8s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-7px)}}
+.rb{transition:transform .34s ease}
+.pbox{margin-top:10px;display:flex;justify-content:center}
+.pgm{display:inline-flex;flex-wrap:wrap;gap:4px;align-items:center;justify-content:center;font-size:calc(26px*var(--k));line-height:1.25}
+.ch .pgm{font-size:calc(21px*var(--k))}
+.blk{display:inline-flex;align-items:center;gap:2px;background:rgba(0,137,123,.12);border:2px solid rgba(0,137,123,.35);border-radius:10px;padding:1px 6px}
+.blk small{font-size:.5em;font-weight:700;margin-right:2px;color:#00897b}.blk b{font-size:.62em;color:#00897b}
+.blk.rep{background:#00897b;color:#fff;font-size:.8em;font-weight:700}
+.bits{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.bit{display:flex;flex-direction:column;align-items:center;background:var(--soft);border:2px solid var(--line);border-radius:14px;padding:6px 12px;min-width:calc(60px*var(--k))}
+.bit span{font-size:calc(40px*var(--k));filter:grayscale(1) brightness(.55)}.bit.on span{filter:drop-shadow(0 0 10px #ffd54f)}.bit.on{border-color:#ffd54f}
+.bit b{font-size:calc(14px*var(--k));color:var(--muted)}.bit i{font-style:normal;font-weight:700;font-size:calc(26px*var(--k))}
+.flow{animation:flow 1s linear infinite}@keyframes flow{to{stroke-dashoffset:-30}}
+.glow{animation:pulse 1.6s ease-in-out infinite}@keyframes pulse{50%{opacity:.12}}
+.ndl{transform-box:view-box;transform-origin:100px 100px;animation:sweep 1.5s cubic-bezier(.3,1.35,.5,1) both}
+@keyframes sweep{from{transform:rotate(var(--a0,0deg))}}
+.horiz{transform-box:view-box;transform-origin:100px 100px;animation:level 1.6s ease-out both}@keyframes level{from{transform:rotate(0deg) translateY(0px)}}
+.grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 1.3s ease-out both}@keyframes grow{from{transform:scaleY(0)}}
+.flag{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.25);max-width:100%;height:auto}
+.ch .flag{margin:4px auto}
+.eqz{display:flex;gap:6px;align-items:flex-end;height:calc(70px*var(--k))}.eqz i{width:calc(12px*var(--k));background:#d63384;border-radius:6px;animation:eqz 1s ease-in-out infinite;height:30%}
+.eqz i:nth-child(2){animation-delay:-.3s;background:#ff9f1c}.eqz i:nth-child(3){animation-delay:-.6s;background:#06a77d}.eqz i:nth-child(4){animation-delay:-.15s;background:#118ab2}.eqz i:nth-child(5){animation-delay:-.45s;background:#7b4ae2}.eqz i:nth-child(6){animation-delay:-.75s;background:#f5b700}.eqz i:nth-child(7){animation-delay:-.2s;background:#ef476f}
+@keyframes eqz{0%,100%{height:20%}50%{height:100%}}
+.staff{color:var(--ink)}
+.pens{display:grid;gap:14px;justify-items:start}.pen{display:flex;align-items:center}.pen b{font-size:calc(22px*var(--k));width:1.6em}.pen span{display:block;height:calc(20px*var(--k));border-radius:4px 0 0 4px}.pen i{width:0;height:0;border-top:calc(10px*var(--k)) solid transparent;border-bottom:calc(10px*var(--k)) solid transparent;border-left:calc(18px*var(--k)) solid #f3d9b5}
+.g-wr{background:#00897b}
+.pl{position:relative}.pl.sug{border-color:var(--blue)}.badge{position:absolute;top:8px;right:12px;background:var(--blue);color:#fff;border-radius:99px;width:1.6em;height:1.6em;display:grid;place-items:center;font-weight:700}
+.wcan{touch-action:none;background:var(--card);border:3px solid var(--line);border-radius:22px;display:block;margin:12px auto 0;cursor:crosshair}
+.wtools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.typ{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}.typ input{font:inherit;font-size:calc(30px*var(--k));width:calc(180px*var(--k));text-align:center;border-radius:16px;border:3px solid var(--line);background:var(--soft);color:var(--ink);padding:6px;font-weight:700}
+.typ input.ok{border-color:var(--green);background:#d9f7ec;color:#0b3d2e}.typ input.no{border-color:var(--pink);background:#ffe0e6;color:#5a0b1f}
+.cgrid,.circ,.gauge{display:block}
+@media(max-width:600px){.exbox .mini{display:none}.exth{font-size:calc(18px*var(--k))}}
 @media(max-width:600px){
  :root{--k:calc(1 + (var(--z) - 1)*.5)}
  .chs{gap:10px}
@@ -229,7 +280,7 @@ input[type=checkbox]{width:calc(20px*var(--k));height:calc(20px*var(--k))}
 <script>
 {
 /* ================= utilitaires ================= */
-const VERSION="2.0";
+const VERSION="3.0";
 const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -259,7 +310,13 @@ const SUBJ=[
  {id:"logic",th:"ตรรกะ",fr:"Logique",col:"var(--purple)",hex:"#7b4ae2",age:true},
  {id:"fr",th:"ภาษาฝรั่งเศส",fr:"Français",col:"var(--yellow)",hex:"#f5b700",age:false},
  {id:"en",th:"ภาษาอังกฤษ",fr:"Anglais",col:"var(--red)",hex:"#e5383b",age:false},
- {id:"elec",th:"รหัสสีตัวต้านทาน",fr:"Résistances",col:"#8d5a2b",hex:"#8d5a2b",age:false}];
+ {id:"elec",th:"รหัสสีตัวต้านทาน",fr:"Résistances",col:"#8d5a2b",hex:"#8d5a2b",age:false},
+ {id:"code",th:"เขียนโปรแกรม",fr:"Programmation",col:"#00897b",hex:"#00897b",age:false},
+ {id:"circ",th:"ไฟฟ้า",fr:"Électricité",col:"#ef6c00",hex:"#ef6c00",age:false},
+ {id:"music",th:"ดนตรี",fr:"Musique",col:"#d63384",hex:"#d63384",age:false},
+ {id:"health",th:"สุขภาพและความปลอดภัย",fr:"Santé et sécurité",col:"#43a047",hex:"#43a047",age:false},
+ {id:"measure",th:"การวัดและเครื่องบิน",fr:"Mesures et aviation",col:"#546e7a",hex:"#546e7a",age:false},
+ {id:"flags",th:"ธงชาติและประเทศ",fr:"Drapeaux et pays",col:"#3949ab",hex:"#3949ab",age:false}];
 const SUB=Object.fromEntries(SUBJ.map(s=>[s.id,s]));
 const GRADES=["อ.3","ป.1","ป.2","ป.3","ป.4"];
 const GRADES_FR=["maternelle (อ.3)","Prathom 1","Prathom 2","Prathom 3","Prathom 4","Prathom 5","Prathom 6"];
@@ -274,7 +331,7 @@ const LANGLV=["Découverte","Mots courants","Expressions","Petites phrases","Lec
 const LANGLV_TH=["เริ่มรู้จัก","คำที่ใช้บ่อย","สำนวน","ประโยคสั้น","การอ่าน"];
 const ELECLV=["Couleur → chiffre","Chiffre → couleur","Valeur à 2 chiffres","Multiplicateur","kΩ et tolérance"];
 const ELECLV_TH=["สี → ตัวเลข","ตัวเลข → สี","ค่าสองหลัก","ตัวคูณ","กิโลโอห์มและค่าความคลาดเคลื่อน"];
-const stepLab=(id,k)=>{const i=clamp(Math.round(k),1,5)-1;return id==="elec"?[ELECLV[i],ELECLV_TH[i]]:[LANGLV[i],LANGLV_TH[i]]};
+const stepLab=(id,k)=>{const i=clamp(Math.round(k),1,5)-1;const s=STEPS[id]||STEPS.fr;return [s[0][i],s[1][i]]};
 
 /* ================= sons ================= */
 let AC=null;
@@ -310,7 +367,7 @@ const SPK='<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><p
    L'ancienne clé "noa-learn-v1" est lue une fois pour créer le premier joueur, jamais effacée. */
 const KEY="noa-learn-v1",IDX="noa-players-v2",PK=id=>"noa-player-"+id;
 function DEF(){return {v:2,created:Date.now(),upd:Date.now(),cls:3,name:"",av:"🐘",birth:null,
- skill:{math:2.7,thai:2.7,sci:2.7,world:2.7,logic:2.7,fr:1,en:1.5,elec:1},n:{},ok:{},topics:{},days:{},sessions:[],stars:0,mem:1,trvWins:0,
+ skill:{math:2.7,thai:2.7,sci:2.7,world:2.7,logic:2.7,fr:1,en:1.5,elec:1,code:1.5,circ:1.5,music:1.5,health:2,measure:1.5,flags:1.5},n:{},ok:{},topics:{},days:{},sessions:[],stars:0,mem:1,trvWins:0,wr:1,
  cfg:{sound:true,autoTh:true,showFr:true,zoom:1.4,zv:2}}}
 const ZOOMS=[1,1.2,1.4,1.7];
 function fixS(){const D=DEF();const c=S.cfg||{};if(!c.zv){c.zoom=c.zoom>=2||c.zoom==null?1.4:c.zoom;c.zv=2}c.zoom=ZOOMS.reduce((b,z)=>Math.abs(z-c.zoom)<Math.abs(b-c.zoom)?z:b,1.4);S.cfg=Object.assign(D.cfg,c);S.skill=Object.assign(D.skill,S.skill||{})}
@@ -359,7 +416,7 @@ const fr$=(a,b)=>`<span class="fracn"><i>${a}</i><i>${b}</i></span>`;
 function dieSVG(n){const P={1:[[50,50]],2:[[28,28],[72,72]],3:[[26,26],[50,50],[74,74]],4:[[28,28],[72,28],[28,72],[72,72]],5:[[26,26],[74,26],[50,50],[26,74],[74,74]],6:[[28,24],[72,24],[28,50],[72,50],[28,76],[72,76]]};return `<svg viewBox="0 0 100 100">${(P[n]||[]).map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="9" fill="currentColor"/>`).join("")}</svg>`}
 
 /* ================= construction des questions ================= */
-function Q(o,correct,wrong){const all=[correct,...wrong].map(c=>typeof c==="object"?c:{h:String(c)});const seen=new Set(),list=[];for(const c of all){if(!seen.has(c.h)){seen.add(c.h);list.push(c)}}const ord=shuf(list.map((c,i)=>i));o.ch=ord.map(i=>list[i]);o.a=ord.indexOf(0);return o}
+function Q(o,correct,wrong){const all=[correct,...wrong].map(c=>typeof c==="object"?c:{h:String(c)});const seen=new Set(),list=[];for(const c of all){if(!seen.has(c.h)){seen.add(c.h);list.push(c)}}const ord=shuf(list.map((c,i)=>i));o.ch=ord.map(i=>list[i]);o.a=ord.indexOf(0);o.num=typeof correct==="number"?correct:null;return o}
 function nums(ans,spread,min=0,n=3){const s=new Set();let t=0;while(s.size<n&&t<120){t++;const v=ans+R(-spread,spread);if(v!==ans&&v>=min)s.add(v)}let k=1;while(s.size<n){const v=ans+k*10+k;if(v!==ans)s.add(v);k++}return [...s]}
 const tf=s=>{const [h,f]=s.split("|");return {h,f:f||""}};
 const OBJ=["🍎","⭐","🐟","🎈","🍌","🐞","🌸","🚗","⚽","🍓"];
@@ -376,10 +433,14 @@ const WORDS={
  divw:(a,b)=>[`มีดินสอ ${a*b} แท่ง แบ่งให้เด็ก ${a} คนเท่า ๆ กัน ได้คนละกี่แท่ง`,`${a*b} crayons partagés entre ${a} enfants. Combien chacun ?`],
  two:(a,b,c)=>[`มีไข่ ${a} ฟอง ใช้ทำขนม ${b} ฟอง แม่ซื้อมาเพิ่ม ${c} ฟอง ตอนนี้มีไข่กี่ฟอง`,`Il y a ${a} œufs, on en utilise ${b} pour un gâteau, maman en rachète ${c}. Combien d'œufs maintenant ?`]};
 function gMath(d){
- const T={1:["count","count","add1","shape","big"],2:["add20","sub20","tens","next","place"],3:["addc","subc","add3","mul","clock","money","word"],4:["mult","div","clock2","add3c","frac","word2"],5:["mul2","div3","fracadd","area","change"]}[d];
+ const T={1:["count","count","add1","shape","big"],2:["add20","sub20","tens","next","place"],3:["addc","subc","add3","mul","clock","money","word"],4:["mult","div","clock2","add3c","frac","word2"],5:["mul2","div3","fracadd","area","change"],6:["mulbig","neg","sqrt","pct"]}[d];
  const tp=pick(T),o={s:"math",tp,d};
  const n3=(ans,sp=3,min=0)=>Q(o,ans,nums(ans,sp,min));
  switch(tp){
+ case "mulbig":{const a=R(12,39),b=R(11,29);Object.assign(o,{th:"ผลคูณเท่ากับเท่าไร",fr:"Combien ça fait ?",vis:eqV(`${a} × ${b} = ?`)});return Q(o,a*b,[a*b+a,a*b-b,a*b+10])}
+ case "neg":{const a=R(1,9),b=R(a+1,a+9);Object.assign(o,{th:"ผลลบเท่ากับเท่าไร (คำตอบเป็นจำนวนลบ)",fr:"Combien ça fait ? (le résultat est négatif)",vis:eqV(`${a} − ${b} = ?`)});return Q(o,a-b,[b-a,a-b-1,a-b+1])}
+ case "sqrt":{const n=R(3,12);Object.assign(o,{th:`จำนวนใดคูณตัวเองแล้วได้ ${n*n}`,fr:`Quel nombre multiplié par lui-même donne ${n*n} ?`,vis:eqV(`? × ? = ${n*n}`),ex:X(`ลองท่องจำนวนที่คูณตัวเอง: 5 × 5 = 25, 6 × 6 = 36 … แล้วหาตัวที่ได้ ${n*n} พอดี`,`Récite les carrés : 5 × 5 = 25, 6 × 6 = 36… et trouve celui qui donne ${n*n}.`)});return Q(o,n,[n+1,n-1,Math.floor(n*n/2)])}
+ case "pct":{const p=pick([10,25,50]),v=pick([20,40,60,80,100,200]),r=v*p/100;Object.assign(o,{th:`${p} เปอร์เซ็นต์ของ ${v} เท่ากับเท่าไร`,fr:`Combien font ${p} % de ${v} ?`,vis:eqV(`${p}% ของ ${v}`),ex:X("เปอร์เซ็นต์คือส่วนจาก 100: 50% คือครึ่งหนึ่ง 25% คือหนึ่งในสี่ 10% คือหนึ่งในสิบ","Le pourcentage, c'est « sur 100 » : 50 % = la moitié, 25 % = le quart, 10 % = le dixième.")});return Q(o,r,[r*2,r+10,v-r].filter(x=>x!==r))}
  case "count":{const n=R(3,10),e=pick(OBJ);Object.assign(o,{th:"นับดูสิ มีทั้งหมดกี่อัน",fr:"Compte : combien y en a-t-il ?",vis:rowE(e,n)});return n3(n,2,1)}
  case "add1":{const a=R(1,4),b=R(1,5-a),e=pick(OBJ);Object.assign(o,{th:"รวมกันได้กี่อัน",fr:"Combien en tout ?",vis:`<div class="pics">${Array(a).fill(e).join(" ")}<span class="op">+</span>${Array(b).fill(e).join(" ")}</div>`});return n3(a+b,2,1)}
  case "shape":{const s=pick(SHAPES);Object.assign(o,{th:"นี่คือรูปอะไร",fr:"Quelle est cette forme ?",vis:shapeSVG(s.k)});return Q(o,{h:s.th,f:s.fr},sample(SHAPES.filter(x=>x!==s),3).map(x=>({h:x.th,f:x.fr})))}
@@ -431,9 +492,10 @@ const READ=[
  [5,"กระต่ายวิ่งเร็วแต่แอบนอนหลับกลางทาง ส่วนเต่าค่อย ๆ เดินไม่หยุด สุดท้ายเต่าเข้าเส้นชัยก่อน","ใครชนะการแข่งขัน","เต่า","กระต่าย","ไม่มีใครชนะ","Qui gagne la course ?"],
  [5,"กระต่ายวิ่งเร็วแต่แอบนอนหลับกลางทาง ส่วนเต่าค่อย ๆ เดินไม่หยุด สุดท้ายเต่าเข้าเส้นชัยก่อน","เรื่องนี้สอนให้รู้ว่าอะไร","พยายามไม่หยุดจะสำเร็จ","วิ่งเร็วชนะเสมอ","ควรนอนให้มาก","Quelle est la morale ?"]];
 function gThai(d){
- const T={1:["init","init","initpic"],2:["listen","picword","anto"],3:["spell","tone","anto","read"],4:["mat","read","tone","spell"],5:["mu","mat2","read"]}[d];
+ const T={1:["init","init","initpic"],2:["listen","picword","anto"],3:["spell","tone","anto","read"],4:["mat","read","tone","spell"],5:["mu","mat2","read"],6:["proverb","mu","mat2"]}[d];
  const tp=pick(T),o={s:"thai",tp,d};
  switch(tp){
+ case "proverb":{const p=pick(PROV);Object.assign(o,{th:`สำนวน “${p[0]}” หมายความว่าอะไร`,fr:`Que veut dire l'expression thaïe « ${p[0]} » ?`,vis:`<div class="txt">${p[0]}</div>`,reveal:p[2]});return Q(o,p[1],[p[3],p[4]])}
  case "init":{const p=pick(TPIC);Object.assign(o,{th:"คำนี้มีพยัญชนะต้นตัวใด",fr:"Par quelle consonne commence ce mot ?",vis:`<div class="big">${p[0]}</div>`,say:p[1],auto:"th",reveal:p[1]});return Q(o,p[2],sample(CONS.filter(c=>c!==p[2]),3))}
  case "initpic":{const p=pick(TPIC);const others=sample(TPIC.filter(x=>x[2]!==p[2]),3);Object.assign(o,{th:`ภาพใดขึ้นต้นด้วยตัว “${p[2]}”`,fr:`Quelle image commence par « ${p[2]} » ?`,vis:`<div class="word">${p[2]}</div>`,say:p[2]+" "+p[1]});return Q(o,{h:p[0],e:1,f:""},others.map(x=>({h:x[0],e:1})))}
  case "listen":{const p=pick(TPIC);Object.assign(o,{th:"ฟังแล้วเลือกคำที่ได้ยิน",fr:"Écoute et choisis le mot entendu",vis:`<div class="big">👂</div>`,say:p[1],auto:"th",sayOnly:1});return Q(o,p[1],sample(TPIC.filter(x=>x[1]!==p[1]),3).map(x=>x[1]))}
@@ -507,19 +569,19 @@ world:[
 [5,"geo","ประเทศใดมีพรมแดนติดกับประเทศไทย","Quel pays a une frontière avec la Thaïlande ?","ลาว|le Laos","ญี่ปุ่น|le Japon","ฝรั่งเศส|la France","🗺️"],
 [5,"geo","ดวงอาทิตย์ขึ้นทางทิศใด","De quel côté se lève le soleil ?","ทิศตะวันออก|à l'est","ทิศตะวันตก|à l'ouest","ทิศเหนือ|au nord","🌅"],
 [5,"calendrier","วันเด็กแห่งชาติของไทยตรงกับวันใด","Quand est la journée nationale des enfants ?","วันเสาร์ที่ 2 ของเดือนมกราคม|2e samedi de janvier","วันที่ 25 ธันวาคม|25 décembre","วันที่ 1 มิถุนายน|1er juin","🎈"]]};
-function gBank(s,d){const L=BANK[s];let pool=L.filter(x=>x[0]===d);if(!pool.length)pool=L.filter(x=>Math.abs(x[0]-d)<=1);const x=pick(pool);const o={s,tp:x[1],d:x[0],th:x[2],fr:x[3],vis:x[7]?`<div class="big">${x[7]}</div>`:"",say:x[2]};return Q(o,tf(x[4]),[tf(x[5]),tf(x[6])])}
+function gBank(s,d){const L=BANK[s];let pool=L.filter(x=>x[0]===d);if(!pool.length)pool=L.filter(x=>Math.abs(x[0]-d)<=1);const x=pick(pool);const o={s,tp:x[1],d:x[0],th:x[2],fr:x[3],vis:x[7]?`<div class="big">${x[7]}</div>`:"",say:x[2]};if(x[8])o.ex=x[8].split("|");return Q(o,tf(x[4]),[tf(x[5]),tf(x[6])])}
 
 /* ---- logique ---- */
 const CATS=[["🍎","🍌","🍇","🍓","🍉","🍍"],["🐱","🐶","🐰","🐮","🐷","🐴"],["🚗","🚲","🚌","✈️","🚂","⛵"],["🐟","🐙","🦀","🐳","🐬"],["👕","👖","👗","🧦","🧢"]];
 const NAMES=[["ต้น","Ton"],["ฟ้า","Fah"],["บี","Bee"],["แป้ง","Paeng"]];
 function gLogic(d){
- const T={1:["pat","odd"],2:["pat3","odd","seq"],3:["seq","odd","pat3"],4:["seq","puzzle"],5:["seq","puzzle"]}[d];
+ const T={1:["pat","odd"],2:["pat3","odd","seq"],3:["seq","odd","pat3"],4:["seq","puzzle"],5:["seq","puzzle"],6:["seq","puzzle","pat3"]}[d];
  const tp=pick(T),o={s:"logic",tp:tp==="pat3"?"pat":tp,d};
  const em=sample(["🔴","🔵","🟡","🟢","⭐","❤️","🔺","🟣"],3);
  if(tp==="pat"){const [A,B,C]=em;const seq=[A,B,A,B,A];Object.assign(o,{th:"ต่อไปคืออะไร",fr:"Qu'est-ce qui vient ensuite ?",vis:`<div class="pics">${seq.join(" ")} ❓</div>`});return Q(o,{h:B,e:1},[{h:A,e:1},{h:C,e:1}])}
  if(tp==="pat3"){const [A,B,C]=em;const m=pick(["ABC","AAB","ABB"]);const map={A,B,C};const seq=(m+m).split("").map(x=>map[x]);const shown=seq.slice(0,5),ans=seq[5];Object.assign(o,{th:"ต่อไปคืออะไร",fr:"Qu'est-ce qui vient ensuite ?",vis:`<div class="pics">${shown.join(" ")} ❓</div>`});return Q(o,{h:ans,e:1},em.filter(x=>x!==ans).map(x=>({h:x,e:1})))}
  if(tp==="odd"){const [c1,c2]=sample(CATS,2);const g=sample(c1,3),x=pick(c2);Object.assign(o,{th:"อันไหนไม่เข้าพวก",fr:"Lequel n'est pas de la même famille ?",vis:""});return Q(o,{h:x,e:1},g.map(y=>({h:y,e:1})))}
- if(tp==="seq"){let s,ans;const r={2:()=>{const st=R(1,10),k=pick([1,2]);s=[0,1,2,3].map(i=>st+i*k);ans=st+4*k},3:()=>{const k=pick([5,10,-2,-10,3]);const st=k<0?R(30,60):R(0,20);s=[0,1,2,3].map(i=>st+i*k);ans=st+4*k},4:()=>{const t=pick(["x2","add","sub"]);if(t==="x2"){const st=pick([1,2,3]);s=[0,1,2,3].map(i=>st*2**i);ans=st*16}else{const k=t==="add"?pick([3,4,6,7]):-pick([3,4,5]);const st=k<0?R(40,60):R(1,15);s=[0,1,2,3].map(i=>st+i*k);ans=st+4*k}},5:()=>{const t=pick(["grow","sq","alt","fib"]);if(t==="grow"){const st=R(1,5);s=[st];for(let i=1;i<4;i++)s.push(s[i-1]+i);ans=s[3]+4}else if(t==="sq"){s=[1,4,9,16];ans=25}else if(t==="alt"){const st=R(1,6);s=[st,st+2,st+5,st+7];ans=st+10}else{s=[1,1,2,3,5];ans=8}}};(r[d]||r[3])();Object.assign(o,{th:"เลขต่อไปคือเลขอะไร",fr:"Quel nombre vient ensuite ?",vis:eqV(s.join(", ")+", ?")});return Q(o,ans,nums(ans,3,0))}
+ if(tp==="seq"){let s,ans;const r={2:()=>{const st=R(1,10),k=pick([1,2]);s=[0,1,2,3].map(i=>st+i*k);ans=st+4*k},3:()=>{const k=pick([5,10,-2,-10,3]);const st=k<0?R(30,60):R(0,20);s=[0,1,2,3].map(i=>st+i*k);ans=st+4*k},4:()=>{const t=pick(["x2","add","sub"]);if(t==="x2"){const st=pick([1,2,3]);s=[0,1,2,3].map(i=>st*2**i);ans=st*16}else{const k=t==="add"?pick([3,4,6,7]):-pick([3,4,5]);const st=k<0?R(40,60):R(1,15);s=[0,1,2,3].map(i=>st+i*k);ans=st+4*k}},5:()=>{const t=pick(["grow","sq","alt","fib"]);if(t==="grow"){const st=R(1,5);s=[st];for(let i=1;i<4;i++)s.push(s[i-1]+i);ans=s[3]+4}else if(t==="sq"){s=[1,4,9,16];ans=25}else if(t==="alt"){const st=R(1,6);s=[st,st+2,st+5,st+7];ans=st+10}else{s=[1,1,2,3,5];ans=8}}};r[6]=()=>{const t=pick(["prime","x3","tri","fibo"]);if(t==="prime"){const P=[2,3,5,7,11,13,17,19,23,29];const i=R(0,5);s=P.slice(i,i+4);ans=P[i+4]}else if(t==="x3"){const st=pick([1,2]);s=[0,1,2,3].map(i=>st*3**i);ans=st*81}else if(t==="tri"){s=[1,3,6,10];ans=15}else{s=[2,2,4,6,10];ans=16}};(r[d]||r[3])();Object.assign(o,{th:"เลขต่อไปคือเลขอะไร",fr:"Quel nombre vient ensuite ?",vis:eqV(s.join(", ")+", ?")});return Q(o,ans,nums(ans,3,0))}
  /* puzzle */
  const [a,b,c]=sample(NAMES,3);const tall=Math.random()<.5;const hi=Math.random()<.5;
  const rel=tall?["สูงกว่า","plus grand que"]:["วิ่งเร็วกว่า","plus rapide que"];
@@ -565,7 +627,7 @@ const sw=(hex,cls="")=>`<span class="swatch ${cls}" style="background:${hex}"></
 function colorTable(){
  return `<table class="ctab"><thead><tr><th>สี · couleur</th><th>เลข · chiffre</th><th>แถบที่ 3: เติม 0 · zéros</th></tr></thead><tbody>${RC.map((c,i)=>`<tr><td>${sw(c[0],"sm")} ${c[1]} <span class="fr">${c[2]}</span></td><td class="c">${i}</td><td class="c">${i<=6?(i?"0".repeat(i):"—")+` <span class="fr">${MULTX[i]}</span>`:"—"}</td></tr>`).join("")}${RTOL.map(t=>`<tr><td>${sw(t[0],"sm")} ${t[1]} <span class="fr">${t[2]}</span></td><td class="c" colspan="2">แถบที่ 4: ${t[3]} <span class="fr">tolérance</span></td></tr>`).join("")}</tbody></table>`}
 function gElec(d){
- const T={1:["c2d","c2d","d2c"],2:["c2d","d2c","d2c"],3:["val2","val2","c2d","d2c"],4:["val3","mult","val2"],5:["val3","val3","tol","find"]}[d];
+ const T={1:["c2d","c2d","d2c"],2:["c2d","d2c","d2c"],3:["val2","val2","c2d","d2c"],4:["val3","mult","val2"],5:["val3","val3","tol","find"],6:["val3","find","tol"]}[d];
  const tp=pick(T),o={s:"elec",tp,d};
  switch(tp){
  case "c2d":{const i=d===1?R(0,5):R(0,9);Object.assign(o,{th:`${RC[i][1]}แทนเลขอะไร`,fr:`Quel chiffre représente le ${RC[i][2]} ?`,vis:sw(RC[i][0],"big2"),reveal:`${RC[i][1]} = ${i}`});return Q(o,i,sample(DIG.filter(x=>x!==i),3))}
@@ -583,49 +645,453 @@ function gElec(d){
   const w=[rs(a,b,(m+1)%7)];w.push(b>0&&a!==b?rs(b,a,m):rs(a,(b+1)%10,m));w.push(m>0?rs(a,b,m-1):rs(a%9+1,b,m));return Q(o,rs(a,b,m),w)}}
 }
 
-function gen(s,d){if(s==="math")return gMath(d);if(s==="thai")return gThai(d);if(s==="sci"||s==="world")return gBank(s,d);if(s==="logic")return gLogic(d);if(s==="elec")return gElec(d);return gLang(s,d)}
-function pickD(s){const k=S.skill[s];let d=Math.round(k+(Math.random()<.25?.8:0)-(Math.random()<.2?.8:0));return clamp(d,1,5)}
+let KEYH=null;document.addEventListener("keydown",e=>{if(KEYH&&!e.ctrlKey&&!e.metaKey&&!e.altKey)KEYH(e)});
+/* ================= v3.0 : appareil, sons, explications ================= */
+const X=(th,fr)=>[th,fr];
+const DKEY="noa-device";const DEV=()=>ls.get(DKEY)||"";
+function note(f,d,w=0,type="triangle",v=.22){const a=ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.type=type;o.frequency.value=f;const t=a.currentTime+w;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.setValueAtTime(v,t+Math.max(.03,d-.08));g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(a.destination);o.start(t);o.stop(t+d+.05)}
+function playSeq(seq){try{speechSynthesis.cancel()}catch(e){}(seq||[]).forEach(([f,d,w,t])=>note(f,d,w,t))}
+const stripE=s=>String(s).replace(/[\u{1F000}-\u{1FFFF}\u{2190}-\u{21FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/gu,"").replace(/[×÷]/g,m=>m==="×"?" คูณ ":" หาร ");
+const opOf=q=>{const m=(q.vis||"").match(/(\d+) ([+−×÷]) (\d+)/);return m?[+m[1],m[2],+m[3]]:null};
+
+/* ================= programmation (วิทยาการคำนวณ) ================= */
+const DIR={U:[0,-1,"⬆️"],D:[0,1,"⬇️"],L:[-1,0,"⬅️"],R:[1,0,"➡️"]};
+const DIRTH={U:"ขึ้น",D:"ลง",L:"ซ้าย",R:"ขวา"},DIRFR={U:"haut",D:"bas",L:"gauche",R:"droite"};
+const gk=(x,y)=>x+","+y;
+function gSim(g,prog){let x=g.sx,y=g.sy;const path=[[x,y]];for(const c of prog){x+=DIR[c][0];y+=DIR[c][1];if(x<0||y<0||x>=g.w||y>=g.h||g.rk.has(gk(x,y)))return {ok:false,crash:true,path,x,y};path.push([x,y])}return {ok:x===g.gx&&y===g.gy,path,x,y}}
+function gBfs(g){const q=[[g.sx,g.sy,""]],seen=new Set([gk(g.sx,g.sy)]);while(q.length){const [x,y,p]=q.shift();if(x===g.gx&&y===g.gy)return p;for(const c of shuf(["U","D","L","R"])){const nx=x+DIR[c][0],ny=y+DIR[c][1];if(nx<0||ny<0||nx>=g.w||ny>=g.h||g.rk.has(gk(nx,ny))||seen.has(gk(nx,ny)))continue;seen.add(gk(nx,ny));q.push([nx,ny,p+c])}}return null}
+function gMake(w,h,nr,minL,maxL){for(let t=0;t<400;t++){const g={w,h,sx:R(0,w-1),sy:R(0,h-1),gx:R(0,w-1),gy:R(0,h-1),rk:new Set()};if(g.sx===g.gx&&g.sy===g.gy)continue;let k=0;while(g.rk.size<nr&&k++<60){const x=R(0,w-1),y=R(0,h-1);if((x===g.sx&&y===g.sy)||(x===g.gx&&y===g.gy))continue;g.rk.add(gk(x,y))}const p=gBfs(g);if(p&&p.length>=minL&&p.length<=maxL){g.sol=p;return g}}return null}
+const CELL=56;
+function gridDraw(g,o={}){const c=CELL;let s="";
+ for(let y=0;y<g.h;y++)for(let x=0;x<g.w;x++)s+=`<rect x="${x*c+2}" y="${y*c+2}" width="${c-4}" height="${c-4}" rx="10" fill="${(x+y)%2?"#e3f4ec":"#cdebdc"}"/>`;
+ g.rk.forEach(k=>{const [x,y]=k.split(",").map(Number);s+=`<path d="M${x*c+9} ${y*c+44}q1-20 15-25q14-8 22 6q10 5 9 19z" fill="#8d99a6" stroke="#5f6b77" stroke-width="2"/><path d="M${x*c+20} ${y*c+26}q6-4 12 0" stroke="#b0bbc5" stroke-width="2" fill="none"/>`});
+ if(o.marks)o.marks.forEach(([lab,x,y])=>{s+=`<circle cx="${x*c+c/2}" cy="${y*c+c/2}" r="17" fill="#fff" stroke="#00897b" stroke-width="3"/><text x="${x*c+c/2}" y="${y*c+c/2+7}" text-anchor="middle" font-size="20" font-weight="700" fill="#00695c">${lab}</text>`});
+ if(!o.noGoal)s+=`<text x="${g.gx*c+c/2}" y="${g.gy*c+c/2+12}" text-anchor="middle" font-size="32">🍌</text>`;
+ s+=`<g class="rb" style="transform:translate(${g.sx*c}px,${g.sy*c}px)"><text x="${c/2}" y="${c/2+13}" text-anchor="middle" font-size="36">🐘</text></g>`;
+ return `<svg class="cgrid" viewBox="0 0 ${g.w*c+4} ${g.h*c+4}" style="width:calc(${Math.min(400,g.w*70)}px*var(--k));max-width:100%">${s}</svg>`}
+function robotGo(box,path){const el=box.querySelector(".rb");if(!el||!path)return;let i=0;const st=()=>{if(!el.isConnected||++i>=path.length)return;el.style.transform=`translate(${path[i][0]*CELL}px,${path[i][1]*CELL}px)`;SFX.step();setTimeout(st,380)};setTimeout(st,300)}
+const progH=(p,cmp)=>{if(!cmp)return `<span class="pgm">${[...p].map(c=>DIR[c][2]).join("")}</span>`;let out="",i=0;while(i<p.length){let j=i;while(j<p.length&&p[j]===p[i])j++;const n=j-i;out+=`<span class="blk">${DIR[p[i]][2]}${n>1?`<b>×${n}</b>`:""}</span>`;i=j}return `<span class="pgm">${out}</span>`};
+function progWrong(g,p,n){const out=new Set();let t=0;while(out.size<n&&t++<300){const a=[...p];const r=Math.random(),i=R(0,a.length-1);if(r<.4)a[i]=pick(["U","D","L","R"].filter(c=>c!==a[i]));else if(r<.6&&a.length>1)a.splice(i,1);else if(r<.8)a.splice(i,0,pick(["U","D","L","R"]));else{const j=R(0,a.length-1);[a[i],a[j]]=[a[j],a[i]]}const s=a.join("");if(s&&s!==p&&!gSim(g,s).ok)out.add(s)}return [...out]}
+const EX_ARROWS=X("ลูกศรแต่ละอันคือคำสั่งให้เดิน 1 ช่อง: ⬆️ ขึ้น ⬇️ ลง ⬅️ ซ้าย ➡️ ขวา ลองใช้นิ้วเดินตามทีละช่องบนตาราง","Chaque flèche est un ordre d'avancer d'une case : ⬆️ haut, ⬇️ bas, ⬅️ gauche, ➡️ droite. Suis le chemin du doigt, case par case.");
+function gCode(d){
+ const T={1:["move1"],2:["path"],3:["path","where"],4:["loop","where","path"],5:["bug","where"],6:["binary","bug","where"]}[d];
+ const tp=pick(T),o={s:"code",tp,d};
+ if(tp==="move1"){const g=gMake(3,3,0,1,1);if(!g)return gCode(d);const c=g.sol;Object.assign(o,{th:"ช้างน้อยต้องเดินไปทางไหนจึงจะถึงกล้วย",fr:"Dans quelle direction l'éléphant doit-il aller pour atteindre la banane ?",vis:gridDraw(g),ex:EX_ARROWS,reveal:DIRTH[c]+" · "+DIRFR[c]});o.after=b=>robotGo(b,gSim(g,c).path);return Q(o,{h:DIR[c][2],e:1},["U","D","L","R"].filter(x=>x!==c).map(x=>({h:DIR[x][2],e:1})))}
+ if(tp==="path"){const g=d===2?gMake(3,3,0,2,3):d===3?gMake(4,4,R(2,3),3,5):gMake(5,4,R(3,4),4,6);if(!g)return gCode(Math.max(1,d-1));
+  Object.assign(o,{th:d===2?"โปรแกรมใดพาช้างน้อยไปถึงกล้วย":"โปรแกรมใดพาช้างน้อยไปถึงกล้วยโดยไม่ชนก้อนหิน",fr:"Quel programme mène l'éléphant à la banane"+(d>2?" sans toucher les rochers ?":" ?"),vis:gridDraw(g),ex:X("ลองเดินตามโปรแกรมทีละคำสั่งบนตาราง ถ้าชนก้อนหิน ออกนอกตาราง หรือไม่ถึงกล้วย โปรแกรมนั้นผิด","Essaie chaque programme pas à pas sur la grille : s'il touche un rocher, sort de la grille ou n'arrive pas à la banane, il est faux.")});
+  o.after=b=>robotGo(b,gSim(g,g.sol).path);return Q(o,{h:progH(g.sol)},progWrong(g,g.sol,3).map(p=>({h:progH(p)})))}
+ if(tp==="loop"){let p="",last="";const n=R(2,3);for(let i=0;i<n;i++){const c=pick(["U","D","L","R"].filter(x=>x!==last));last=c;p+=c.repeat(R(2,4))}
+  const runs=[];{let i=0;while(i<p.length){let j=i;while(j<p.length&&p[j]===p[i])j++;runs.push([p[i],j-i]);i=j}}
+  const w=new Set();let t=0;while(w.size<3&&t++<80){const rs=runs.map(r=>[...r]);const i=R(0,rs.length-1);if(Math.random()<.65)rs[i][1]=Math.max(1,rs[i][1]+pick([-1,1]));else{const j=(i+1)%rs.length;[rs[i][0],rs[j][0]]=[rs[j][0],rs[i][0]]}const s=rs.map(([c,k])=>c.repeat(k)).join("");if(s!==p)w.add(s)}
+  Object.assign(o,{th:"โปรแกรมแบบสั้นอันใดทำงานเหมือนกับโปรแกรมนี้",fr:"Quel programme court fait la même chose que celui-ci ?",vis:`<div class="pbox">${progH(p)}</div>`,ex:X("นับลูกศรที่เหมือนกันซึ่งอยู่ติดกัน เช่น ➡️➡️➡️ เขียนสั้น ๆ ได้ว่า ➡️×3 การทำซ้ำ (ลูป) ช่วยให้โปรแกรมสั้นลง","Compte les flèches identiques qui se suivent : ➡️➡️➡️ s'écrit ➡️×3. Les boucles raccourcissent les programmes.")});
+  return Q(o,{h:progH(p,1)},[...w].map(s=>({h:progH(s,1)})))}
+ if(tp==="where"){for(let t=0;t<300;t++){const g={w:5,h:5,sx:R(0,4),sy:R(0,4),gx:-1,gy:-1,rk:new Set()};let p="",rep=null;
+   if(d<=3){const n=R(2,4);for(let i=0;i<n;i++)p+=pick("UDLR")}
+   else if(d===4){let last="";const n=R(2,3);for(let i=0;i<n;i++){const c=pick(["U","D","L","R"].filter(x=>x!==last&&x!==({U:"D",D:"U",L:"R",R:"L"})[last]));last=c;p+=c.repeat(R(1,3))}}
+   else{const pat=Array.from({length:R(2,3)},()=>pick("UDLR")).join("");const n=R(2,3);rep=[pat,n];p=pat.repeat(n)}
+   const r=gSim(g,p);if(r.crash||(r.x===g.sx&&r.y===g.sy))continue;
+   const cand=[];for(let y=0;y<5;y++)for(let x=0;x<5;x++){if((x===r.x&&y===r.y)||(x===g.sx&&y===g.sy))continue;if(Math.abs(x-r.x)+Math.abs(y-r.y)<=2)cand.push([x,y])}
+   if(cand.length<3)continue;const labs=shuf(["ก","ข","ค","ง"]);const marks=[[labs[0],r.x,r.y],...sample(cand,3).map((c,i)=>[labs[i+1],c[0],c[1]])];
+   const show=rep?`<span class="pgm"><span class="blk rep">🔁 ×${rep[1]}</span><span class="blk">[ ${[...rep[0]].map(c=>DIR[c][2]).join("")} ]</span></span>`:progH(p,d===4);
+   Object.assign(o,{th:"ถ้าทำตามโปรแกรมนี้ ช้างน้อยจะไปหยุดที่ช่องใด",fr:"Avec ce programme, sur quelle case l'éléphant s'arrête-t-il ?",vis:gridDraw(g,{marks,noGoal:1})+`<div class="pbox">${show}</div>`,reveal:"→ "+labs[0]});
+   o.ex=rep?X(`🔁 ×${rep[1]} แปลว่าทำคำสั่งในวงเล็บซ้ำ ${rep[1]} รอบ เดินทีละก้าวแล้วนับรอบไปด้วย`,`🔁 ×${rep[1]} veut dire : refaire les ordres entre crochets ${rep[1]} fois. Avance pas à pas en comptant les tours.`):d===4?X("×3 แปลว่าทำคำสั่งนั้นซ้ำ 3 ครั้ง เช่น ➡️×3 คือเดินไปทางขวา 3 ช่อง","×3 veut dire répéter l'ordre 3 fois : ➡️×3 = 3 cases vers la droite."):EX_ARROWS;
+   o.after=b=>robotGo(b,r.path);return Q(o,labs[0],labs.slice(1))}
+  return gCode(2)}
+ if(tp==="bug"){for(let t=0;t<300;t++){const g=gMake(5,4,R(1,3),4,6);if(!g)continue;const p=[...g.sol],i=R(0,p.length-1),bad=[...p];bad[i]=pick(["U","D","L","R"].filter(c=>c!==p[i]));if(gSim(g,bad.join("")).ok)continue;
+   let uniq=true;for(let j=0;j<bad.length&&uniq;j++){if(j===i)continue;for(const c of "UDLR"){if(c===bad[j])continue;const tst=[...bad];tst[j]=c;if(gSim(g,tst.join("")).ok){uniq=false;break}}}
+   if(!uniq)continue;
+   const steps=bad.map((c,k)=>`<span class="blk"><small>${k+1}</small>${DIR[c][2]}</span>`).join("");
+   Object.assign(o,{th:"โปรแกรมนี้มีคำสั่งผิดอยู่ 1 ข้อ ข้อที่เท่าไรผิด",fr:"Ce programme contient une erreur. Quel pas est faux ?",vis:gridDraw(g)+`<div class="pbox"><span class="pgm">${steps}</span></div>`,reveal:`${i+1} : ${DIR[bad[i]][2]} → ${DIR[p[i]][2]}`,ex:X("ให้ช้างน้อยเดินตามโปรแกรมทีละข้อ ข้อแรกที่ทำให้หลงทาง ชนหิน หรือออกนอกตาราง คือข้อที่ผิด นักเขียนโปรแกรมเรียกว่า “หาบั๊ก”","Fais avancer l'éléphant ordre par ordre : le premier qui l'égare, le fait toucher un rocher ou sortir de la grille est faux. Les programmeurs appellent ça « chercher le bug ».")});
+   o.after=b=>robotGo(b,gSim(g,g.sol).path);
+   return Q(o,String(i+1),sample([...Array(bad.length).keys()].filter(k=>k!==i),3).map(k=>String(k+1)))}
+  return gCode(4)}
+ /* binary : au-delà du programme */
+ const bits=Array.from({length:4},()=>R(0,1));if(!bits.some(b=>b))bits[R(0,3)]=1;const W8=[8,4,2,1];const v=bits.reduce((a,b,i)=>a+b*W8[i],0);
+ Object.assign(o,{tp:"binary",th:"หลอดไฟที่ติดแทนเลข 1 หลอดที่ดับแทนเลข 0 เลขฐานสองนี้มีค่าเท่าไร",fr:"Ampoule allumée = 1, éteinte = 0. Que vaut ce nombre binaire ?",vis:`<div class="bits">${bits.map((b,i)=>`<div class="bit${b?" on":""}"><span>💡</span><b>${W8[i]}</b><i>${b}</i></div>`).join("")}</div>`,reveal:`${bits.join("")} = ${bits.map((b,i)=>b?W8[i]:0).filter(x=>x).join(" + ")} = ${v}`,ex:X("คอมพิวเตอร์นับด้วยเลข 0 กับ 1 เท่านั้น หลอดไฟแต่ละดวงมีค่า 8 4 2 1 ให้บวกเฉพาะค่าของหลอดที่ติดอยู่","Un ordinateur compte seulement avec 0 et 1. Les ampoules valent 8, 4, 2 et 1 : additionne les valeurs des ampoules allumées.")});
+ return Q(o,v,sample([...Array(16).keys()].filter(x=>x!==v&&Math.abs(x-v)<=4),3))}
+
+/* ================= électricité ================= */
+function circSVG(o={}){const n=o.n||1,bx=n===2?[110,190]:[150],lit=!!o.lit;let s="";
+ let d=`M40 95V60H${bx[0]-10}`;if(n===2)d+=`M${bx[0]+10} 60H${bx[1]-10}`;d+=`M${bx[n-1]+10} 60H260V${o.brk?102:170}`;if(o.brk)d+="M260 126V170";d+=o.sw?"M260 170H175M125 170H40V135":"M260 170H40V135";
+ s+=`<path d="${d}" fill="none" stroke="#c0841a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+ if(lit)s+=`<path class="flow" d="M40 95V60H260V170H40Z" fill="none" stroke="#ffeb3b" stroke-width="3" stroke-dasharray="3 12"/>`;
+ if(o.brk)s+=`<text x="272" y="121" font-size="20" fill="#e53935" font-weight="700">✂</text>`;
+ bx.forEach((x,i)=>{s+=`<rect x="${x-10}" y="48" width="20" height="14" rx="3" fill="#9aa0a6" stroke="#6b7280"/>`;if(o.gone&&i===1)return;
+  if(lit)s+=`<circle class="glow" cx="${x}" cy="30" r="40" fill="#ffe066" opacity=".45"/>`;
+  s+=`<circle cx="${x}" cy="30" r="19" fill="${lit?"#ffe066":"#eef3f7"}" stroke="#7a8794" stroke-width="2"/><path d="M${x-7} 46L${x-5} 33Q${x} 22 ${x+5} 33L${x+7} 46" fill="none" stroke="${lit?"#ff8f00":"#7a8794"}" stroke-width="2"/>`});
+ s+=o.bat===false?`<rect x="28" y="95" width="24" height="40" rx="4" fill="none" stroke="#9aa0a6" stroke-width="2" stroke-dasharray="4 3"/>`:`<rect x="35" y="90" width="10" height="6" rx="2" fill="#9e9e9e"/><rect x="28" y="95" width="24" height="40" rx="4" fill="#263238"/><rect x="28" y="95" width="24" height="13" rx="3" fill="#d4a017"/><text x="40" y="106" text-anchor="middle" font-size="12" fill="#263238" font-weight="700">+</text>`;
+ if(o.sw){s+=`<circle cx="125" cy="170" r="5" fill="#455a64"/><circle cx="175" cy="170" r="5" fill="#455a64"/>`;s+=o.sw==="on"?`<line x1="125" y1="170" x2="175" y2="170" stroke="#455a64" stroke-width="5" stroke-linecap="round"/>`:`<line x1="125" y1="170" x2="167" y2="140" stroke="#455a64" stroke-width="5" stroke-linecap="round"/>`}
+ return `<svg class="circ" viewBox="0 0 300 200" style="width:calc(${o.w||290}px*var(--k));max-width:100%">${s}</svg>`}
+const C_LIT=X("ไฟฟ้าต้องเดินเป็นวงครบรอบ: จากถ่านไฟฉาย ผ่านสายไฟ ผ่านหลอดไฟ แล้วกลับมาที่ถ่าน ถ้าสวิตช์ยกขึ้น สายไฟขาด หรือไม่มีถ่าน ไฟฟ้าจะเดินไม่ครบวง หลอดไฟจึงไม่ติด","Le courant doit faire un tour complet : de la pile, par les fils et l'ampoule, puis retour à la pile. Si l'interrupteur est levé, si un fil est coupé ou s'il n'y a pas de pile, le tour est interrompu et l'ampoule reste éteinte.");
+const ON=()=>({h:"💡 ติด",f:"allumée"}),OFF=()=>({h:"⚫ ไม่ติด",f:"éteinte"});
+const COND=[["🥄","ช้อนเหล็ก","cuillère en métal"],["🪙","เหรียญ","pièce de monnaie"],["🔑","กุญแจ","clé"],["📎","คลิปหนีบกระดาษ","trombone"],["🔩","น็อตเหล็ก","boulon"]];
+const INSU=[["🪵","ไม้","bois"],["🧸","ตุ๊กตาผ้า","peluche"],["🎈","ลูกโป่งยาง","ballon en caoutchouc"],["📄","กระดาษ","papier"],["🥤","แก้วพลาสติก","gobelet en plastique"],["🧦","ถุงเท้า","chaussette"]];
+const EL_YES=[["📺","โทรทัศน์","télévision"],["💡","หลอดไฟ","ampoule"],["📱","โทรศัพท์มือถือ","téléphone"],["🔦","ไฟฉาย","lampe de poche"],["💻","คอมพิวเตอร์","ordinateur"],["🎮","เครื่องเล่นเกม","console de jeu"]];
+const EL_NO=[["🪁","ว่าว","cerf-volant"],["📚","หนังสือ","livre"],["🧸","ตุ๊กตา","peluche"],["🥄","ช้อน","cuillère"],["⚽","ลูกฟุตบอล","ballon"],["🖍️","สีเทียน","crayons de cire"]];
+const EL_BANK=[
+ [2,"safe","ถ้ามือเปียก ควรทำอย่างไรก่อนจับปลั๊กไฟ","Mains mouillées : que faire avant de toucher une prise ?","เช็ดมือให้แห้งก่อน|se sécher les mains d'abord","จับได้เลย|la toucher tout de suite","เอาน้ำราดปลั๊ก|verser de l'eau dessus","🔌","น้ำนำไฟฟ้าได้ มือเปียกจึงทำให้ไฟดูดได้ง่าย ต้องเช็ดมือให้แห้งทุกครั้ง|L'eau conduit l'électricité : avec des mains mouillées on peut s'électrocuter. On se sèche toujours les mains."],
+ [2,"safe","ควรเล่นว่าวที่ไหน","Où faire voler un cerf-volant ?","ทุ่งโล่งที่ไกลสายไฟ|dans un champ loin des fils électriques","ใต้สายไฟฟ้า|sous les lignes électriques","บนหลังคาบ้าน|sur le toit","🪁","ถ้าว่าวติดสายไฟ ไฟฟ้าอาจไหลลงมาตามสายว่าวได้ ต้องเล่นในที่โล่งไกลสายไฟ|Si le cerf-volant touche une ligne, le courant peut descendre le long de la ficelle : on joue loin des fils."],
+ [2,"safe","ถ้าเห็นสายไฟขาดตกอยู่บนพื้น ควรทำอย่างไร","Un fil électrique coupé est par terre. Que faire ?","อยู่ห่าง ๆ แล้วบอกผู้ใหญ่|rester loin et prévenir un adulte","เอามือหยิบขึ้นมา|le ramasser","เอาไม้ไปเขี่ยเล่น|jouer avec un bâton","⚠️","สายไฟที่ขาดอาจยังมีไฟฟ้าอยู่ ห้ามเข้าใกล้ ให้บอกผู้ใหญ่ทันที|Un fil coupé peut encore être sous tension : on ne s'approche pas et on prévient un adulte tout de suite."],
+ [4,"led","หลอด LED มีขา 2 ขา ขาที่ยาวกว่าต้องต่อกับขั้วใดของถ่าน","Une LED a deux pattes. La plus longue va sur quelle borne de la pile ?","ขั้วบวก (+)|la borne +","ขั้วลบ (−)|la borne −","ขั้วไหนก็ได้|n'importe laquelle","💡","LED ยอมให้ไฟฟ้าไหลทางเดียว ขายาวคือขาบวก ต่อกับ + ของถ่าน ถ้ากลับด้าน LED จะไม่ติด|La LED ne laisse passer le courant que dans un sens : la patte longue est le +, à brancher sur le + de la pile. À l'envers, elle ne s'allume pas."],
+ [4,"led","สิ่งใดเปลี่ยนพลังงานไฟฟ้าเป็นพลังงานเสียง","Qu'est-ce qui transforme l'électricité en son ?","🔊 ลำโพง|le haut-parleur","💡 หลอดไฟ|l'ampoule","🌀 พัดลม|le ventilateur","⚡","หลอดไฟเปลี่ยนไฟฟ้าเป็นแสง พัดลมเปลี่ยนเป็นการเคลื่อนที่ ลำโพงเปลี่ยนเป็นเสียง|L'ampoule transforme l'électricité en lumière, le ventilateur en mouvement, le haut-parleur en son."],
+ [4,"led","เราควรประหยัดไฟฟ้าอย่างไร","Comment économiser l'électricité ?","ปิดไฟเมื่อออกจากห้อง|éteindre en sortant de la pièce","เปิดตู้เย็นทิ้งไว้|laisser le frigo ouvert","เปิดทีวีตอนนอน|laisser la télé allumée en dormant","🌍","ไฟฟ้าส่วนใหญ่ผลิตจากการเผาเชื้อเพลิง ใช้เท่าที่จำเป็นช่วยโลกและประหยัดเงิน|L'électricité est souvent produite en brûlant du combustible : n'en utiliser que le nécessaire aide la planète et économise de l'argent."]];
+function gCirc(d){
+ const T={1:["lit","use"],2:["cond","lit2","safe"],3:["which","volt","cond"],4:["series","led","volt"],5:["ohm","series","led"],6:["ohm2","rsum","power"]}[d];
+ const tp=pick(T),o={s:"circ",tp,d};
+ const bank=lv=>{const pool=EL_BANK.filter(x=>x[0]===lv),x=pick(pool);Object.assign(o,{tp:x[1],th:x[2],fr:x[3],vis:`<div class="big">${x[7]}</div>`,say:x[2],ex:x[8].split("|")});return Q(o,tf(x[4]),[tf(x[5]),tf(x[6])])};
+ if(tp==="lit"){const on=Math.random()<.5;Object.assign(o,{th:"หลอดไฟดวงนี้ติดหรือไม่",fr:"Cette ampoule est-elle allumée ?",vis:circSVG({sw:on?"on":"off",lit:on}),ex:C_LIT});return Q(o,on?ON():OFF(),[on?OFF():ON()])}
+ if(tp==="lit2"){const f=pick(["ok","ok","brk","bat","off"]);const c={sw:f==="off"?"off":"on",brk:f==="brk",bat:f!=="bat"};c.lit=f==="ok";Object.assign(o,{tp:"lit",th:"หลอดไฟดวงนี้ติดหรือไม่",fr:"Cette ampoule est-elle allumée ?",vis:circSVG(c),ex:C_LIT});return Q(o,c.lit?ON():OFF(),[c.lit?OFF():ON()])}
+ if(tp==="use"){const y=pick(EL_YES);Object.assign(o,{th:"สิ่งใดต้องใช้ไฟฟ้าจึงจะทำงานได้",fr:"Lequel a besoin d'électricité pour marcher ?",ex:X("สิ่งที่ต้องเสียบปลั๊กหรือใส่ถ่าน หรือต้องชาร์จแบต คือสิ่งที่ใช้ไฟฟ้า","Ce qu'on branche, qui a une pile ou qu'on recharge fonctionne à l'électricité.")});return Q(o,{h:y[0]+" "+y[1],f:y[2]},sample(EL_NO,3).map(x=>({h:x[0]+" "+x[1],f:x[2]})))}
+ if(tp==="cond"){const yes=Math.random()<.6;const a=yes?pick(COND):pick(INSU),b=sample(yes?INSU:COND,3);Object.assign(o,{th:yes?"สิ่งใดนำไฟฟ้าได้":"สิ่งใดไม่นำไฟฟ้า",fr:yes?"Lequel conduit l'électricité ?":"Lequel ne conduit pas l'électricité ?",ex:X("โลหะ เช่น เหล็ก ทองแดง นำไฟฟ้าได้ดี เรียกว่าตัวนำไฟฟ้า ส่วนไม้ พลาสติก ยาง ผ้า และกระดาษ ไม่นำไฟฟ้า เรียกว่าฉนวน สายไฟจึงมีทองแดงอยู่ข้างในและหุ้มด้วยพลาสติก","Les métaux (fer, cuivre) conduisent bien : ce sont des conducteurs. Le bois, le plastique, le caoutchouc, le tissu et le papier ne conduisent pas : ce sont des isolants. Un fil électrique a du cuivre dedans et du plastique autour.")});return Q(o,{h:a[0]+" "+a[1],f:a[2]},b.map(x=>({h:x[0]+" "+x[1],f:x[2]})))}
+ if(tp==="safe")return bank(2);
+ if(tp==="led")return bank(4);
+ if(tp==="which"){const rs=(c)=>({h:circSVG(Object.assign({w:200},c)),r:1});Object.assign(o,{th:"วงจรใดทำให้หลอดไฟติด",fr:"Quel circuit allume l'ampoule ?",ex:C_LIT});return Q(o,rs({sw:"on",lit:true}),[rs({sw:"off"}),rs({sw:"on",brk:true}),rs({sw:"on",bat:false})])}
+ if(tp==="volt"){const n=R(2,4),v=n*1.5;const f=x=>String(x).replace(".",".")+" โวลต์";Object.assign(o,{th:`ถ่านไฟฉาย 1 ก้อนมีแรงดัน 1.5 โวลต์ ถ้าต่อเรียงกัน ${n} ก้อน จะได้แรงดันกี่โวลต์`,fr:`Une pile fait 1,5 volt. Avec ${n} piles à la suite, combien de volts ?`,vis:`<div class="big">${"🔋".repeat(n)}</div>`,ex:X(`ต่อถ่านเรียงกัน (แบบอนุกรม) แรงดันจะบวกกัน: บวก 1.5 ไปทีละก้อน ${n} ครั้ง`,`Des piles à la suite (en série) additionnent leur tension : ajoute 1,5 volt ${n} fois.`)});return Q(o,f(v),[f(1.5),f(n),f(v+1.5)])}
+ if(tp==="series"){const gone=Math.random()<.6;Object.assign(o,{th:gone?"หลอดไฟ 2 ดวงต่อเรียงกัน ถ้าถอดหลอดออก 1 ดวง อีกดวงจะติดหรือไม่":"หลอดไฟ 2 ดวงต่อเรียงกันในวงจรนี้ ติดหรือไม่",fr:gone?"Deux ampoules en série : si on en retire une, l'autre s'allume-t-elle ?":"Deux ampoules en série dans ce circuit : s'allument-elles ?",vis:circSVG({n:2,sw:"on",gone,lit:!gone}),ex:X("หลอดไฟที่ต่อเรียงกัน (อนุกรม) มีทางเดินไฟฟ้าทางเดียว ถ้าถอดหรือหลอดขาดไปดวงหนึ่ง วงจรจะขาด หลอดทุกดวงจึงดับ","Des ampoules en série n'ont qu'un seul chemin pour le courant : si on en retire une (ou si elle grille), le circuit est coupé et toutes s'éteignent.")});return Q(o,gone?OFF():ON(),[gone?ON():OFF()])}
+ const EX_OHM=X("กฎของโอห์ม: แรงดัน (โวลต์) = กระแส (แอมแปร์) × ความต้านทาน (โอห์ม) ถ้าอยากหากระแส ให้เอาแรงดันหารด้วยความต้านทาน","Loi d'Ohm : tension (V) = intensité (A) × résistance (Ω). Pour trouver l'intensité, on divise la tension par la résistance.");
+ if(tp==="ohm"){const Rr=pick([2,3,4,5,6,10]),I=R(1,3),V=Rr*I;Object.assign(o,{th:`ถ่าน ${V} โวลต์ ต่อกับตัวต้านทาน ${Rr} โอห์ม จะมีกระแสไฟฟ้าไหลกี่แอมแปร์`,fr:`Une pile de ${V} V est reliée à une résistance de ${Rr} Ω. Quelle intensité (en ampères) ?`,vis:eqV(`${V} V ÷ ${Rr} Ω = ?`),ex:EX_OHM});const f=x=>x+" A";return Q(o,f(I),[f(V),f(I+1),f(V*Rr)].filter(x=>x!==f(I)))}
+ if(tp==="ohm2"){const Rr=pick([5,10,20,50,100]),I=pick([1,2,3]),V=Rr*I;if(Math.random()<.5){Object.assign(o,{th:`กระแส ${I} แอมแปร์ ไหลผ่านตัวต้านทาน ${Rr} โอห์ม แรงดันเป็นกี่โวลต์`,fr:`Un courant de ${I} A traverse une résistance de ${Rr} Ω. Quelle tension ?`,vis:eqV(`${I} A × ${Rr} Ω = ?`),ex:EX_OHM});const f=x=>x+" V";return Q(o,f(V),[f(V+Rr),f(Rr),f(V*2)].filter(x=>x!==f(V)))}
+  Object.assign(o,{th:`ถ่าน ${V} โวลต์ ทำให้มีกระแส ${I} แอมแปร์ ตัวต้านทานมีค่ากี่โอห์ม`,fr:`Une pile de ${V} V fait passer ${I} A. Quelle est la résistance ?`,vis:eqV(`${V} V ÷ ${I} A = ?`),ex:EX_OHM});const f=x=>x+" Ω";return Q(o,f(Rr),[f(V),f(Rr*2),f(Rr+I)].filter(x=>x!==f(Rr)))}
+ if(tp==="rsum"){if(Math.random()<.55){const a=pick([10,20,30,47,100]),b=pick([10,22,33,50,100]);Object.assign(o,{th:`ตัวต้านทาน ${a} โอห์ม กับ ${b} โอห์ม ต่อเรียงกัน (อนุกรม) ความต้านทานรวมเท่าไร`,fr:`Résistances de ${a} Ω et ${b} Ω en série : résistance totale ?`,vis:eqV(`${a} Ω + ${b} Ω`),ex:X("ตัวต้านทานที่ต่อเรียงกัน (อนุกรม) ให้นำค่ามาบวกกัน ยิ่งต่อมาก ไฟฟ้ายิ่งไหลยาก","Des résistances en série s'additionnent : plus on en met, plus le courant a du mal à passer.")});const f=x=>x+" Ω";return Q(o,f(a+b),[f(Math.abs(a-b)||a*2),f(a*b),f(a+b+10)])}
+  const a=pick([10,20,100,220,1000]);Object.assign(o,{th:`ตัวต้านทาน ${a} โอห์ม 2 ตัว ต่อขนานกัน ความต้านทานรวมเท่าไร`,fr:`Deux résistances de ${a} Ω en parallèle : résistance totale ?`,vis:eqV(`${a} Ω ∥ ${a} Ω`),ex:X("ต่อขนานคือเปิดทางให้ไฟฟ้าเดินได้ 2 ทาง ไฟฟ้าจึงไหลง่ายขึ้น ตัวต้านทานที่เท่ากัน 2 ตัวต่อขนาน ความต้านทานรวมเหลือครึ่งหนึ่ง","En parallèle, le courant a deux chemins, il passe plus facilement : deux résistances égales en parallèle valent la moitié d'une seule.")});const f=x=>x+" Ω";return Q(o,f(a/2),[f(a*2),f(a),f(a/4)])}
+ const V=pick([6,12,24,220]),I=pick([2,3,5]);Object.assign(o,{tp:"power",th:`เครื่องใช้ไฟฟ้าใช้แรงดัน ${V} โวลต์ มีกระแส ${I} แอมแปร์ ใช้กำลังไฟฟ้ากี่วัตต์`,fr:`Un appareil fonctionne sous ${V} V avec ${I} A. Quelle puissance en watts ?`,vis:eqV(`${V} V × ${I} A = ?`),ex:X("กำลังไฟฟ้า (วัตต์) = แรงดัน (โวลต์) × กระแส (แอมแปร์) เลขวัตต์ยิ่งมาก ยิ่งใช้ไฟมาก","Puissance (W) = tension (V) × intensité (A). Plus il y a de watts, plus l'appareil consomme.")});const f=x=>x+" W";return Q(o,f(V*I),[f(V+I),f(V*I*2),f(V)])}
+
+/* ================= musique ================= */
+const NOTES=[["โด","do",261.63,90],["เร","ré",293.66,85],["มี","mi",329.63,80],["ฟา","fa",349.23,75],["ซอล","sol",392,70],["ลา","la",440,65],["ที","si",493.88,60],["โดสูง","do aigu",523.25,55]];
+const NVAL=[["w",4,"โน้ตตัวกลม","ronde"],["h",2,"โน้ตตัวขาว","blanche"],["q",1,"โน้ตตัวดำ","noire"],["e",.5,"โน้ตตัวเขบ็ต 1 ชั้น","croche"]];
+const fmtB=x=>{const i=Math.floor(x),h=x-i>0;return (i||!h?String(i):"")+(h?"½":"")};
+function noteG(x,y,k){let s="";if(y>=90)s+=`<line x1="${x-11}" x2="${x+11}" y1="90" y2="90" stroke="currentColor" stroke-width="1.4"/>`;
+ const open=k==="w"||k==="h";s+=`<ellipse cx="${x}" cy="${y}" rx="6.6" ry="4.6" transform="rotate(-20 ${x} ${y})" fill="${open?"none":"currentColor"}" stroke="currentColor" stroke-width="${open?2:1}"/>`;
+ if(k!=="w"){const up=y>60;const sx=up?x+6:x-6;s+=`<line x1="${sx}" x2="${sx}" y1="${y}" y2="${up?y-30:y+30}" stroke="currentColor" stroke-width="1.6"/>`;if(k==="e")s+=up?`<path d="M${sx} ${y-30}q10 6 9 17" fill="none" stroke="currentColor" stroke-width="2"/>`:`<path d="M${sx} ${y+30}q10 -6 9 -17" fill="none" stroke="currentColor" stroke-width="2"/>`}
+ return s}
+function staffSVG(items,W=200){let s="";for(let i=0;i<5;i++)s+=`<line x1="8" x2="${W-8}" y1="${40+i*10}" y2="${40+i*10}" stroke="currentColor" stroke-width="1.3"/>`;
+ s+=`<path d="M33 99Q24 101 25 93Q27 87 33 91M33 99L31 23Q38 27 34 37Q22 51 24 64Q27 78 38 72Q46 64 38 56Q28 52 26 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>`;
+ items.forEach(it=>s+=noteG(it[0],it[1],it[2]));return `<svg class="staff" viewBox="0 0 ${W} 112" style="width:calc(${W*1.5}px*var(--k));max-width:100%">${s}</svg>`}
+const EQZ=`<div class="eqz">${"<i></i>".repeat(7)}</div>`;
+const INSTR=[["🥁","กลอง","tambour","ตี"],["🪘","กลองยาว","tambour long","ตี"],["🎺","ทรัมเป็ต","trompette","เป่า"],["🎷","แซกโซโฟน","saxophone","เป่า"],["🎸","กีตาร์","guitare","ดีด"],["🪕","แบนโจ","banjo","ดีด"],["🎻","ไวโอลิน","violon","สี"]];
+const HOWFR={"ตี":"frapper","เป่า":"souffler","ดีด":"pincer les cordes","สี":"frotter avec un archet"};
+const THINS=[["ระนาดเอก","ตี","xylophone thaï"],["ฆ้องวง","ตี","gongs en cercle"],["ขลุ่ย","เป่า","flûte"],["ปี่","เป่า","hautbois thaï"],["ซอด้วง","สี","vièle aiguë"],["ซออู้","สี","vièle grave"],["จะเข้","ดีด","cithare « crocodile »"],["กระจับปี่","ดีด","luth thaï"]];
+const EX_HOW=X("เครื่องดนตรีแบ่งตามวิธีเล่นเป็น 4 พวก: ดีด (ใช้นิ้วหรือไม้ดีดสาย) สี (ใช้คันชักถูสาย) ตี (ใช้มือหรือไม้ตี) และเป่า (ใช้ลมเป่า)","On classe les instruments selon la façon d'en jouer : pincer (les cordes), frotter (avec un archet), frapper (avec la main ou une baguette) et souffler.");
+function gMusic(d){
+ const T={1:["high","instr"],2:["count","long","instr"],3:["staff","updown","count"],4:["value","thaiins","staff"],5:["sum","same","thaiins"],6:["octave","which","sum"]}[d];
+ const tp=pick(T),o={s:"music",tp,d};
+ const c12=[{h:"🔈 เสียงที่ 1",f:"1er son"},{h:"🔈 เสียงที่ 2",f:"2e son"}];
+ if(tp==="high"){let a,b;do{a=R(0,7);b=R(0,7)}while(Math.abs(a-b)<(d===1?4:2));Object.assign(o,{th:"ฟังแล้วตอบ: เสียงไหนสูงกว่า",fr:"Écoute : quel son est le plus aigu ?",vis:EQZ,snd:[[NOTES[a][2],.7,0],[NOTES[b][2],.7,1]],ex:X("เสียงสูงแหลมเล็กเหมือนนกร้องจิ๊บ ๆ เสียงต่ำทุ้มใหญ่เหมือนช้างหรือกลองใหญ่ กดฟังอีกครั้งแล้วลองร้องตาม","Un son aigu est fin comme un oiseau qui pépie ; un son grave est gros comme un éléphant ou un gros tambour. Réécoute et chante avec.")});return Q(o,a>b?c12[0]:c12[1],[a>b?c12[1]:c12[0]])}
+ if(tp==="long"){const f=pick(NOTES)[2],l=Math.random()<.5;Object.assign(o,{th:"ฟังแล้วตอบ: เสียงไหนยาวกว่า",fr:"Écoute : quel son est le plus long ?",vis:EQZ,snd:l?[[f,1.4,0],[f,.3,1.8]]:[[f,.3,0],[f,1.4,.8]],ex:X("ลองนับในใจ หนึ่ง สอง สาม ระหว่างที่เสียงดัง เสียงที่นับได้มากกว่าคือเสียงที่ยาวกว่า","Compte dans ta tête pendant chaque son : celui qui dure le plus de temps est le plus long.")});return Q(o,l?c12[0]:c12[1],[l?c12[1]:c12[0]])}
+ if(tp==="instr"){const hows=["ตี","เป่า","ดีด","สี"],h=pick(hows);const ok=pick(INSTR.filter(x=>x[3]===h)),bad=hows.filter(x=>x!==h).map(w=>pick(INSTR.filter(x=>x[3]===w)));Object.assign(o,{th:`เครื่องดนตรีชนิดใดเล่นโดยการ${h}`,fr:`Avec quel instrument faut-il ${HOWFR[h]} ?`,ex:EX_HOW});return Q(o,{h:ok[0]+" "+ok[1],f:ok[2]},bad.map(x=>({h:x[0]+" "+x[1],f:x[2]})))}
+ if(tp==="count"){const n=d<=2?R(2,6):R(3,8),f=pick(NOTES)[2];Object.assign(o,{th:"ฟังแล้วนับ: ได้ยินเสียงกี่ครั้ง",fr:"Écoute et compte : combien de sons ?",vis:EQZ,snd:Array.from({length:n},(_,i)=>[f,.22,i*.45,"square"]),ex:X("ยกนิ้วขึ้นทีละนิ้วทุกครั้งที่ได้ยินเสียง แล้วนับนิ้ว หรือตบมือตามเสียงไปด้วย","Lève un doigt à chaque son, puis compte tes doigts. Tu peux aussi taper dans tes mains en même temps.")});return Q(o,n,nums(n,2,1))}
+ if(tp==="updown"){const up=Math.random()<.5,n=R(5,8),idx=Array.from({length:n},(_,i)=>i);if(!up)idx.reverse();Object.assign(o,{th:"ฟังแล้วตอบ: เสียงไล่ขึ้นหรือไล่ลง",fr:"Écoute : la mélodie monte ou descend ?",vis:EQZ,snd:idx.map((k,i)=>[NOTES[k][2],.3,i*.33]),ex:X("ไล่ขึ้นเหมือนเดินขึ้นบันได เสียงสูงขึ้นเรื่อย ๆ (โด เร มี…) ไล่ลงเหมือนเดินลงบันได เสียงต่ำลงเรื่อย ๆ","Monter, c'est comme grimper un escalier : le son devient de plus en plus aigu (do ré mi…). Descendre, il devient de plus en plus grave.")});return Q(o,up?{h:"⬆️ ไล่ขึ้น",f:"monte"}:{h:"⬇️ ไล่ลง",f:"descend"},[up?{h:"⬇️ ไล่ลง",f:"descend"}:{h:"⬆️ ไล่ขึ้น",f:"monte"}])}
+ if(tp==="staff"){const k=R(0,7),nt=NOTES[k];Object.assign(o,{th:"โน้ตตัวนี้คือเสียงอะไร",fr:"Quelle est cette note ?",vis:staffSVG([[110,nt[3],"q"]]),snd:[[nt[2],.8,0]],sndManual:1,reveal:nt[0]+" · "+nt[1],ex:X("บนบรรทัด 5 เส้น นับจากล่าง: เส้นล่างสุดคือ มี ช่องถัดไปคือ ฟา เส้นที่ 2 คือ ซอล ช่องถัดไปคือ ลา เส้นกลางคือ ที ใต้เส้นล่างสุดคือ เร และบนเส้นสั้นด้านล่างคือ โด","Sur la portée, en partant du bas : la 1re ligne est mi, l'interligne suivant fa, la 2e ligne sol, puis la, la ligne du milieu si. Juste sous la portée c'est ré, et sur la petite ligne en dessous c'est do.")});return Q(o,{h:nt[0],f:nt[1]},sample(NOTES.filter(x=>x!==nt&&x[0]!==nt[0]),3).map(x=>({h:x[0],f:x[1]})))}
+ if(tp==="value"){const v=pick(NVAL);Object.assign(o,{th:"โน้ตตัวนี้มีค่ากี่จังหวะ",fr:"Combien de temps dure cette note ?",vis:staffSVG([[110,65,v[0]]]),reveal:v[2]+" = "+fmtB(v[1])+" จังหวะ",ex:X("โน้ตตัวกลม (ขาวไม่มีหาง) = 4 จังหวะ ตัวขาว (ขาวมีหาง) = 2 จังหวะ ตัวดำ (ดำมีหาง) = 1 จังหวะ ตัวเขบ็ต 1 ชั้น (ดำมีหางและธง) = ครึ่งจังหวะ","Ronde (blanche sans queue) = 4 temps ; blanche (avec queue) = 2 ; noire = 1 ; croche (noire avec un crochet) = ½ temps.")});return Q(o,{h:fmtB(v[1])+" จังหวะ",f:v[3]},NVAL.filter(x=>x!==v).map(x=>({h:fmtB(x[1])+" จังหวะ"})))}
+ if(tp==="thaiins"){const x=pick(THINS);Object.assign(o,{th:`${x[0]} เล่นโดยวิธีใด`,fr:`Comment joue-t-on du ${x[0]} (${x[2]}) ?`,vis:`<div class="word">${x[0]}</div>`,say:`${x[0]} เล่นโดยวิธีใด`,ex:EX_HOW});return Q(o,{h:x[1],f:HOWFR[x[1]]},["ดีด","สี","ตี","เป่า"].filter(w=>w!==x[1]).map(w=>({h:w,f:HOWFR[w]})))}
+ if(tp==="sum"){const n=d===6?3:R(2,3),vs=Array.from({length:n},()=>pick(d===6?NVAL:NVAL.slice(0,3)));const tot=vs.reduce((a,b)=>a+b[1],0);Object.assign(o,{th:"โน้ตทั้งหมดนี้รวมกันได้กี่จังหวะ",fr:"Combien de temps en tout pour ces notes ?",vis:staffSVG(vs.map((v,i)=>[70+i*55,pick([65,70,75]),v[0]]),70+n*55),ex:X("ตัวกลม 4 ตัวขาว 2 ตัวดำ 1 ตัวเขบ็ต ½ บอกค่าของโน้ตแต่ละตัว แล้วบวกกัน","Ronde 4, blanche 2, noire 1, croche ½ : écris la valeur de chaque note, puis additionne.")});const c=x=>fmtB(x)+" จังหวะ";return Q(o,c(tot),[c(tot+1),c(Math.max(.5,tot-1)),c(tot+2)])}
+ if(tp==="same"){const m=Array.from({length:4},()=>R(0,7)),same=Math.random()<.5,m2=[...m];if(!same){const i=R(1,3);m2[i]=(m2[i]+pick([2,3,-2,-3])+8)%8}Object.assign(o,{th:"ทำนองสองท่อนนี้เหมือนกันหรือต่างกัน",fr:"Ces deux mélodies sont-elles pareilles ou différentes ?",vis:EQZ,snd:[...m.map((k,i)=>[NOTES[k][2],.32,i*.38]),...m2.map((k,i)=>[NOTES[k][2],.32,2.1+i*.38])],ex:X("ฟังท่อนแรกแล้วฮัมตาม จากนั้นฟังท่อนที่สองเทียบทีละเสียง ถ้ามีเสียงใดสูงหรือต่ำไม่เหมือนเดิม แปลว่าต่างกัน","Fredonne la première mélodie, puis compare la seconde note par note : si une seule note change, elles sont différentes.")});return Q(o,same?{h:"🟰 เหมือนกัน",f:"pareilles"}:{h:"↔️ ต่างกัน",f:"différentes"},[same?{h:"↔️ ต่างกัน",f:"différentes"}:{h:"🟰 เหมือนกัน",f:"pareilles"}])}
+ if(tp==="octave"){const b=pick([220,440,880]),up=Math.random()<.6,r=up?b*2:b/2;Object.assign(o,{th:`เสียงลามีความถี่ ${b} เฮิรตซ์ เสียงลาที่${up?"สูงขึ้น":"ต่ำลง"}หนึ่งช่วงทบเสียง (ออกเทฟ) มีความถี่กี่เฮิรตซ์`,fr:`Un la vibre à ${b} Hz. Le la une octave plus ${up?"haut":"bas"} vibre à combien de Hz ?`,vis:EQZ,snd:[[b,.7,0],[r,.7,.9]],ex:X("เสียงเกิดจากการสั่น ความถี่คือจำนวนครั้งที่สั่นใน 1 วินาที เสียงที่สูงขึ้นหนึ่งออกเทฟสั่นเร็วเป็น 2 เท่า ต่ำลงหนึ่งออกเทฟสั่นช้าลงครึ่งหนึ่ง","Le son est une vibration ; la fréquence compte les vibrations par seconde. Une octave plus haut vibre 2 fois plus vite ; une octave plus bas, 2 fois moins vite.")});const f=x=>x+" Hz";return Q(o,f(r),[f(up?b/2:b*2),f(b+100),f(b)])}
+ const k=R(1,7),nt=NOTES[k];Object.assign(o,{tp:"which",th:"เสียงแรกคือโด เสียงที่สองคือเสียงอะไร",fr:"Le premier son est do. Quel est le second ?",vis:EQZ,snd:[[NOTES[0][2],.6,0],[nt[2],.8,.9]],reveal:nt[0]+" · "+nt[1],ex:X("เริ่มร้องจากโด แล้วไล่ขึ้นทีละเสียง โด เร มี ฟา ซอล … จนกว่าจะตรงกับเสียงที่สอง","Chante do, puis monte note par note : do, ré, mi, fa, sol… jusqu'à retrouver le second son.")});return Q(o,{h:nt[0],f:nt[1]},sample(NOTES.slice(1).filter(x=>x!==nt),3).map(x=>({h:x[0],f:x[1]})))}
+
+/* ================= santé et sécurité (banque) ================= */
+BANK.health=[
+[1,"hyg","ควรล้างมือเมื่อไร","Quand faut-il se laver les mains ?","ก่อนกินข้าวและหลังเข้าห้องน้ำ|avant de manger et après les toilettes","ตอนนอนหลับ|en dormant","ตอนดูโทรทัศน์|en regardant la télé","🧼","มือของเราจับของหลายอย่าง มีเชื้อโรคที่มองไม่เห็น จึงต้องล้างมือก่อนกินและหลังเข้าห้องน้ำ|Nos mains touchent beaucoup de choses et portent des microbes invisibles : on les lave avant de manger et après les toilettes."],
+[1,"emo","เด็กคนนี้รู้สึกอย่างไร","Comment se sent cet enfant ?","ดีใจ|content","เสียใจ|triste","โกรธ|fâché","😄","ดูที่ปากและตา: ยิ้มกว้าง ตาเป็นประกาย แปลว่ามีความสุข|Regarde la bouche et les yeux : un grand sourire veut dire qu'il est heureux."],
+[1,"emo","เด็กคนนี้รู้สึกอย่างไร","Comment se sent cet enfant ?","เสียใจ|triste","ดีใจ|content","ง่วงนอน|a sommeil","😢","มีน้ำตาไหล ปากโค้งลง แปลว่ากำลังเสียใจ ถ้าเพื่อนเสียใจ เราเข้าไปปลอบได้|Des larmes et la bouche vers le bas : il est triste. On peut aller le consoler."],
+[1,"emo","เด็กคนนี้รู้สึกอย่างไร","Comment se sent cet enfant ?","โกรธ|fâché","ดีใจ|content","ง่วงนอน|a sommeil","😠","คิ้วขมวด หน้าบึ้ง แปลว่ากำลังโกรธ เวลาโกรธ ให้หายใจเข้าลึก ๆ ช้า ๆ แล้วนับ 1 ถึง 10|Sourcils froncés, visage fermé : il est fâché. Quand on est en colère, on respire lentement et on compte jusqu'à 10."],
+[1,"safe","ก่อนข้ามถนนต้องทำอย่างไร","Que faire avant de traverser la route ?","มองขวา มองซ้าย แล้วมองขวาอีกครั้ง|regarder à droite, à gauche, puis encore à droite","วิ่งข้ามเร็ว ๆ|traverser en courant","หลับตาแล้วเดิน|fermer les yeux et marcher","🚸","ในประเทศไทยรถวิ่งชิดซ้าย รถที่อยู่ใกล้เราที่สุดจึงมาจากทางขวา เราต้องมองขวาก่อน แล้วข้ามที่ทางม้าลาย|En Thaïlande on roule à gauche : les voitures les plus proches arrivent de la droite, donc on regarde d'abord à droite, et on traverse au passage piéton."],
+[2,"food","อาหารใดช่วยให้ฟันและกระดูกแข็งแรง","Quel aliment rend les dents et les os solides ?","🥛 นม|le lait","🍬 ลูกอม|les bonbons","🥤 น้ำอัดลม|le soda","🦷","นมมีแคลเซียมที่ช่วยให้ฟันและกระดูกแข็งแรง ส่วนน้ำตาลทำให้ฟันผุ|Le lait contient du calcium qui rend dents et os solides ; le sucre fait des caries."],
+[2,"hyg","เด็กควรนอนหลับคืนละประมาณกี่ชั่วโมง","Combien d'heures un enfant doit-il dormir par nuit ?","ประมาณ 10 ชั่วโมง|environ 10 heures","3 ชั่วโมง|3 heures","20 ชั่วโมง|20 heures","😴","เด็กวัยเรียนควรนอน 9 ถึง 11 ชั่วโมง ร่างกายจะได้เติบโตและสมองได้พักผ่อน|Un enfant d'âge scolaire a besoin de 9 à 11 heures pour grandir et reposer son cerveau."],
+[2,"safe","สิ่งใดอันตรายที่สุด","Qu'est-ce qui est le plus dangereux ?","🔌 เอานิ้วแหย่ปลั๊กไฟ|mettre les doigts dans une prise","📚 อ่านหนังสือ|lire un livre","🧩 ต่อจิ๊กซอว์|faire un puzzle","⚠️","ไฟฟ้าในบ้านแรงมาก ทำให้บาดเจ็บหรือเสียชีวิตได้ ห้ามแหย่ปลั๊กไฟเด็ดขาด|L'électricité de la maison est très forte et peut blesser gravement : on ne touche jamais l'intérieur d'une prise."],
+[2,"safe","ถ้าคนแปลกหน้าชวนไปด้วย ควรทำอย่างไร","Un inconnu te propose de le suivre. Que faire ?","ปฏิเสธ แล้วรีบบอกพ่อแม่หรือครู|dire non et prévenir ses parents ou la maîtresse","ไปด้วยทันที|partir avec lui","เก็บเป็นความลับ|garder le secret","🙅","เราไม่ไปไหนกับคนที่ไม่รู้จัก ถึงเขาจะให้ขนมหรือของเล่น และต้องเล่าให้ผู้ใหญ่ที่ไว้ใจฟังเสมอ|On ne part jamais avec quelqu'un qu'on ne connaît pas, même s'il offre des bonbons, et on le raconte toujours à un adulte de confiance."],
+[2,"body","หัวใจทำหน้าที่อะไร","À quoi sert le cœur ?","สูบฉีดเลือดไปทั่วร่างกาย|envoyer le sang dans tout le corps","ช่วยให้มองเห็น|aider à voir","ย่อยอาหาร|digérer","❤️","หัวใจเป็นกล้ามเนื้อที่บีบตัวตลอดเวลา ส่งเลือดไปเลี้ยงทุกส่วนของร่างกาย ลองเอามือแตะหน้าอกดูสิ จะรู้สึกว่าหัวใจเต้น|Le cœur est un muscle qui se contracte sans arrêt pour envoyer le sang partout. Pose la main sur ta poitrine : tu le sens battre."],
+[3,"food","อาหารหลักมีกี่หมู่","Combien y a-t-il de groupes d'aliments principaux ?","5 หมู่|5","3 หมู่|3","10 หมู่|10","🍱","อาหารหลัก 5 หมู่ คือ โปรตีน คาร์โบไฮเดรต เกลือแร่ วิตามิน และไขมัน ควรกินให้ครบทุกหมู่ทุกวัน|Les 5 groupes : protéines, glucides, minéraux, vitamines et graisses. On en mange un peu de chaque chaque jour."],
+[3,"food","ข้าวและขนมปังอยู่ในอาหารหมู่ใด","Le riz et le pain sont dans quel groupe ?","คาร์โบไฮเดรต (ให้พลังงาน)|glucides (énergie)","โปรตีน|protéines","ไขมัน|graisses","🍚","ข้าว แป้ง เผือก มัน และน้ำตาล อยู่หมู่ที่ 2 คาร์โบไฮเดรต ให้พลังงานในการวิ่งเล่น|Riz, farine, taro, patate et sucre : groupe 2, les glucides, qui donnent l'énergie pour jouer."],
+[3,"food","ไข่ นม เนื้อสัตว์ และถั่ว อยู่ในอาหารหมู่ใด","Œufs, lait, viande et haricots : quel groupe ?","โปรตีน (ช่วยให้เติบโต)|protéines (pour grandir)","วิตามิน|vitamines","คาร์โบไฮเดรต|glucides","🥚","หมู่ที่ 1 โปรตีน ช่วยสร้างกล้ามเนื้อและซ่อมแซมส่วนที่สึกหรอของร่างกาย|Groupe 1, les protéines : elles construisent les muscles et réparent le corps."],
+[3,"safe","เบอร์โทรศัพท์แจ้งเหตุไฟไหม้ในประเทศไทยคือเบอร์ใด","Quel numéro pour les pompiers en Thaïlande ?","199|199","191|191 (police)","1669|1669 (ambulance)","🚒","จำง่าย ๆ: 191 ตำรวจ 199 ดับเพลิง 1669 รถพยาบาลฉุกเฉิน|À retenir : 191 police, 199 pompiers, 1669 ambulance."],
+[3,"safe","ถ้ามีคนเจ็บป่วยฉุกเฉิน ควรโทรเบอร์ใด","Pour une urgence médicale, quel numéro ?","1669|1669","199|199 (pompiers)","191|191 (police)","🚑","1669 คือเบอร์เรียกรถพยาบาลฉุกเฉิน โทรฟรีทั่วประเทศ บอกชื่อ สถานที่ และอาการให้ชัดเจน|Le 1669 appelle une ambulance, gratuitement partout en Thaïlande : on dit son nom, le lieu et ce qui se passe."],
+[3,"safe","เมื่อนั่งรถยนต์ ต้องทำอย่างไร","En voiture, que faut-il faire ?","คาดเข็มขัดนิรภัย|attacher sa ceinture","ยื่นหัวออกนอกหน้าต่าง|sortir la tête par la fenêtre","ยืนบนเบาะ|se tenir debout sur le siège","🚗","เข็มขัดนิรภัยยึดตัวเราไว้ไม่ให้กระเด็นเวลารถเบรกแรง ๆ เด็กเล็กควรนั่งเบาะเสริม|La ceinture nous retient si la voiture freine fort ; les jeunes enfants s'assoient sur un rehausseur."],
+[3,"safe","ขี่จักรยานควรสวมอะไร","Que faut-il porter à vélo ?","⛑️ หมวกกันน็อก|un casque","🕶️ แว่นกันแดดอย่างเดียว|seulement des lunettes de soleil","🩴 รองเท้าแตะ|des tongs","🚲","หมวกกันน็อกปกป้องศีรษะและสมองถ้าเราล้ม|Le casque protège la tête et le cerveau en cas de chute."],
+[4,"body","อวัยวะใดใช้คิดและจดจำ","Quel organe sert à penser et à se souvenir ?","สมอง|le cerveau","กระเพาะอาหาร|l'estomac","ปอด|les poumons","🧠","สมองอยู่ในกะโหลกศีรษะ ทำหน้าที่คิด จดจำ และสั่งงานทุกส่วนของร่างกาย|Le cerveau, dans le crâne, pense, se souvient et commande tout le corps."],
+[4,"body","ฟันแท้ของผู้ใหญ่มีกี่ซี่","Combien de dents définitives a un adulte ?","32 ซี่|32","20 ซี่|20","50 ซี่|50","🦷","ฟันน้ำนมมี 20 ซี่ จะหลุดเมื่ออายุประมาณ 6 ถึง 12 ปี แล้วฟันแท้ขึ้นมาแทน รวมทั้งหมด 32 ซี่|Les 20 dents de lait tombent entre 6 et 12 ans environ ; les dents définitives sont 32 en tout."],
+[4,"aid","ถ้าโดนของร้อนลวก ควรทำอย่างไรก่อน","Brûlure : que faire en premier ?","เปิดน้ำสะอาดให้ไหลผ่านแผล|passer sous l'eau froide","ทายาสีฟัน|mettre du dentifrice","ทาน้ำปลา|mettre de la sauce poisson","💧","น้ำสะอาดที่ไหลผ่านช่วยลดความร้อนและความปวด ประมาณ 20 นาที ห้ามทายาสีฟันหรือน้ำปลา แล้วรีบบอกผู้ใหญ่|L'eau propre qui coule refroidit la brûlure et calme la douleur (environ 20 minutes). Pas de dentifrice ! Et on prévient un adulte."],
+[4,"aid","ถ้าเลือดกำเดาไหล ควรทำอย่างไร","Saignement de nez : que faire ?","นั่งก้มหน้าเล็กน้อย แล้วบีบจมูก|s'asseoir, pencher la tête en avant et pincer le nez","นอนหงายแล้วเงยหน้า|s'allonger, tête en arrière","วิ่งรอบบ้าน|courir autour de la maison","👃","ก้มหน้าเล็กน้อยเพื่อไม่ให้เลือดไหลลงคอ แล้วบีบปีกจมูกไว้ประมาณ 10 นาที|On penche la tête en avant pour que le sang n'aille pas dans la gorge, et on pince le nez environ 10 minutes."],
+[4,"emo","ถ้าเพื่อนกำลังเสียใจ เราควรทำอย่างไร","Si un ami est triste, que faire ?","เข้าไปถามและปลอบใจ|aller le voir et le consoler","หัวเราะเยาะ|se moquer de lui","ไม่สนใจ|l'ignorer","🤗","ลองนึกว่าถ้าเราเสียใจ เราอยากให้เพื่อนทำอย่างไรกับเรา|Imagine ce que tu aimerais qu'un ami fasse si c'était toi qui étais triste."],
+[4,"hyg","ควรถูสบู่ล้างมือนานประมาณเท่าไร","Combien de temps se savonner les mains ?","20 วินาที|20 secondes","1 วินาที|1 seconde","10 นาที|10 minutes","🧼","ถูสบู่ให้ทั่วทั้งฝ่ามือ หลังมือ ซอกนิ้ว และเล็บ ประมาณ 20 วินาที เท่ากับร้องเพลงแฮปปี้เบิร์ทเดย์ 2 รอบ|Savonne paumes, dos des mains, entre les doigts et les ongles pendant environ 20 secondes : deux fois « Joyeux anniversaire »."],
+[5,"body","ร่างกายผู้ใหญ่มีกระดูกประมาณกี่ชิ้น","Combien d'os a un adulte ?","206 ชิ้น|206","26 ชิ้น|26","1,000 ชิ้น|1 000","🦴","ทารกแรกเกิดมีกระดูกประมาณ 300 ชิ้น เมื่อโตขึ้นบางชิ้นเชื่อมติดกัน จึงเหลือ 206 ชิ้น|Un bébé a environ 300 os ; certains se soudent en grandissant : il en reste 206."],
+[5,"aid","ถ้าเห็นคนตกน้ำ เด็กควรทำอย่างไร","Tu vois quelqu'un tomber à l'eau. Que faire ?","ตะโกนเรียกผู้ใหญ่ แล้วโยนของที่ลอยน้ำได้ให้|crier pour appeler un adulte et lancer un objet qui flotte","กระโดดลงไปช่วยเอง|sauter dans l'eau","วิ่งหนีกลับบ้าน|rentrer à la maison","🛟","จำไว้ 3 คำ: ตะโกน โยน ยื่น ตะโกนเรียกผู้ใหญ่ โยนของลอยน้ำ เช่น ขวดพลาสติกเปล่า หรือยื่นไม้ยาว ๆ ห้ามกระโดดลงไปเอง|Trois mots : crier, lancer, tendre. On appelle un adulte, on lance un objet qui flotte (bouteille vide) ou on tend un long bâton. On ne saute jamais soi-même."],
+[5,"food","เด็กควรดื่มน้ำเปล่าวันละประมาณกี่แก้ว","Combien de verres d'eau par jour ?","6 ถึง 8 แก้ว|6 à 8 verres","1 แก้ว|1 verre","30 แก้ว|30 verres","💧","ร่างกายมีน้ำอยู่มากกว่าครึ่งหนึ่ง เราเสียน้ำทางเหงื่อและปัสสาวะทุกวัน จึงต้องดื่มน้ำบ่อย ๆ โดยเฉพาะเมื่ออากาศร้อน|Notre corps est fait de plus de moitié d'eau ; on en perd chaque jour en transpirant : il faut boire souvent, surtout quand il fait chaud."],
+[5,"body","เด็กควรออกกำลังกายหรือวิ่งเล่นวันละประมาณเท่าไร","Combien de temps bouger chaque jour ?","60 นาที|60 minutes","5 นาที|5 minutes","8 ชั่วโมง|8 heures","⚽","การวิ่งเล่น ว่ายน้ำ หรือขี่จักรยาน วันละประมาณ 1 ชั่วโมง ช่วยให้หัวใจ กล้ามเนื้อ และกระดูกแข็งแรง|Courir, nager ou faire du vélo environ 1 heure par jour rend le cœur, les muscles et les os plus forts."],
+[5,"safe","ถ้าเกิดแผ่นดินไหวขณะอยู่ในห้อง ควรทำอย่างไร","Tremblement de terre dans une pièce : que faire ?","หมอบลง ป้องกันศีรษะ ใต้โต๊ะที่แข็งแรง|se baisser et se protéger la tête sous une table solide","วิ่งเข้าลิฟต์|prendre l'ascenseur","ยืนข้างหน้าต่าง|se mettre près de la fenêtre","🏠","จำไว้: หมอบ ป้อง เกาะ หมอบลงต่ำ ป้องกันศีรษะ และเกาะขาโต๊ะไว้จนกว่าจะหยุดสั่น|À retenir : se baisser, se protéger, s'accrocher (au pied de la table) jusqu'à la fin des secousses."],
+[6,"body","ร่างกายผู้ใหญ่มีเลือดประมาณกี่ลิตร","Combien de litres de sang a un adulte ?","5 ลิตร|5 litres","1 ลิตร|1 litre","50 ลิตร|50 litres","🩸","ผู้ใหญ่มีเลือดประมาณ 5 ลิตร เท่ากับขวดน้ำใหญ่ประมาณ 3 ขวด หัวใจสูบเลือดทั้งหมดนี้ได้ในเวลาประมาณ 1 นาที|Un adulte a environ 5 litres de sang ; le cœur fait circuler tout ce sang en à peu près une minute."],
+[6,"body","ปอดนำแก๊สอะไรเข้าสู่เลือด","Quel gaz les poumons font-ils passer dans le sang ?","ออกซิเจน|l'oxygène","คาร์บอนไดออกไซด์|le dioxyde de carbone","ฮีเลียม|l'hélium","🫁","เราหายใจเข้าเพื่อรับออกซิเจนไปใช้ และหายใจออกเพื่อปล่อยคาร์บอนไดออกไซด์ออกมา|On inspire pour prendre l'oxygène et on expire pour rejeter le dioxyde de carbone."],
+[6,"aid","การปั๊มหัวใจ (CPR) ช่วยอะไร","À quoi sert le massage cardiaque ?","ช่วยให้เลือดไปเลี้ยงสมองเมื่อหัวใจหยุดเต้น|faire circuler le sang quand le cœur s'arrête","ช่วยให้หายเป็นหวัด|guérir un rhume","ช่วยให้นอนหลับ|aider à dormir","❤️","เมื่อหัวใจหยุดเต้น การกดหน้าอกแรง ๆ และเร็ว ๆ ช่วยดันเลือดไปเลี้ยงสมองจนกว่ารถพยาบาลจะมา ผู้ใหญ่ควรไปเรียนวิธีทำ|Quand le cœur s'arrête, appuyer fort et vite sur la poitrine pousse le sang vers le cerveau en attendant l'ambulance. Les adultes peuvent apprendre ce geste."]];
+BANK.sci.push(
+[6,"espace","ระบบสุริยะมีดาวเคราะห์กี่ดวง","Combien de planètes dans le système solaire ?","8 ดวง|8","9 ดวง|9","12 ดวง|12","🪐","ดาวเคราะห์ 8 ดวง เรียงจากดวงอาทิตย์: พุธ ศุกร์ โลก อังคาร พฤหัสบดี เสาร์ ยูเรนัส เนปจูน|Les 8 planètes depuis le Soleil : Mercure, Vénus, Terre, Mars, Jupiter, Saturne, Uranus, Neptune."],
+[6,"espace","ดาวเคราะห์ดวงใดใหญ่ที่สุด","Quelle est la plus grosse planète ?","ดาวพฤหัสบดี|Jupiter","ดาวอังคาร|Mars","โลก|la Terre","🪐","ดาวพฤหัสบดีใหญ่มาก ใส่โลกได้มากกว่า 1,000 ใบ|Jupiter est si grosse qu'on pourrait y mettre plus de 1 000 Terres."],
+[6,"matiere","น้ำเดือดที่อุณหภูมิกี่องศาเซลเซียส","À quelle température l'eau bout-elle ?","100 องศา|100 °C","50 องศา|50 °C","0 องศา|0 °C","♨️","น้ำกลายเป็นน้ำแข็งที่ 0 องศา และเดือดที่ 100 องศาเซลเซียส|L'eau gèle à 0 °C et bout à 100 °C."],
+[6,"energie","ทำไมเราเห็นฟ้าแลบก่อนได้ยินเสียงฟ้าร้อง","Pourquoi voit-on l'éclair avant d'entendre le tonnerre ?","แสงเดินทางเร็วกว่าเสียง|la lumière va plus vite que le son","เสียงเดินทางเร็วกว่าแสง|le son va plus vite","ตาอยู่สูงกว่าหู|les yeux sont plus hauts","⚡","แสงเร็วมาก ไปถึงตาเราเกือบทันที ส่วนเสียงช้ากว่ามาก ประมาณ 1 กิโลเมตรใน 3 วินาที|La lumière arrive presque instantanément ; le son est bien plus lent : environ 1 km en 3 secondes."]);
+BANK.world.push(
+[6,"geo","ภูเขาที่สูงที่สุดในโลกคือ","Quelle est la plus haute montagne du monde ?","เอเวอเรสต์|l'Everest","ดอยอินทนนท์|le Doi Inthanon","มงบล็อง|le Mont-Blanc","🏔️","ยอดเขาเอเวอเรสต์สูงเกือบ 9 กิโลเมตร อยู่ระหว่างเนปาลกับจีน|L'Everest dépasse 8 800 m ; il est entre le Népal et la Chine."],
+[6,"geo","มหาสมุทรที่ใหญ่ที่สุดในโลกคือ","Quel est le plus grand océan ?","มหาสมุทรแปซิฟิก|le Pacifique","มหาสมุทรอินเดีย|l'océan Indien","มหาสมุทรแอตแลนติก|l'Atlantique","🌊","มหาสมุทรแปซิฟิกกว้างมาก ใหญ่กว่าพื้นดินทั้งหมดของโลกรวมกัน|Le Pacifique est plus grand que toutes les terres émergées réunies."],
+[6,"geo","โลกมีกี่ทวีป","Combien y a-t-il de continents ?","7 ทวีป|7","3 ทวีป|3","12 ทวีป|12","🌍","เอเชีย แอฟริกา อเมริกาเหนือ อเมริกาใต้ แอนตาร์กติกา ยุโรป และออสเตรเลีย|Asie, Afrique, Amérique du Nord, Amérique du Sud, Antarctique, Europe et Océanie."],
+[6,"thai","ภูเขาที่สูงที่สุดในประเทศไทยคือ","Quelle est la plus haute montagne de Thaïlande ?","ดอยอินทนนท์|le Doi Inthanon","ภูกระดึง|le Phu Kradueng","เขาใหญ่|Khao Yai","⛰️","ดอยอินทนนท์อยู่จังหวัดเชียงใหม่ สูงประมาณ 2,565 เมตร|Le Doi Inthanon, dans la province de Chiang Mai, culmine à environ 2 565 m."]);
+
+/* ================= mesures et cadrans d'aviation ================= */
+function gauge(o){const {min,max,st,sw}=o,A=v=>st+(v-min)/(max-min)*sw,P=(r,a)=>[(100+r*Math.sin(a*Math.PI/180)).toFixed(1),(100-r*Math.cos(a*Math.PI/180)).toFixed(1)];
+ const dark=o.dark!==false,fg=dark?"#fff":"#22214a",bg=dark?"#1d2126":"#fdfdf8",full=sw>=360;
+ let s=`<circle cx="100" cy="100" r="97" fill="${dark?"#4a5058":"#cfd6de"}"/><circle cx="100" cy="100" r="89" fill="${bg}"/>`;
+ (o.arcs||[]).forEach(([a,b,col,wd])=>{const [x1,y1]=P(80,A(a)),[x2,y2]=P(80,A(b));s+=`<path d="M${x1} ${y1}A80 80 0 ${A(b)-A(a)>180?1:0} 1 ${x2} ${y2}" fill="none" stroke="${col}" stroke-width="${wd||7}"/>`});
+ const N=Math.round((max-min)/o.minor);for(let i=0;i<=N;i++){if(full&&i===N)break;const v=min+i*o.minor,maj=Math.abs((v-min)/o.major-Math.round((v-min)/o.major))<1e-6;const [x1,y1]=P(87,A(v)),[x2,y2]=P(maj?73:80,A(v));s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${fg}" stroke-width="${maj?3:1.4}"/>`;const lb=maj?(o.lab?o.lab(v):v):null;if(lb!=null&&lb!==""){const [tx,ty]=P(o.lr||59,A(v));s+=`<text x="${tx}" y="${(+ty+5.5).toFixed(1)}" text-anchor="middle" font-size="${o.fs||15}" font-weight="700" fill="${fg}">${lb}</text>`}}
+ (o.texts||[]).forEach(([x,y,t,fs])=>s+=`<text x="${x}" y="${y}" text-anchor="middle" font-size="${fs||11}" font-weight="700" fill="${fg}" opacity=".85">${t}</text>`);
+ (o.nd||[{v:o.val}]).forEach(n=>{const l=n.l||26,w=n.w||4;s+=`<g class="ndl" style="transform:rotate(${A(n.v).toFixed(1)}deg);--a0:${st}deg"><path d="M100 ${100+12}L${100-w} 100L100 ${l}L${100+w} 100Z" fill="${n.c||(dark?"#fff":"#e53935")}"/></g>`});
+ s+=`<circle cx="100" cy="100" r="7" fill="${dark?"#9aa0a6":"#22214a"}"/>`;
+ return `<svg class="gauge" viewBox="0 0 200 200" style="width:calc(${o.w||210}px*var(--k));max-width:100%">${s}</svg>`}
+function hdgSVG(h){let s=`<circle cx="100" cy="100" r="97" fill="#4a5058"/><circle cx="100" cy="100" r="89" fill="#1d2126"/><g class="ndl" style="transform:rotate(${-h}deg);--a0:0deg">`;
+ for(let a=0;a<360;a+=5){const maj=a%30===0,r1=86,r2=a%10===0?(maj?72:77):81,rd=a*Math.PI/180;s+=`<line x1="${(100+r1*Math.sin(rd)).toFixed(1)}" y1="${(100-r1*Math.cos(rd)).toFixed(1)}" x2="${(100+r2*Math.sin(rd)).toFixed(1)}" y2="${(100-r2*Math.cos(rd)).toFixed(1)}" stroke="#fff" stroke-width="${maj?2.6:1.2}"/>`;if(maj){const L={0:"N",90:"E",180:"S",270:"W"}[a]||String(a/10);s+=`<text x="100" y="40" text-anchor="middle" font-size="${L.length===1&&isNaN(L)?20:15}" font-weight="700" fill="${isNaN(L)?"#ffd54f":"#fff"}" transform="rotate(${a} 100 100)">${L}</text>`}}
+ s+=`</g><path d="M100 70L106 96L130 104V110L106 106L104 126L112 132V136L100 133L88 136V132L96 126L94 106L70 110V104L94 96Z" fill="#ff9f1c"/><path d="M100 4L94 16H106Z" fill="#ff9f1c"/>`;
+ return `<svg class="gauge" viewBox="0 0 200 200" style="width:calc(210px*var(--k));max-width:100%">${s}</svg>`}
+function attSVG(pitch,bank){const k=2.4;let lad="";[-20,-10,10,20].forEach(p=>{const y=100-p*k,w=p%20?14:24;lad+=`<line x1="${100-w}" x2="${100+w}" y1="${y}" y2="${y}" stroke="#fff" stroke-width="2"/>`});
+ let ticks="";[-60,-45,-30,-20,-10,10,20,30,45,60].forEach(a=>{const rd=a*Math.PI/180;ticks+=`<line x1="${(100+86*Math.sin(rd)).toFixed(1)}" y1="${(100-86*Math.cos(rd)).toFixed(1)}" x2="${(100+(Math.abs(a)%30?80:76)*Math.sin(rd)).toFixed(1)}" y2="${(100-(Math.abs(a)%30?80:76)*Math.cos(rd)).toFixed(1)}" stroke="#fff" stroke-width="2"/>`});
+ return `<svg class="gauge" viewBox="0 0 200 200" style="width:calc(210px*var(--k));max-width:100%"><defs><clipPath id="attc"><circle cx="100" cy="100" r="89"/></clipPath></defs><circle cx="100" cy="100" r="97" fill="#4a5058"/><g clip-path="url(#attc)"><g class="horiz" style="transform:rotate(${-bank}deg) translateY(${pitch*k}px)"><rect x="-150" y="-250" width="500" height="350" fill="#3d8fd1"/><rect x="-150" y="100" width="500" height="350" fill="#8a5a2e"/><line x1="-150" x2="350" y1="100" y2="100" stroke="#fff" stroke-width="3"/>${lad}</g></g>${ticks}<path d="M100 8L94 20H106Z" fill="#ff9f1c"/><path d="M42 100H82L100 116L118 100H158" fill="none" stroke="#ff9f1c" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="100" cy="100" r="4" fill="#ff9f1c"/></svg>`}
+function rulerSVG(a,b){const x0=20,u=28;let s=`<rect x="8" y="62" width="${u*10+24}" height="46" rx="6" fill="#ffe08a" stroke="#c9a227" stroke-width="2"/>`;
+ for(let i=0;i<=100;i++){const x=x0+i*u/10,h=i%10===0?18:i%5===0?12:7;s+=`<line x1="${x}" y1="62" x2="${x}" y2="${62+h}" stroke="#5b4600" stroke-width="${i%10?1:1.7}"/>`;if(i%10===0)s+=`<text x="${x}" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#5b4600">${i/10}</text>`}
+ const xa=x0+a*u,xb=x0+b*u;s+=`<rect x="${xa}" y="30" width="${xb-xa-14}" height="20" fill="#ef476f"/><rect x="${xa}" y="30" width="8" height="20" fill="#f7b6c6"/><path d="M${xb-14} 30L${xb} 40L${xb-14} 50Z" fill="#f3d9b5"/><path d="M${xb-5} 37.5L${xb} 40L${xb-5} 42.5Z" fill="#22214a"/><line x1="${xa}" y1="26" x2="${xa}" y2="62" stroke="#118ab2" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="${xb}" y1="26" x2="${xb}" y2="62" stroke="#118ab2" stroke-width="1.5" stroke-dasharray="3 3"/>`;
+ return `<svg viewBox="0 0 ${u*10+40} 112" style="width:calc(360px*var(--k));max-width:100%">${s}</svg>`}
+function thermoSVG(t){const y=v=>150-v*2.4;let s=`<rect x="44" y="18" width="22" height="142" rx="11" fill="#fff" stroke="#90a4ae" stroke-width="3"/><circle cx="55" cy="166" r="17" fill="#e53935" stroke="#90a4ae" stroke-width="3"/>`;
+ for(let v=0;v<=50;v+=5){s+=`<line x1="66" x2="${v%10?74:80}" y1="${y(v)}" y2="${y(v)}" stroke="currentColor" stroke-width="2"/>`;if(v%10===0)s+=`<text x="84" y="${y(v)+5}" font-size="14" fill="currentColor" font-weight="700">${v}</text>`}
+ s+=`<rect class="grow" x="50" y="${y(t)}" width="10" height="${166-y(t)}" fill="#e53935"/><text x="60" y="12" text-anchor="middle" font-size="12" fill="currentColor" font-weight="700">°C</text>`;
+ return `<svg viewBox="0 0 120 190" style="width:calc(130px*var(--k));color:var(--ink)">${s}</svg>`}
+function cupSVG(ml){const y=v=>160-v*.12;let s=`<path d="M40 30H150L144 168H46Z" fill="rgba(255,255,255,.55)" stroke="#78909c" stroke-width="3"/><path d="M150 50q30 0 30 30t-34 34" fill="none" stroke="#78909c" stroke-width="6"/>`;
+ s+=`<g class="grow"><path d="M${41+(160-y(ml))*.04} ${y(ml)}H${149-(160-y(ml))*.04}L144 166H46Z" fill="#4fc3f7" opacity=".75"/></g>`;
+ for(let v=100;v<=1000;v+=100){s+=`<line x1="46" x2="${v%500?62:72}" y1="${y(v)}" y2="${y(v)}" stroke="#37474f" stroke-width="2"/>`;if(v%200===0||v===1000)s+=`<text x="${v%500?66:76}" y="${y(v)+5}" font-size="12" font-weight="700" fill="#37474f">${v}</text>`}
+ s+=`<text x="95" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">ml</text>`;
+ return `<svg viewBox="0 0 200 180" style="width:calc(210px*var(--k));color:var(--ink)">${s}</svg>`}
+function balSVG(L,Rt,tilt){const a=tilt*13*Math.PI/180,lx=120-90*Math.cos(a),ly=50-90*Math.sin(a),rx=120+90*Math.cos(a),ry=50+90*Math.sin(a);
+ const pan=(x,y,e)=>`<line x1="${x}" y1="${y}" x2="${x-26}" y2="${y+46}" stroke="#795548" stroke-width="2"/><line x1="${x}" y1="${y}" x2="${x+26}" y2="${y+46}" stroke="#795548" stroke-width="2"/><path d="M${x-34} ${y+46}h68q-6 14 -34 14t-34 -14z" fill="#a1887f"/><text x="${x}" y="${y+42}" text-anchor="middle" font-size="34">${e}</text>`;
+ return `<svg viewBox="0 0 240 190" style="width:calc(270px*var(--k));max-width:100%"><path d="M96 182h48l-10-22h-28z" fill="#6d4c41"/><rect x="117" y="48" width="6" height="114" fill="#6d4c41"/><line x1="${lx.toFixed(1)}" y1="${ly.toFixed(1)}" x2="${rx.toFixed(1)}" y2="${ry.toFixed(1)}" stroke="#5d4037" stroke-width="8" stroke-linecap="round"/><circle cx="120" cy="50" r="7" fill="#ffca28"/>${pan(lx,ly,L)}${pan(rx,ry,Rt)}</svg>`}
+const HEAVY=[["🍉","แตงโม","pastèque"],["🐘","ช้าง","éléphant"],["🧱","อิฐ","brique"],["🎳","ลูกโบว์ลิ่ง","boule de bowling"],["🍍","สับปะรด","ananas"]];
+const LIGHT=[["🍓","สตรอว์เบอร์รี","fraise"],["🐭","หนู","souris"],["🪶","ขนนก","plume"],["🎈","ลูกโป่ง","ballon"],["🍒","เชอร์รี","cerise"]];
+const fmtN=n=>n.toLocaleString("en-US");
+const ATT=[[0,0,"✈️ บินระดับ","vol en palier"],[10,0,"⤴️ ไต่ขึ้น","monter"],[-10,0,"⤵️ ร่อนลง","descendre"],[0,-25,"↩️ เลี้ยวซ้าย","virer à gauche"],[0,25,"↪️ เลี้ยวขวา","virer à droite"]];
+const CARD=[[0,"ทิศเหนือ (N)","nord"],[90,"ทิศตะวันออก (E)","est"],[180,"ทิศใต้ (S)","sud"],[270,"ทิศตะวันตก (W)","ouest"]];
+const h3=h=>String(h===0?360:h).padStart(3,"0")+"°";
+function gMeas(d){
+ const T={1:["long","heavy"],2:["ruler0","thermohc","fuel"],3:["ruler","scale","thermo","unit1","hdg4"],4:["cup","asi","att","unit2","hdg"],5:["alt","vsi","rpm","att"],6:["alt","sdt","turn","unit2"]}[d];
+ const tp=pick(T),o={s:"measure",tp,d};
+ if(tp==="long"){const a=R(3,9);let b;do{b=R(3,9)}while(Math.abs(a-b)<2);const short=Math.random()<.4;const bar=(n,c,lab)=>`<div class="pen"><b>${lab}</b><span style="width:calc(${n*34}px*var(--k));background:${c}"></span><i></i></div>`;
+  Object.assign(o,{th:short?"ดินสอแท่งไหนสั้นกว่า":"ดินสอแท่งไหนยาวกว่า",fr:short?"Quel crayon est le plus court ?":"Quel crayon est le plus long ?",vis:`<div class="pens">${bar(a,"#ef476f","ก")}${bar(b,"#118ab2","ข")}</div>`,ex:X("วางปลายดินสอให้ตรงกันทางซ้าย แล้วดูว่าแท่งไหนยื่นไปทางขวามากกว่า แท่งนั้นยาวกว่า","Aligne les crayons à gauche et regarde lequel dépasse le plus à droite : c'est le plus long.")});const win=(a>b)!==short?"ก":"ข";return Q(o,win,[win==="ก"?"ข":"ก"])}
+ if(tp==="heavy"){const h=pick(HEAVY),l=pick(LIGHT),left=Math.random()<.5;Object.assign(o,{th:"สิ่งใดหนักกว่า",fr:"Lequel est le plus lourd ?",vis:left?balSVG(h[0],l[0],-1):balSVG(l[0],h[0],1),ex:X("ตาชั่งสองแขน: ข้างที่หนักกว่าจะลดต่ำลง ข้างที่เบากว่าจะลอยขึ้น","Sur une balance à deux plateaux, le côté le plus lourd descend et le plus léger monte.")});return Q(o,{h:h[0]+" "+h[1],f:h[2]},[{h:l[0]+" "+l[1],f:l[2]}])}
+ if(tp==="ruler0"||tp==="ruler"){const a=tp==="ruler0"?0:R(1,4),n=R(2,Math.min(8,10-a)),b=a+n;Object.assign(o,{th:"ดินสอยาวกี่เซนติเมตร",fr:"Combien de centimètres mesure le crayon ?",vis:rulerSVG(a,b),ex:a?X(`ระวัง! ดินสอไม่ได้เริ่มที่ 0 ให้เอาเลขที่ปลายขวาลบด้วยเลขที่ปลายซ้าย หรือนับช่องใหญ่ระหว่างสองปลาย`,`Attention, le crayon ne commence pas à 0 ! Fais le nombre de droite moins celui de gauche, ou compte les grands intervalles entre les deux bouts.`):X("ปลายซ้ายของดินสออยู่ที่เลข 0 ให้อ่านเลขตรงปลายขวา ช่องใหญ่แต่ละช่องคือ 1 เซนติเมตร","Le bout gauche est sur le 0 : lis le nombre au bout droit. Chaque grand intervalle vaut 1 cm.")});const f=x=>x+" ซม.";return Q(o,f(n),[f(b===n?n+1:b),f(n+1),f(Math.max(1,n-1))].filter(x=>x!==f(n)))}
+ if(tp==="thermohc"){const hot=Math.random()<.5,t=hot?R(36,45):R(2,12);Object.assign(o,{th:"อากาศร้อนหรือหนาว",fr:"Fait-il chaud ou froid ?",vis:thermoSVG(t),ex:X("ดูแถบสีแดงในเทอร์โมมิเตอร์: ยิ่งสูงยิ่งร้อน ตั้งแต่ 35 องศาขึ้นไปร้อนมาก ต่ำกว่า 15 องศาคือหนาว","Regarde la colonne rouge : plus elle monte, plus il fait chaud. Au-dessus de 35 °C il fait très chaud ; sous 15 °C il fait froid.")});return Q(o,hot?{h:"🥵 ร้อน",f:"chaud"}:{h:"🥶 หนาว",f:"froid"},[hot?{h:"🥶 หนาว",f:"froid"}:{h:"🥵 ร้อน",f:"chaud"}])}
+ if(tp==="thermo"){const t=R(0,10)*5;Object.assign(o,{th:"เทอร์โมมิเตอร์วัดได้กี่องศาเซลเซียส",fr:"Quelle température indique le thermomètre ?",vis:thermoSVG(t),ex:X("ดูยอดของแถบสีแดง แล้วอ่านขีดที่ตรงกัน ขีดยาวคือทุก 10 องศา ขีดสั้นตรงกลางคือ 5 องศา","Regarde le haut de la colonne rouge et lis la graduation : les grands traits tous les 10 °C, le petit au milieu = 5.")});const f=x=>x+" °C";return Q(o,f(t),[f(t+5>50?t-10:t+5),f(t+10>50?t-5:t+10),f(Math.abs(t-15))].filter(x=>x!==f(t)))}
+ if(tp==="fuel"){const F=[[0,"หมดถัง","vide"],[.25,"เหลือ 1 ใน 4","un quart"],[.5,"เหลือครึ่งถัง","la moitié"],[.75,"เหลือ 3 ใน 4","trois quarts"],[1,"เต็มถัง","plein"]];const v=pick(F);
+  Object.assign(o,{th:"น้ำมันในถังเหลือเท่าไร",fr:"Combien de carburant reste-t-il ?",vis:gauge({min:0,max:1,val:v[0],st:-60,sw:120,major:.25,minor:.125,lab:x=>({0:"E",.25:"¼",.5:"½",.75:"¾",1:"F"})[x],arcs:[[0,.125,"#e53935"]],texts:[[100,140,"FUEL",14],[100,156,"⛽",16]]}),ex:X("E (Empty) แปลว่าหมด F (Full) แปลว่าเต็ม เข็มชี้ตรงกลางคือครึ่งถัง นักบินต้องตรวจน้ำมันก่อนบินทุกครั้ง","E (Empty) = vide, F (Full) = plein ; l'aiguille au milieu = la moitié. Le pilote vérifie toujours le carburant avant de décoller.")});
+  return Q(o,{h:v[1],f:v[2]},sample(F.filter(x=>x!==v),3).map(x=>({h:x[1],f:x[2]})))}
+ if(tp==="scale"){const v=R(1,8)/2;Object.assign(o,{th:"ตาชั่งชี้กี่กิโลกรัม",fr:"Combien de kilos indique la balance ?",vis:gauge({min:0,max:5,val:v,st:-150,sw:300,major:1,minor:.1,dark:false,texts:[[100,140,"kg",16]]}),ex:X("ดูว่าเข็มชี้เลขใด ขีดเล็กแต่ละขีดคือ 0.1 กิโลกรัม (100 กรัม) ถ้าเข็มอยู่กึ่งกลางระหว่างสองเลข คือครึ่งกิโลกรัม (.5)","Regarde le nombre désigné ; chaque petit trait vaut 0,1 kg (100 g). Au milieu entre deux nombres, c'est un demi-kilo (,5).")});const f=x=>String(x)+" กก.";return Q(o,f(v),[f(v+.5>5?v-1:v+.5),f(v+1>5?v-.5:v+1),f(Math.abs(v-1.5)||2)].filter(x=>x!==f(v)))}
+ if(tp==="unit1"){const n=R(1,9),m2c=Math.random()<.6;Object.assign(o,{th:m2c?`${n} เมตร เท่ากับกี่เซนติเมตร`:`${n*100} เซนติเมตร เท่ากับกี่เมตร`,fr:m2c?`${n} mètres, ça fait combien de centimètres ?`:`${n*100} cm, ça fait combien de mètres ?`,vis:'<div class="big">📏</div>',ex:X("1 เมตร = 100 เซนติเมตร: เมตรเป็นเซนติเมตรให้คูณ 100 (เติม 0 สองตัว) เซนติเมตรเป็นเมตรให้หาร 100","1 m = 100 cm : pour passer des mètres aux centimètres, on multiplie par 100 (deux zéros) ; dans l'autre sens, on divise par 100.")});return m2c?Q(o,n*100,[n*10,n*1000,n+100]):Q(o,n,[n*10,n*100,n+1])}
+ if(tp==="unit2"){const k=pick(["kg","l","min","h"]),n=R(2,9);const U={kg:[`${n} กิโลกรัม เท่ากับกี่กรัม`,`${n} kg, combien de grammes ?`,n*1000,"1 กิโลกรัม = 1,000 กรัม","1 kg = 1 000 g"],l:[`${n} ลิตร เท่ากับกี่มิลลิลิตร`,`${n} litres, combien de millilitres ?`,n*1000,"1 ลิตร = 1,000 มิลลิลิตร","1 l = 1 000 ml"],min:[`${n} นาที เท่ากับกี่วินาที`,`${n} minutes, combien de secondes ?`,n*60,"1 นาที = 60 วินาที","1 minute = 60 secondes"],h:[`${n} ชั่วโมง เท่ากับกี่นาที`,`${n} heures, combien de minutes ?`,n*60,"1 ชั่วโมง = 60 นาที","1 heure = 60 minutes"]}[k];
+  Object.assign(o,{th:U[0],fr:U[1],vis:`<div class="big">${{kg:"⚖️",l:"🧃",min:"⏱️",h:"⏰"}[k]}</div>`,ex:X(`จำไว้: ${U[3]} ดังนั้นให้คูณ ${n} กับ ${U[2]/n}`,`À retenir : ${U[4]}. Il faut donc multiplier ${n} par ${U[2]/n}.`)});return Q(o,U[2],[U[2]/10,U[2]+(k==="kg"||k==="l"?100:10),n*100===U[2]?n*10:n*100])}
+ if(tp==="hdg4"){const c=pick(CARD);Object.assign(o,{th:"เครื่องบินกำลังบินไปทางทิศใด",fr:"Vers quelle direction vole l'avion ?",vis:hdgSVG(c[0]),ex:X("เครื่องวัดทิศทาง: ตัวอักษรที่อยู่ใต้หัวเครื่องบินด้านบนคือทิศที่กำลังบินไป N = เหนือ E = ตะวันออก S = ใต้ W = ตะวันตก","Le conservateur de cap : la lettre juste sous le nez de l'avion, en haut, est la direction suivie. N = nord, E = est, S = sud, W = ouest.")});return Q(o,{h:c[1],f:c[2]},CARD.filter(x=>x!==c).map(x=>({h:x[1],f:x[2]})))}
+ if(tp==="hdg"){const h=R(0,11)*30;Object.assign(o,{th:"เครื่องบินกำลังมุ่งหน้ากี่องศา",fr:"Quel est le cap de l'avion (en degrés) ?",vis:hdgSVG(h),ex:X("อ่านเลขที่อยู่ใต้หัวเครื่องบิน แล้วคูณ 10 เช่น เลข 3 = 030° เลข 12 = 120° ทิศเหนือ (N) = 360° ตะวันออก (E) = 090° ใต้ (S) = 180° ตะวันตก (W) = 270°","Lis le nombre sous le nez de l'avion et multiplie par 10 : 3 = 030°, 12 = 120°. N = 360°, E = 090°, S = 180°, W = 270°.")});return Q(o,h3(h),[h3((h+90)%360),h3((h+180)%360),h3((h+30)%360)])}
+ if(tp==="cup"){const v=R(1,10)*100;Object.assign(o,{th:"ในเหยือกมีน้ำกี่มิลลิลิตร",fr:"Combien de millilitres d'eau dans le pichet ?",vis:cupSVG(v),ex:X("ดูระดับผิวน้ำ แล้วอ่านขีดที่อยู่ตรงกัน แต่ละขีดคือ 100 มิลลิลิตร 1,000 มิลลิลิตร = 1 ลิตร","Regarde le niveau de l'eau et lis la graduation en face : chaque trait vaut 100 ml ; 1 000 ml = 1 litre.")});const f=x=>fmtN(x)+" มล.";return Q(o,f(v),[f(v===1000?800:v+100),f(v===100?300:v-100),f(v===500?700:1000-v||200)].filter(x=>x!==f(v)))}
+ if(tp==="asi"){const v=R(6,16)*10;Object.assign(o,{th:"เครื่องบินบินเร็วกี่นอต",fr:"À quelle vitesse vole l'avion (en nœuds) ?",vis:gauge({min:0,max:200,val:v,st:-150,sw:300,major:20,minor:10,lab:x=>x?x:"",arcs:[[50,130,"#43a047"],[130,165,"#fdd835"],[165,168,"#e53935",10]],texts:[[100,132,"KNOTS",12],[100,147,"นอต",12]]}),ex:X("มาตรวัดความเร็วอากาศ: อ่านเลขที่เข็มชี้ ขีดเล็กแต่ละขีดคือ 10 นอต แถบสีเขียวคือความเร็วปกติ เส้นแดงคือห้ามบินเร็วกว่านี้","Anémomètre : lis le nombre désigné ; chaque petit trait vaut 10 nœuds. L'arc vert = vitesses normales, le trait rouge = vitesse à ne jamais dépasser.")});const f=x=>x+" นอต";return Q(o,f(v),[f(v+10),f(v-10),f(v+20)])}
+ if(tp==="att"){const a=pick(ATT);Object.assign(o,{th:"ดูเครื่องวัดท่าทางการบิน เครื่องบินกำลังทำอะไร",fr:"Regarde l'horizon artificiel : que fait l'avion ?",vis:attSVG(a[0],a[1]),ex:X("สีฟ้าคือท้องฟ้า สีน้ำตาลคือพื้นดิน เครื่องบินสีส้มอยู่ตรงกลางเสมอ ถ้าเห็นฟ้ามาก = หัวเชิดขึ้น (ไต่) ถ้าเห็นดินมาก = หัวก้มลง (ร่อน) ถ้าเส้นขอบฟ้าเอียง = กำลังเลี้ยว ไปทางปีกข้างที่อยู่ต่ำกว่าเส้นขอบฟ้า","Le bleu est le ciel, le marron la terre ; l'avion orange reste au centre. Beaucoup de ciel = nez levé (on monte) ; beaucoup de terre = nez baissé (on descend). Horizon penché = virage, du côté de l'aile qui passe sous l'horizon.")});return Q(o,{h:a[2],f:a[3]},sample(ATT.filter(x=>x!==a),3).map(x=>({h:x[2],f:x[3]})))}
+ if(tp==="alt"){const th=R(1,9),hu=d===5?pick([0,5]):R(0,9),v=th*1000+hu*100;Object.assign(o,{th:"เครื่องบินอยู่สูงกี่ฟุต",fr:"À quelle altitude est l'avion (en pieds) ?",vis:gauge({min:0,max:10,st:0,sw:360,major:1,minor:.2,fs:18,lr:62,texts:[[100,74,"ALT",12],[100,136,"FEET",11]],nd:[{v:(v%10000)/1000,l:52,w:7,c:"#fff"},{v:(v%1000)/100,l:20,w:3.5,c:"#fff"}]}),ex:X("เข็มยาวบอกร้อยฟุต (หมุนครบ 1 รอบ = 1,000 ฟุต) เข็มสั้นบอกพันฟุต อ่านเข็มสั้นก่อนว่าเลยเลขอะไรมาแล้ว แล้วอ่านเข็มยาว เช่น เข็มสั้นเลย 3 เข็มยาวชี้ 5 = 3,500 ฟุต","La grande aiguille donne les centaines de pieds (un tour = 1 000 ft), la petite les milliers. Lis d'abord le chiffre que la petite a dépassé, puis la grande : petite après 3, grande sur 5 = 3 500 ft.")});const f=x=>fmtN(x)+" ฟุต";return Q(o,f(v),[f(hu*1000+th*100===v?v+1000:hu*1000+th*100),f(v+1000>9900?v-1000:v+1000),f(v+(hu>=5?-500:500))].filter(x=>x!==f(v)))}
+ if(tp==="vsi"){const v=pick([-1500,-1000,-500,500,1000,1500]);Object.assign(o,{th:"เครื่องบินกำลังไต่ขึ้นหรือร่อนลง และเร็วกี่ฟุตต่อนาที",fr:"L'avion monte-t-il ou descend-il, et à quelle vitesse (pieds par minute) ?",vis:gauge({min:-2000,max:2000,val:v,st:-260,sw:340,major:500,minor:100,lab:x=>x===-2000?"":Math.abs(x)/100,texts:[[122,72,"UP ↑",12],[122,136,"DN ↓",12],[78,118,"×100",10],[78,130,"ft/min",10]]}),ex:X("เข็มชี้เลข 0 ทางซ้าย = บินระดับ เข็มขึ้นไปด้านบน (UP) = ไต่ขึ้น เข็มลงด้านล่าง (DN) = ร่อนลง ตัวเลขต้องคูณ 100 ฟุตต่อนาที","Aiguille sur le 0 à gauche = vol en palier ; vers le haut (UP) = on monte ; vers le bas (DN) = on descend. Les nombres sont à multiplier par 100 pieds par minute.")});
+  const lab=x=>({h:(x>0?"⤴️ ไต่ขึ้น ":"⤵️ ร่อนลง ")+fmtN(Math.abs(x)),f:(x>0?"monte ":"descend ")+Math.abs(x)+" ft/min"});return Q(o,lab(v),[lab(-v),lab(v>0?v+500>2000?v-500:v+500:v-500<-2000?v+500:v-500),lab(-v+(v>0?-500:500)||(v>0?-1000:1000))])}
+ if(tp==="rpm"){const v=R(10,30);Object.assign(o,{th:"เครื่องยนต์หมุนกี่รอบต่อนาที",fr:"Combien de tours par minute fait le moteur ?",vis:gauge({min:0,max:35,val:v,st:-150,sw:300,major:5,minor:1,arcs:[[21,27,"#43a047"],[27,35,"#e53935",4]],texts:[[100,132,"RPM",12],[100,147,"×100",11]]}),ex:X("ตัวเลขบนหน้าปัดต้องคูณ 100 ขีดเล็กแต่ละขีดคือ 100 รอบ เช่น เข็มเลย 20 ไป 3 ขีด = 2,300 รอบต่อนาที","Les nombres sont à multiplier par 100 ; chaque petit trait = 100 tours. Aiguille 3 traits après le 20 = 2 300 tours par minute.")});const f=x=>fmtN(x*100)+" รอบ/นาที";return Q(o,f(v),[f(v+1),f(v-1),f(v+5>35?v-5:v+5)])}
+ if(tp==="sdt"){const v=pick([60,80,100,120,150]),t=R(2,4);Object.assign(o,{th:`เครื่องบินบินด้วยความเร็ว ${v} นอต (ไมล์ทะเลต่อชั่วโมง) นาน ${t} ชั่วโมง จะบินได้ไกลกี่ไมล์ทะเล`,fr:`Un avion vole à ${v} nœuds (milles marins par heure) pendant ${t} heures. Quelle distance parcourt-il ?`,vis:'<div class="big">✈️</div>',ex:X("ระยะทาง = ความเร็ว × เวลา ทุก 1 ชั่วโมงเครื่องบินไปได้เท่ากับเลขความเร็ว แล้วบวกซ้ำตามจำนวนชั่วโมง","Distance = vitesse × temps : chaque heure, l'avion parcourt autant de milles que sa vitesse ; on additionne autant de fois qu'il y a d'heures.")});return Q(o,v*t,[v+t,v*(t+1),v*t/2])}
+ const h=R(1,12)*30%360,a=pick([30,60,90,180]),r=Math.random()<.5;const res=((h+(r?a:-a))%360+360)%360;
+ Object.assign(o,{tp:"turn",th:`เครื่องบินมุ่งหน้า ${h3(h)} แล้วเลี้ยว${r?"ขวา":"ซ้าย"} ${a}° จะมุ่งหน้ากี่องศา`,fr:`L'avion suit le cap ${h3(h)} puis tourne de ${a}° vers la ${r?"droite":"gauche"}. Quel est son nouveau cap ?`,vis:hdgSVG(h),ex:X("เลี้ยวขวา = บวกองศา เลี้ยวซ้าย = ลบองศา ถ้าได้เกิน 360 ให้ลบ 360 ออก ถ้าติดลบให้บวก 360","Tourner à droite = ajouter les degrés ; à gauche = enlever. Si on dépasse 360, on retire 360 ; si c'est négatif, on ajoute 360.")});
+ return Q(o,h3(res),[h3(((h+(r?-a:a))%360+360)%360),h3((res+30)%360),h3((res+180)%360)].filter(x=>x!==h3(res)))}
+
+/* ================= drapeaux et pays ================= */
+const star=(cx,cy,r,col,rot=0)=>{let p="";for(let i=0;i<10;i++){const a=(i*36+rot-90)*Math.PI/180,rr=i%2?r*.4:r;p+=(i?"L":"M")+(cx+rr*Math.cos(a)).toFixed(2)+" "+(cy+rr*Math.sin(a)).toFixed(2)}return `<path d="${p}Z" fill="${col}"/>`};
+const hz=(cols,rs)=>{rs=rs||cols.map(()=>1);const t=rs.reduce((a,b)=>a+b,0);let y=0;return cols.map((c,i)=>{const h=40*rs[i]/t,r=`<rect x="0" y="${y.toFixed(2)}" width="60" height="${(h+.05).toFixed(2)}" fill="${c}"/>`;y+=h;return r}).join("")};
+const vt=cols=>cols.map((c,i)=>`<rect x="${i*20}" y="0" width="20.05" height="40" fill="${c}"/>`).join("");
+const nord=(bg,c1,c2)=>`<rect width="60" height="40" fill="${bg}"/><rect x="16" y="0" width="8" height="40" fill="${c1}"/><rect x="0" y="16" width="60" height="8" fill="${c1}"/>`+(c2?`<rect x="18" y="0" width="4" height="40" fill="${c2}"/><rect x="0" y="18" width="60" height="4" fill="${c2}"/>`:"");
+const FLAG={TH:hz(["#A51931","#F4F5F8","#2D2A4A","#F4F5F8","#A51931"],[1,1,2,1,1]),FR:vt(["#002395","#fff","#ED2939"]),JP:`<rect width="60" height="40" fill="#fff"/><circle cx="30" cy="20" r="12" fill="#BC002D"/>`,VN:`<rect width="60" height="40" fill="#DA251D"/>`+star(30,20,11,"#FFFF00"),LA:hz(["#CE1126","#002868","#CE1126"],[1,2,1])+`<circle cx="30" cy="20" r="8" fill="#fff"/>`,ID:hz(["#CE1126","#fff"]),DE:hz(["#000","#DD0000","#FFCE00"]),IT:vt(["#009246","#fff","#CE2B37"]),BE:vt(["#000","#FAE042","#ED2939"]),NL:hz(["#AE1C28","#fff","#21468B"]),IE:vt(["#169B62","#fff","#FF883E"]),CH:`<rect width="60" height="40" fill="#DA291C"/><rect x="26" y="8" width="8" height="24" fill="#fff"/><rect x="18" y="16" width="24" height="8" fill="#fff"/>`,SE:nord("#006AA7","#FECC00"),FI:nord("#fff","#002F6C"),DK:nord("#C8102E","#fff"),NO:nord("#BA0C2F","#fff","#00205B"),UA:hz(["#0057B7","#FFD700"]),PL:hz(["#fff","#DC143C"]),AT:hz(["#C8102E","#fff","#C8102E"]),RU:hz(["#fff","#0039A6","#D52B1E"]),BD:`<rect width="60" height="40" fill="#006A4E"/><circle cx="27" cy="20" r="12" fill="#F42A41"/>`,MM:hz(["#FECB00","#34B233","#EA2839"])+star(30,22,13,"#fff"),CN:`<rect width="60" height="40" fill="#EE1C25"/>`+star(10,10,6,"#FFFF00")+star(20,4,2,"#FFFF00",20)+star(24,8,2,"#FFFF00",45)+star(24,14,2,"#FFFF00",0)+star(20,18,2,"#FFFF00",20),IN:hz(["#FF9933","#fff","#138808"])+`<circle cx="30" cy="20" r="5" fill="none" stroke="#000080" stroke-width="1.2"/><circle cx="30" cy="20" r="1" fill="#000080"/>`,PH:hz(["#0038A8","#CE1126"])+`<path d="M0 0L34.6 20L0 40Z" fill="#fff"/><circle cx="11.5" cy="20" r="4.2" fill="#FCD116"/>`+star(4,5,1.7,"#FCD116")+star(4,35,1.7,"#FCD116")+star(29,20,1.7,"#FCD116"),US:(()=>{let s="";for(let i=0;i<13;i++)s+=`<rect x="0" y="${(i*40/13).toFixed(2)}" width="60" height="${(40/13+.05).toFixed(2)}" fill="${i%2?"#fff":"#B22234"}"/>`;s+=`<rect width="24" height="${(40*7/13).toFixed(2)}" fill="#3C3B6E"/>`;for(let r=0;r<9;r++)for(let c=0;c<(r%2?5:6);c++)s+=`<circle cx="${(2+c*4+(r%2?2:0)).toFixed(1)}" cy="${(1.6+r*2.2).toFixed(1)}" r=".7" fill="#fff"/>`;return s})(),GB:`<rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="2.6"/><rect x="25" y="0" width="10" height="40" fill="#fff"/><rect x="0" y="15" width="60" height="10" fill="#fff"/><rect x="27" y="0" width="6" height="40" fill="#C8102E"/><rect x="0" y="17" width="60" height="6" fill="#C8102E"/>`};
+const flagSVG=(id,w=120)=>`<svg class="flag" viewBox="0 0 60 40" style="width:calc(${w}px*var(--k))">${FLAG[id]}<rect x=".3" y=".3" width="59.4" height="39.4" fill="none" stroke="rgba(0,0,0,.22)" stroke-width=".6"/></svg>`;
+/* id, th, fr, capitale th, capitale fr, continent */
+const CTRY=[["TH","ไทย","Thaïlande","กรุงเทพมหานคร","Bangkok","as"],["FR","ฝรั่งเศส","France","ปารีส","Paris","eu"],["JP","ญี่ปุ่น","Japon","โตเกียว","Tokyo","as"],["VN","เวียดนาม","Viêt Nam","ฮานอย","Hanoï","as"],["LA","ลาว","Laos","เวียงจันทน์","Vientiane","as"],["ID","อินโดนีเซีย","Indonésie",null,null,"as"],["DE","เยอรมนี","Allemagne","เบอร์ลิน","Berlin","eu"],["IT","อิตาลี","Italie","โรม","Rome","eu"],["BE","เบลเยียม","Belgique","บรัสเซลส์","Bruxelles","eu"],["NL","เนเธอร์แลนด์","Pays-Bas","อัมสเตอร์ดัม","Amsterdam","eu"],["IE","ไอร์แลนด์","Irlande","ดับลิน","Dublin","eu"],["CH","สวิตเซอร์แลนด์","Suisse","เบิร์น","Berne","eu"],["SE","สวีเดน","Suède","สตอกโฮล์ม","Stockholm","eu"],["FI","ฟินแลนด์","Finlande","เฮลซิงกิ","Helsinki","eu"],["DK","เดนมาร์ก","Danemark","โคเปนเฮเกน","Copenhague","eu"],["NO","นอร์เวย์","Norvège","ออสโล","Oslo","eu"],["UA","ยูเครน","Ukraine",null,null,"eu"],["PL","โปแลนด์","Pologne","วอร์ซอ","Varsovie","eu"],["AT","ออสเตรีย","Autriche","เวียนนา","Vienne","eu"],["RU","รัสเซีย","Russie","มอสโก","Moscou",null],["BD","บังกลาเทศ","Bangladesh","ธากา","Dacca","as"],["MM","เมียนมา","Birmanie","เนปิดอ","Naypyidaw","as"],["CN","จีน","Chine","ปักกิ่ง","Pékin","as"],["IN","อินเดีย","Inde","นิวเดลี","New Delhi","as"],["PH","ฟิลิปปินส์","Philippines","มะนิลา","Manille","as"],["US","สหรัฐอเมริกา","États-Unis","วอชิงตัน ดี.ซี.","Washington","an"],["GB","สหราชอาณาจักร","Royaume-Uni","ลอนดอน","Londres","eu"],
+ ["AU","ออสเตรเลีย","Australie","แคนเบอร์รา","Canberra","oc"],["CA","แคนาดา","Canada","ออตตาวา","Ottawa","an"],["BR","บราซิล","Brésil","บราซิเลีย","Brasília","as2"],["KR","เกาหลีใต้","Corée du Sud","โซล","Séoul","as"],["KH","กัมพูชา","Cambodge","พนมเปญ","Phnom Penh","as"],["MY","มาเลเซีย","Malaisie","กัวลาลัมเปอร์","Kuala Lumpur","as"],["ES","สเปน","Espagne","มาดริด","Madrid","eu"],["EG","อียิปต์","Égypte","ไคโร","Le Caire","af"]];
+const CT=Object.fromEntries(CTRY.map(c=>[c[0],c]));
+const CONT={as:["ทวีปเอเชีย","Asie"],eu:["ทวีปยุโรป","Europe"],an:["ทวีปอเมริกาเหนือ","Amérique du Nord"],as2:["ทวีปอเมริกาใต้","Amérique du Sud"],af:["ทวีปแอฟริกา","Afrique"],oc:["ทวีปออสเตรเลีย (โอเชียเนีย)","Océanie"]};
+const FL1=["TH","FR","JP","VN","LA","CN","IN","US","GB","DE","IT"],FL2=FL1.concat(["ID","BE","NL","IE","CH","MM","PH","BD","UA","PL"]),FL3=FL2.concat(["SE","FI","DK","NO","AT","RU"]);
+const CAP1=["FR","JP","CN","LA","VN","GB","KR","KH","MY"],CAP2=CAP1.concat(["DE","IT","IN","PH","MM","ES","EG","US","NL","BE"]),CAP3=CAP2.concat(["CH","AU","CA","BR","SE","FI","DK","NO","IE","PL","AT","BD","RU"]);
+const EX_FLAG=X("ดูสีและลวดลายของธง: แถบสีเรียงแนวนอนหรือแนวตั้ง มีดาว วงกลม หรือกากบาทไหม แล้วนึกว่าเคยเห็นธงนี้ที่ไหน","Observe les couleurs et les motifs : bandes horizontales ou verticales ? une étoile, un disque, une croix ? Puis demande-toi où tu as déjà vu ce drapeau.");
+function gFlags(d){
+ const T={1:["findth"],2:["name","flag"],3:["name","flag","cap"],4:["cap","cont","border","name"],5:["name","cap","flag","asean"],6:["cap","name","asean","border"]}[d];
+ const tp=pick(T),o={s:"flags",tp,d};const set=d<=2?FL1:d<=4?FL2:FL3,cset=d<=3?CAP1:d<=5?CAP2:CAP3;
+ const nm=c=>({h:c[1],f:c[2]}),fg=id=>({h:flagSVG(id,110),r:1});
+ if(tp==="findth"){const id=Math.random()<.65?"TH":"FR";Object.assign(o,{tp:"name",th:id==="TH"?"ธงชาติไทยคือผืนใด":"ธงชาติฝรั่งเศสคือผืนใด",fr:id==="TH"?"Quel est le drapeau de la Thaïlande ?":"Quel est le drapeau de la France ?",ex:id==="TH"?X("ธงชาติไทยเรียกว่าธงไตรรงค์ มี 3 สี: แดง ขาว น้ำเงิน แถบสีน้ำเงินอยู่ตรงกลางและกว้างที่สุด","Le drapeau thaï (ธงไตรรงค์) a 3 couleurs : rouge, blanc, bleu ; la bande bleue est au milieu et c'est la plus large."):X("ธงชาติฝรั่งเศสมี 3 สี เป็นแถบแนวตั้ง: น้ำเงิน ขาว แดง","Le drapeau français a 3 bandes verticales : bleu, blanc, rouge.")});return Q(o,fg(id),sample(FL1.filter(x=>x!=="TH"&&x!=="FR"&&x!=="NL"&&x!=="RU"),3).map(fg))}
+ if(tp==="name"){const id=pick(set.filter(x=>x!=="TH")),c=CT[id];Object.assign(o,{th:"นี่คือธงชาติของประเทศใด",fr:"De quel pays est ce drapeau ?",vis:flagSVG(id,200),ex:EX_FLAG});return Q(o,nm(c),sample(set.filter(x=>x!==id),3).map(x=>nm(CT[x])))}
+ if(tp==="flag"){const id=pick(set.filter(x=>x!=="TH")),c=CT[id];Object.assign(o,{th:`ธงชาติ${c[1]}คือผืนใด`,fr:`Quel est le drapeau : ${c[2]} ?`,ex:EX_FLAG});return Q(o,fg(id),sample(set.filter(x=>x!==id),3).map(fg))}
+ if(tp==="cap"){const id=pick(cset),c=CT[id];Object.assign(o,{th:`เมืองหลวงของประเทศ${c[1]}คือเมืองใด`,fr:`Quelle est la capitale : ${c[2]} ?`,vis:FLAG[id]?flagSVG(id,170):'<div class="big">🏙️</div>',ex:X("เมืองหลวงคือเมืองที่มีรัฐบาลของประเทศ เช่น กรุงเทพมหานครเป็นเมืองหลวงของไทย บางประเทศเมืองหลวงไม่ใช่เมืองที่ใหญ่ที่สุดนะ","La capitale est la ville où siège le gouvernement, comme Bangkok pour la Thaïlande. Attention : ce n'est pas toujours la plus grande ville !")});return Q(o,{h:c[3],f:c[4]},sample(cset.filter(x=>x!==id&&CT[x][3]),3).map(x=>({h:CT[x][3],f:CT[x][4]})))}
+ if(tp==="cont"){const id=pick(CTRY.filter(c=>c[5]&&(FLAG[c[0]]||d>=5)).map(c=>c[0])),c=CT[id],k=c[5];Object.assign(o,{th:`ประเทศ${c[1]}อยู่ในทวีปใด`,fr:`Sur quel continent est ce pays : ${c[2]} ?`,vis:FLAG[id]?flagSVG(id,170):"",ex:X("ไทย ญี่ปุ่น จีน อินเดีย อยู่ในเอเชีย ฝรั่งเศส เยอรมนี อิตาลี อยู่ในยุโรป สหรัฐอเมริกาและแคนาดาอยู่ในอเมริกาเหนือ","Thaïlande, Japon, Chine, Inde : Asie. France, Allemagne, Italie : Europe. États-Unis et Canada : Amérique du Nord.")});return Q(o,{h:CONT[k][0],f:CONT[k][1]},sample(Object.keys(CONT).filter(x=>x!==k),3).map(x=>({h:CONT[x][0],f:CONT[x][1]})))}
+ if(tp==="border"){const y=pick(["MM","LA","KH","MY"]);Object.assign(o,{th:"ประเทศใดมีพรมแดนติดกับประเทศไทย",fr:"Quel pays a une frontière avec la Thaïlande ?",vis:flagSVG("TH",150),ex:X("ประเทศไทยมีเพื่อนบ้านติดกัน 4 ประเทศ: เมียนมา (ตะวันตก) ลาว (ตะวันออกเฉียงเหนือ) กัมพูชา (ตะวันออก) และมาเลเซีย (ใต้)","La Thaïlande a 4 voisins : la Birmanie (ouest), le Laos (nord-est), le Cambodge (est) et la Malaisie (sud).")});return Q(o,nm(CT[y]),sample(["VN","JP","CN","IN","PH","ID","KR"],3).map(x=>nm(CT[x])))}
+ const y=pick(["LA","VN","KH","MY","MM","PH","ID"]);Object.assign(o,{tp:"asean",th:"ประเทศใดเป็นสมาชิกอาเซียน",fr:"Quel pays fait partie de l'ASEAN ?",vis:'<div class="big">🤝</div>',ex:X("อาเซียนคือกลุ่มประเทศในเอเชียตะวันออกเฉียงใต้ที่ร่วมมือกัน เช่น ไทย ลาว เวียดนาม กัมพูชา เมียนมา มาเลเซีย สิงคโปร์ อินโดนีเซีย ฟิลิปปินส์ บรูไน","L'ASEAN réunit des pays d'Asie du Sud-Est qui coopèrent : Thaïlande, Laos, Viêt Nam, Cambodge, Birmanie, Malaisie, Singapour, Indonésie, Philippines, Brunei…")});return Q(o,nm(CT[y]),sample(["JP","CN","IN","KR","AU","FR"],3).map(x=>nm(CT[x])))}
+
+/* ================= défis (niveau 6) pour les matières existantes ================= */
+const PROV=[["น้ำขึ้นให้รีบตัก","มีโอกาสดีต้องรีบทำ","profiter de l'occasion quand elle se présente","ทำงานช้า ๆ ดีกว่า","อย่าเล่นน้ำ"],["ไก่ได้พลอย","ได้ของมีค่าแต่ไม่รู้คุณค่า","avoir un trésor sans en connaître la valeur","ไก่ชอบกินพลอย","ได้ของขวัญวันเกิด"],["ขี่ช้างจับตั๊กแตน","ลงทุนมากแต่ได้ผลนิดเดียว","faire beaucoup d'efforts pour un tout petit résultat","ช้างชอบกินตั๊กแตน","เล่นกับสัตว์ให้สนุก"],["กระต่ายตื่นตูม","ตกใจง่ายโดยไม่ตรวจสอบให้ดี","s'affoler sans vérifier","กระต่ายวิ่งเร็วมาก","ตื่นนอนแต่เช้า"],["ปิดทองหลังพระ","ทำความดีโดยไม่หวังให้ใครเห็น","faire le bien sans chercher à être vu","ทาสีวัดให้สวย","ซ่อนของมีค่าไว้"],["หนีเสือปะจระเข้","หนีอันตรายหนึ่งแล้วไปเจออีกอันตรายหนึ่ง","échapper à un danger pour tomber dans un autre","ไปเที่ยวสวนสัตว์","เสือกับจระเข้เป็นเพื่อนกัน"]];
+
+/* ================= explications (bouton ?) ================= */
+const tipAdd=q=>{const o=opOf(q);if(!o)return TIPS0.math;const [a,op,b]=o;
+ if(op==="+"){if(a+b<=20)return X(`เริ่มที่เลขที่มากกว่า (${Math.max(a,b)}) แล้วนับต่อไปอีก ${Math.min(a,b)} ครั้ง ใช้นิ้วช่วยนับได้`,`Pars du plus grand nombre (${Math.max(a,b)}) et compte encore ${Math.min(a,b)} fois sur tes doigts.`);
+  if(a%10===0&&b%10===0)return X(`${a} คือ ${a/10} สิบ และ ${b} คือ ${b/10} สิบ ลองบวกจำนวนสิบเข้าด้วยกัน`,`${a}, c'est ${a/10} dizaines ; ${b}, c'est ${b/10} dizaines : additionne les dizaines.`);
+  const u=a%10+b%10;return X(`ตั้งหลักให้ตรงกัน แล้วบวกหลักหน่วยก่อน: ${a%10} + ${b%10} = ${u}${u>=10?` เขียน ${u%10} แล้วทด 1 ไปหลักสิบ`:""} จากนั้นบวกหลักสิบ${a>=100||b>=100?" แล้วหลักร้อย":""}`,`Aligne les chiffres et commence par les unités : ${a%10} + ${b%10} = ${u}${u>=10?` ; on écrit ${u%10} et on retient 1 dizaine`:""}. Puis les dizaines${a>=100||b>=100?", puis les centaines":""}.`)}
+ if(op==="−"){if(a<=20)return X(`เริ่มที่ ${a} แล้วนับถอยหลัง ${b} ครั้ง หรือคิดว่า ${b} ต้องบวกอีกเท่าไรจึงได้ ${a}`,`Pars de ${a} et recule de ${b}, ou cherche combien il faut ajouter à ${b} pour faire ${a}.`);
+  const ua=a%10,ub=b%10;return ua<ub?X(`ตั้งหลักให้ตรงกัน หลักหน่วย ${ua} ลบ ${ub} ไม่ได้ ให้ยืม 1 สิบจากหลักสิบมาเป็น ${ua+10} แล้ว ${ua+10} − ${ub} = ${ua+10-ub} อย่าลืมว่าหลักสิบเหลือน้อยลง 1`,`Aligne les chiffres. Aux unités, ${ua} − ${ub} est impossible : on emprunte 1 dizaine, ce qui fait ${ua+10} ; ${ua+10} − ${ub} = ${ua+10-ub}. La dizaine du haut a maintenant 1 de moins.`):X(`ตั้งหลักให้ตรงกัน ลบหลักหน่วยก่อน: ${ua} − ${ub} = ${ua-ub} แล้วลบหลักสิบ${a>=100?" และหลักร้อย":""}`,`Aligne les chiffres et commence par les unités : ${ua} − ${ub} = ${ua-ub}, puis les dizaines${a>=100?" et les centaines":""}.`)}
+ return TIPS0.math};
+const tipMul=q=>{const o=opOf(q);if(!o)return TIPS0.math;const [a,,b]=o;
+ if(a>=10&&b>=10){const t=b-b%10,u=b%10;return X(`แยก ${b} เป็น ${t} + ${u}: คิด ${a} × ${t} และ ${a} × ${u} แล้วนำผลมาบวกกัน`,`Décompose ${b} en ${t} + ${u} : calcule ${a} × ${t} et ${a} × ${u}, puis additionne les deux.`)}
+ if(a>10){const t=a-a%10,u=a%10;return X(`แยก ${a} เป็น ${t} + ${u}: ${t} × ${b} = ${t*b} และ ${u} × ${b} = ${u*b} แล้วนำมาบวกกัน`,`Décompose ${a} en ${t} + ${u} : ${t} × ${b} = ${t*b} et ${u} × ${b} = ${u*b}, puis additionne.`)}
+ if(a===10||b===10)return X("การคูณด้วย 10 ทำได้ง่าย ๆ: เติม 0 หนึ่งตัวต่อท้ายเลขอีกตัว","Multiplier par 10, c'est facile : on ajoute un 0 à la fin de l'autre nombre.");
+ const n=Math.min(a,b),v=Math.max(a,b);return X(`การคูณคือการบวกซ้ำ: ${a} × ${b} คือ ${Array(n).fill(v).join(" + ")} ลองบวกทีละขั้น`,`Multiplier, c'est additionner plusieurs fois : ${a} × ${b} = ${Array(n).fill(v).join(" + ")}. Additionne pas à pas.`)};
+const tipDiv=q=>{const o=opOf(q);if(!o)return TIPS0.math;const [a,,b]=o;return a>=100?X(`แบ่ง ${a} ออกเป็น ${b} ส่วนเท่า ๆ กัน: แบ่งหลักร้อยและหลักสิบก่อน แล้วแบ่งส่วนที่เหลือ หรือถามตัวเองว่า ${b} × ? = ${a}`,`Partage ${a} en ${b} parts égales : d'abord les centaines et les dizaines, puis le reste. Ou cherche ${b} × ? = ${a}.`):X(`การหารคือการแบ่งเท่า ๆ กัน: ${a} ÷ ${b} ถามว่า ${b} × อะไร = ${a} ลองท่องสูตรคูณแม่ ${b}`,`Diviser, c'est partager équitablement : pour ${a} ÷ ${b}, cherche ${b} × ? = ${a}. Récite la table de ${b}.`)};
+const COLMN="ดำ 0 · น้ำตาล 1 · แดง 2 · ส้ม 3 · เหลือง 4 · เขียว 5 · น้ำเงิน 6 · ม่วง 7 · เทา 8 · ขาว 9",COLMNF="noir 0 · marron 1 · rouge 2 · orange 3 · jaune 4 · vert 5 · bleu 6 · violet 7 · gris 8 · blanc 9";
+const TIPS0={_:X("อ่านคำถามช้า ๆ ทีละคำ ดูภาพให้ดี แล้วตัดคำตอบที่แน่ใจว่าผิดออกก่อน","Lis la question lentement, regarde bien l'image, puis élimine d'abord les réponses sûrement fausses."),
+ math:X("ลองใช้นิ้วหรือสิ่งของช่วยนับ หรือวาดภาพบนกระดาษช่วยคิด","Aide-toi de tes doigts ou d'objets pour compter, ou fais un petit dessin."),
+ thai:X("อ่านออกเสียงช้า ๆ ทีละพยางค์ แล้วฟังว่าเสียงตรงกับคำตอบไหน","Lis à voix haute, lentement, syllabe par syllabe, et écoute quelle réponse correspond."),
+ sci:X("นึกถึงสิ่งที่เคยเห็นในชีวิตจริง ที่บ้าน ที่โรงเรียน หรือในธรรมชาติ","Pense à ce que tu as déjà vu dans la vraie vie : à la maison, à l'école, dans la nature."),
+ world:X("นึกถึงสิ่งที่พบรอบตัว ในเมือง ในปฏิทิน และบนแผนที่","Pense à ce qui t'entoure : la ville, le calendrier, la carte."),
+ health:X("คิดว่าทำแบบไหนจึงปลอดภัยและดีต่อร่างกาย ถ้าไม่แน่ใจ ให้ถามผู้ใหญ่ที่ไว้ใจเสมอ","Demande-toi ce qui est sûr et bon pour le corps ; en cas de doute, on demande toujours à un adulte de confiance."),
+ logic:X("หากฎที่ซ่อนอยู่: อะไรซ้ำ อะไรเพิ่มขึ้น อะไรไม่เหมือนพวก","Cherche la règle cachée : ce qui se répète, ce qui augmente, ce qui est différent."),
+ fr:X("กดฟังอีกครั้ง แล้วพูดตามช้า ๆ","Réécoute et répète doucement."),en:X("กดฟังอีกครั้ง แล้วพูดตามช้า ๆ","Réécoute et répète doucement."),
+ elec:X("ใช้ปุ่ม 📋 ตารางสี: "+COLMN,"Utilise le bouton 📋 : "+COLMNF),
+ code:EX_ARROWS,circ:C_LIT,music:X("กดปุ่มฟังเสียงอีกครั้ง หลับตาแล้วตั้งใจฟัง","Réécoute en fermant les yeux pour bien te concentrer."),
+ measure:X("ดูขีดบนเครื่องวัดให้ดี: ขีดยาวมีตัวเลขกำกับ ขีดสั้นอยู่ระหว่างตัวเลข นับขีดจากตัวเลขที่ใกล้ที่สุด","Regarde bien les graduations : les grands traits ont un nombre, les petits sont entre les deux. Compte à partir du nombre le plus proche."),
+ flags:EX_FLAG};
+const TIPS={
+ math:{count:X("ชี้ทีละอันแล้วนับ 1, 2, 3 … ให้ทุกอันถูกนับแค่ครั้งเดียว","Montre chaque objet du doigt en comptant 1, 2, 3… chacun une seule fois."),
+  add1:X("นับกลุ่มแรก แล้วนับต่อในกลุ่มที่สองโดยไม่ต้องเริ่มใหม่","Compte le premier groupe, puis continue de compter dans le second sans recommencer."),
+  shape:X("นับด้านและมุม: สามเหลี่ยมมี 3 ด้าน สี่เหลี่ยมจัตุรัสมี 4 ด้านยาวเท่ากัน สี่เหลี่ยมผืนผ้ามีด้านยาว 2 ด้าน ด้านสั้น 2 ด้าน วงกลมและวงรีไม่มีมุม","Compte les côtés : triangle 3 ; carré 4 côtés égaux ; rectangle 2 longs et 2 courts ; cercle et ovale n'ont pas de coin."),
+  big:X("เลขที่อยู่ไกลจาก 0 มากที่สุดคือเลขที่มากที่สุด ลองนับ 1 ถึง 10 แล้วดูว่าเลขไหนมาทีหลังสุด","Le plus grand nombre est le plus loin de 0 : compte de 1 à 10 et regarde lequel vient en dernier."),
+  add20:tipAdd,sub20:tipAdd,tens:tipAdd,addc:tipAdd,subc:tipAdd,add3:tipAdd,add3c:tipAdd,
+  next:X("เลขที่อยู่ถัดไปคือ +1 เลขที่อยู่ก่อนหน้าคือ −1 ระวังเมื่อหลักหน่วยเป็น 9 หรือ 0","Le suivant, c'est +1 ; le précédent, c'est −1. Attention quand l'unité est 9 ou 0."),
+  place:X("เลขสองหลัก: ตัวซ้ายคือหลักสิบ ตัวขวาคือหลักหน่วย เช่น 47 = 4 สิบ กับ 7 หน่วย","Dans un nombre à deux chiffres, celui de gauche est la dizaine, celui de droite l'unité : 47 = 4 dizaines et 7 unités."),
+  mul:tipMul,mult:tipMul,mul2:tipMul,mulbig:tipMul,div:tipDiv,div3:tipDiv,
+  clock:X("เข็มสั้นบอกชั่วโมง เข็มยาวบอกนาที เข็มยาวชี้เลข 12 แปลว่าตรง (:00) ชี้เลข 6 แปลว่า 30 นาที","L'aiguille courte donne l'heure, la longue les minutes : sur le 12 = « pile » (:00), sur le 6 = 30 minutes."),
+  clock2:X("เข็มยาวเดินช่องละ 5 นาที: เลข 1 = 5 นาที เลข 2 = 10 นาที … เลข 9 = 45 นาที เข็มสั้นบอกชั่วโมงที่เพิ่งผ่านมา","La grande aiguille avance de 5 minutes par chiffre : 1 = 5 min, 2 = 10 min… 9 = 45 min. La petite indique l'heure qu'elle vient de passer."),
+  money:X("เริ่มจากธนบัตรหรือเหรียญที่มีค่ามากที่สุด แล้วบวกเพิ่มทีละอัน","Commence par le billet ou la pièce qui vaut le plus, puis ajoute les autres un par un."),
+  word:X("หาคำสำคัญในโจทย์: “ซื้อเพิ่ม” หรือ “ทั้งหมด” = บวก, “ให้ไป” “เหลือ” “ลงไป” = ลบ, “แต่ละ…มี” = คูณ, “แบ่งเท่า ๆ กัน” = หาร วาดภาพช่วยคิดได้","Cherche les mots-clés : « en plus / en tout » = addition ; « donne / reste / descendent » = soustraction ; « chacun a » = multiplication ; « partager » = division. Un dessin aide !"),
+  frac:X("ตัวส่วน (เลขล่าง) คือจำนวนชิ้นทั้งหมด ตัวเศษ (เลขบน) คือจำนวนชิ้นที่ระบายสี","Le dénominateur (en bas) = toutes les parts ; le numérateur (en haut) = les parts coloriées."),
+  fracadd:X("ถ้าตัวส่วนเท่ากัน ให้บวกเฉพาะตัวเศษ ตัวส่วนเหมือนเดิม เช่น 1/5 + 2/5 = 3/5","Si les dénominateurs sont égaux, on additionne seulement les numérateurs : 1/5 + 2/5 = 3/5."),
+  area:X("นับช่องสี่เหลี่ยมทั้งหมด หรือใช้วิธีเร็ว: จำนวนช่องในหนึ่งแถว × จำนวนแถว","Compte tous les carreaux, ou plus vite : carreaux d'une ligne × nombre de lignes."),
+  change:X("เงินทอน = เงินที่จ่าย − ราคาของ ลองนับเพิ่มจากราคาขึ้นไปจนถึงเงินที่จ่าย","Monnaie rendue = somme payée − prix. Compte depuis le prix jusqu'à la somme payée."),
+  neg:X("บนเส้นจำนวน เริ่มที่เลขแรกแล้วถอยไปทางซ้ายตามจำนวนที่ลบ ถ้าเลย 0 ไปจะได้จำนวนลบ เช่น 3 − 5 = −2","Sur la ligne des nombres, pars du premier et recule ; si tu dépasses 0, tu obtiens un nombre négatif : 3 − 5 = −2.")},
+ thai:{init:X("ฟังเสียงแรกของคำ เช่น ไก่ ขึ้นต้นด้วยเสียง ก แล้วหาพยัญชนะที่มีเสียงเดียวกัน","Écoute le premier son du mot (ไก่ commence par ก) et cherche la consonne qui fait ce son."),
+  initpic:X("พูดชื่อภาพแต่ละภาพออกมาดัง ๆ แล้วฟังเสียงแรก","Dis le nom de chaque image à voix haute et écoute le premier son."),
+  listen:X("กดฟังอีกครั้ง ฟังเสียงพยัญชนะต้นและสระ แล้วเลือกคำที่อ่านออกเสียงเหมือนกัน","Réécoute, repère la consonne et la voyelle, puis choisis le mot qui se lit pareil."),
+  picword:X("ดูภาพแล้วพูดชื่อออกมาดัง ๆ จากนั้นหาคำที่ขึ้นต้นด้วยเสียงเดียวกัน","Dis le nom de l'image à voix haute, puis cherche le mot qui commence par ce son."),
+  anto:X("คำตรงข้ามคือคำที่มีความหมายกลับกัน เช่น ร้อน กับ เย็น ใหญ่ กับ เล็ก","Un contraire a le sens opposé : chaud et froid, grand et petit."),
+  spell:X("อ่านทุกคำออกเสียงช้า ๆ ดูพยัญชนะ สระ ตัวสะกด และวรรณยุกต์ให้ครบ คำที่เขียนถูกจะอ่านแล้วมีความหมาย","Lis chaque mot lentement en vérifiant consonnes, voyelles, finale et ton : le bon mot a un sens quand on le lit."),
+  tone:X("ดูเครื่องหมายบนพยัญชนะ: ่ ไม้เอก ้ ไม้โท ๊ ไม้ตรี ๋ ไม้จัตวา ถ้าไม่มีเลย คือไม่มีรูปวรรณยุกต์","Regarde le signe au-dessus de la consonne : ่ ไม้เอก, ้ ไม้โท, ๊ ไม้ตรี, ๋ ไม้จัตวา ; sans signe : aucun."),
+  read:X("อ่านเรื่องอีกครั้งช้า ๆ หาคำในคำถาม (ใคร ที่ไหน ทำไม กี่) แล้วหาคำตอบในเรื่อง","Relis l'histoire lentement, repère le mot de la question (qui, où, pourquoi, combien) et cherche la réponse dans le texte."),
+  mat:X("ดูตัวสะกดท้ายคำ: ก = แม่กก ง = แม่กง ด = แม่กด น = แม่กน บ = แม่กบ ม = แม่กม ย = แม่เกย ว = แม่เกอว","Regarde la consonne finale : ก = แม่กก, ง = แม่กง, ด = แม่กด, น = แม่กน, บ = แม่กบ, ม = แม่กม, ย = แม่เกย, ว = แม่เกอว."),
+  mat2:X("ตัวสะกดไม่ตรงมาตรา: ข ค ฆ เป็นแม่กก · จ ช ซ ฎ ฏ ฐ ฑ ฒ ต ถ ท ธ ศ ษ ส เป็นแม่กด · ญ ณ ร ล ฬ เป็นแม่กน · ป พ ฟ ภ เป็นแม่กบ","Finales irrégulières : ข ค ฆ → แม่กก ; จ ช ซ ฎ ฏ ฐ ฑ ฒ ต ถ ท ธ ศ ษ ส → แม่กด ; ญ ณ ร ล ฬ → แม่กน ; ป พ ฟ ภ → แม่กบ."),
+  mu:X("อักษรกลาง 9 ตัว: ก จ ฎ ฏ ด ต บ ป อ (ไก่จิกเด็กตายบนปากโอ่ง) อักษรสูง 11 ตัว: ข ฃ ฉ ฐ ถ ผ ฝ ศ ษ ส ห (ผีฝากถุงข้าวสารให้ฉัน) ตัวที่เหลือเป็นอักษรต่ำ","Classe moyenne (9) : ก จ ฎ ฏ ด ต บ ป อ (« ไก่จิกเด็กตายบนปากโอ่ง ») ; classe haute (11) : ข ฃ ฉ ฐ ถ ผ ฝ ศ ษ ส ห (« ผีฝากถุงข้าวสารให้ฉัน ») ; les autres sont de classe basse."),
+  proverb:X("สำนวนไม่ได้แปลตรงตัว ให้นึกภาพเรื่องในสำนวน แล้วคิดว่าเหมือนเหตุการณ์ใดในชีวิตจริง","Une expression ne se comprend pas mot à mot : imagine la scène, puis à quelle situation de la vie elle ressemble.")},
+ sci:{animaux:X("นึกภาพสัตว์ตัวนั้น: มันอาศัยอยู่ที่ไหน กินอะไร มีกี่ขา และเคลื่อนที่อย่างไร","Imagine l'animal : où vit-il, que mange-t-il, combien de pattes a-t-il, comment se déplace-t-il ?"),
+  corps:X("ลองใช้ร่างกายของเราเองทดลอง เช่น ปิดตา ปิดหู หรือบีบจมูก แล้วสังเกตว่าอะไรเปลี่ยนไป","Fais l'essai avec ton corps : ferme les yeux, bouche tes oreilles ou ton nez, et observe ce qui change."),
+  terre:X("ดวงอาทิตย์ให้แสงและความร้อน โลกหมุนรอบตัวเองจึงมีกลางวันและกลางคืน","Le Soleil donne lumière et chaleur ; la Terre tourne sur elle-même, d'où le jour et la nuit."),
+  plantes:X("พืชต้องการน้ำ แสงแดด อากาศ และดิน รากดูดน้ำ ใบสร้างอาหาร","Une plante a besoin d'eau, de soleil, d'air et de terre ; les racines boivent, les feuilles fabriquent la nourriture."),
+  vivant:X("สิ่งมีชีวิตกินอาหาร หายใจ เติบโต และมีลูกได้ สิ่งไม่มีชีวิตทำแบบนี้ไม่ได้","Un être vivant mange, respire, grandit et peut avoir des petits ; un objet ne le peut pas."),
+  matiere:X("สสารมี 3 สถานะ: ของแข็ง ของเหลว แก๊ส ความร้อนทำให้น้ำแข็งละลายเป็นน้ำ และทำให้น้ำกลายเป็นไอ","La matière a 3 états : solide, liquide, gaz. La chaleur fait fondre la glace et transforme l'eau en vapeur."),
+  energie:X("พลังงานมีหลายแบบ: แสง เสียง ความร้อน ไฟฟ้า เสียงเกิดจากการสั่น แสงเดินทางเป็นเส้นตรง","Il y a plusieurs énergies : lumière, son, chaleur, électricité. Le son vient d'une vibration, la lumière va en ligne droite."),
+  espace:X("ระบบสุริยะมีดวงอาทิตย์อยู่ตรงกลาง และมีดาวเคราะห์ 8 ดวงโคจรรอบ","Le système solaire a le Soleil au centre et 8 planètes qui tournent autour.")},
+ world:{regles:X("คิดว่าทำแบบไหนจึงปลอดภัย สุภาพ และไม่ทำให้คนอื่นเดือดร้อน","Demande-toi ce qui est sûr, poli, et ne gêne pas les autres."),
+  metiers:X("นึกถึงคนที่เราพบ: ใครทำงานที่โรงพยาบาล ในนา หรือที่สถานีตำรวจ","Pense aux gens que tu croises : qui travaille à l'hôpital, dans la rizière, au commissariat ?"),
+  thai:X("นึกถึงสัญลักษณ์ของประเทศไทย: ธงไตรรงค์ ช้าง ดอกราชพฤกษ์ และกรุงเทพมหานคร","Pense aux symboles de la Thaïlande : le drapeau tricolore, l'éléphant, la fleur de Ratchaphruek, Bangkok."),
+  calendrier:X("หนึ่งสัปดาห์มี 7 วัน หนึ่งปีมี 12 เดือน ลองท่องชื่อเดือนตามลำดับ","Une semaine a 7 jours, une année 12 mois : récite les mois dans l'ordre."),
+  france:X("ฝรั่งเศสอยู่ทวีปยุโรป เมืองหลวงคือปารีส ธงมีสีน้ำเงิน ขาว แดง","La France est en Europe ; sa capitale est Paris ; son drapeau est bleu, blanc, rouge."),
+  geo:X("นึกภาพแผนที่: ดวงอาทิตย์ขึ้นทางทิศตะวันออก ไทยอยู่ในเอเชีย มีเพื่อนบ้านคือเมียนมา ลาว กัมพูชา และมาเลเซีย","Imagine la carte : le soleil se lève à l'est ; la Thaïlande est en Asie, avec la Birmanie, le Laos, le Cambodge et la Malaisie pour voisins.")},
+ logic:{pat:X("ดูว่าอะไรซ้ำกัน หาชุดที่วนกลับมาใหม่ แล้วต่อชุดนั้นไปอีก","Regarde ce qui se répète, trouve le motif qui revient, puis continue-le."),
+  odd:X("หาว่า 3 อันเป็นพวกเดียวกันเพราะอะไร (ผลไม้ สัตว์ ยานพาหนะ…) อันที่ไม่ใช่พวกนั้นคือคำตอบ","Trouve pourquoi trois vont ensemble (fruits, animaux, véhicules…) : celui qui n'en fait pas partie est la réponse."),
+  seq:X("ดูว่าแต่ละตัวเพิ่มขึ้นหรือลดลงเท่าไร ลองลบเลขที่อยู่ติดกัน ถ้าไม่เท่ากัน ลองดูว่าเพิ่มทีละมากขึ้นหรือคูณ","Regarde de combien chaque nombre augmente ou diminue : fais la différence entre voisins. Si elle change, l'écart grandit peut-être, ou on multiplie."),
+  puzzle:X("วาดเส้นเรียงลำดับ: วางคนที่มากกว่าไว้ด้านบน ทีละคู่ แล้วดูว่าใครอยู่บนสุดหรือล่างสุด","Dessine une échelle : place le « plus » au-dessus, paire par paire, puis regarde qui est tout en haut ou tout en bas.")},
+ fr:{word:X("กดฟังอีกครั้ง พูดตามช้า ๆ แล้วนึกภาพของคำนั้น","Réécoute, répète doucement le mot et imagine-le."),num:X("นับนิ้วเป็นภาษาฝรั่งเศส: un, deux, trois, quatre, cinq…","Compte sur tes doigts : un, deux, trois, quatre, cinq…"),phrase:X("นึกว่าเราจะพูดประโยคนี้ตอนไหน เช่น ตอนเจอเพื่อน ตอนได้รับของ หรือตอนเข้านอน","Pense à quand on dit cette phrase : en rencontrant quelqu'un, en recevant un cadeau, au coucher…"),sent:X("ฟังตัวเลขก่อน แล้วฟังชื่อสิ่งของ จากนั้นนับภาพในแต่ละคำตอบ","Écoute d'abord le nombre, puis l'objet, et compte les images de chaque réponse."),read:X("อ่านทีละตัวอักษร ลองออกเสียง แล้วกดฟังเพื่อตรวจ","Lis lettre par lettre, essaie de prononcer, puis écoute pour vérifier.")},
+ en:{word:X("กดฟังอีกครั้ง พูดตามช้า ๆ แล้วนึกภาพของคำนั้น","Réécoute, répète doucement le mot et imagine-le."),num:X("นับนิ้วเป็นภาษาอังกฤษ: one, two, three, four, five…","Compte sur tes doigts : one, two, three, four, five…"),phrase:X("นึกว่าเราจะพูดประโยคนี้ตอนไหน เช่น ตอนเจอเพื่อน ตอนได้รับของ หรือตอนเข้านอน","Pense à quand on dit cette phrase : en rencontrant quelqu'un, en recevant un cadeau, au coucher…"),sent:X("ฟังตัวเลขก่อน แล้วฟังชื่อสิ่งของ จากนั้นนับภาพในแต่ละคำตอบ","Écoute d'abord le nombre, puis l'objet, et compte les images de chaque réponse."),read:X("อ่านทีละตัวอักษร ลองออกเสียง แล้วกดฟังเพื่อตรวจ","Lis lettre par lettre, essaie de prononcer, puis écoute pour vérifier.")},
+ elec:{c2d:X("จำสีเรียงจาก 0 ถึง 9: "+COLMN,"Retiens l'ordre des couleurs de 0 à 9 : "+COLMNF),d2c:X("จำสีเรียงจาก 0 ถึง 9: "+COLMN,"Retiens l'ordre des couleurs de 0 à 9 : "+COLMNF),
+  val2:X("แถบที่ 1 คือเลขตัวแรก แถบที่ 2 คือเลขตัวที่สอง แถบที่ 3 สีดำแปลว่าไม่ต้องเติม 0","1re bande = 1er chiffre, 2e bande = 2e chiffre ; une 3e bande noire veut dire : pas de zéro à ajouter."),
+  mult:X("แถบที่ 3 บอกจำนวนเลข 0 ที่ต้องเติม: ดำ 0 ตัว น้ำตาล 1 ตัว แดง 2 ตัว ส้ม 3 ตัว เหลือง 4 ตัว","La 3e bande donne le nombre de zéros : noir 0, marron 1, rouge 2, orange 3, jaune 4."),
+  val3:X("เขียนเลขสองตัวแรก แล้วเติม 0 ตามแถบที่ 3 ถ้าได้ 1,000 ขึ้นไป หารด้วย 1,000 เป็นกิโลโอห์ม (kΩ)","Écris les deux premiers chiffres puis ajoute les zéros de la 3e bande ; à partir de 1 000, divise par 1 000 pour avoir des kΩ."),
+  tol:X("แถบที่ 4 สีทอง ±5% สีเงิน ±10% บอกว่าค่าจริงอาจคลาดเคลื่อนได้เท่าไร","4e bande : or ±5 %, argent ±10 % : c'est l'écart possible avec la vraie valeur."),
+  find:X("แปลงค่าเป็นตัวเลขก่อน เช่น 4.7 kΩ = 4,700 Ω คือ 4 กับ 7 แล้วเติม 0 อีก 2 ตัว จึงเป็น เหลือง ม่วง แดง","Convertis d'abord : 4,7 kΩ = 4 700 Ω, soit 4 et 7 puis 2 zéros : jaune, violet, rouge.")}};
+function explain(q){if(q.ex)return q.ex;const t=(TIPS[q.s]||{})[q.tp];if(t)return typeof t==="function"?t(q):t;return TIPS0[q.s]||TIPS0._}
+
+/* ================= paliers des matières en étapes ================= */
+const STEPS={fr:[LANGLV,LANGLV_TH],en:[LANGLV,LANGLV_TH],elec:[ELECLV,ELECLV_TH],
+ code:[["Directions","Programmes","Obstacles","Boucles","Débogage"],["ทิศทาง","เขียนโปรแกรม","หลบสิ่งกีดขวาง","การทำซ้ำ","หาจุดผิด"]],
+ circ:[["Allumé ou éteint","Conducteurs","Circuits","Piles et ampoules","Loi d'Ohm"],["ไฟติดหรือไม่","ตัวนำไฟฟ้า","วงจรไฟฟ้า","ถ่านและหลอดไฟ","กฎของโอห์ม"]],
+ music:[["Aigu ou grave","Rythme","Notes","Valeurs de notes","Mélodies"],["เสียงสูงต่ำ","จังหวะ","ตัวโน้ต","ค่าตัวโน้ต","ทำนอง"]],
+ health:[["Hygiène","Alimentation","Sécurité","Corps et émotions","Premiers secours"],["สุขอนามัย","อาหาร","ความปลอดภัย","ร่างกายและอารมณ์","การปฐมพยาบาล"]],
+ measure:[["Comparer","Règle et thermomètre","Balances et unités","Instruments de bord","Pilote"],["เปรียบเทียบ","ไม้บรรทัดและเทอร์โมมิเตอร์","ตาชั่งและหน่วย","เครื่องวัดในเครื่องบิน","นักบิน"]],
+ flags:[["Drapeau thaï","Drapeaux","Capitales","Continents","Monde entier"],["ธงชาติไทย","ธงชาติ","เมืองหลวง","ทวีป","รอบโลก"]]};
+const MIXS=["math","thai","sci","world","logic","fr","en"];
+
+function gen(s,d){if(s==="math")return gMath(d);if(s==="thai")return gThai(d);if(s==="sci"||s==="world"||s==="health")return gBank(s,d);if(s==="logic")return gLogic(d);if(s==="elec")return gElec(d);if(s==="code")return gCode(d);if(s==="circ")return gCirc(d);if(s==="music")return gMusic(d);if(s==="measure")return gMeas(d);if(s==="flags")return gFlags(d);return gLang(s,d)}
+function pickD(s){const k=S.skill[s];let d=Math.round(k+(Math.random()<.25?.8:0)-(Math.random()<.2?.8:0));d=clamp(d,1,5);if((k>4.4&&Math.random()<.3)||k>5.6)d=6;return d}
 const recent=new Set();
 function nextQ(s){let q;for(let i=0;i<8;i++){q=gen(s,pickD(s));const key=s+q.th+q.vis+(q.sayL||"");if(!recent.has(key)){recent.add(key);if(recent.size>60)recent.delete(recent.values().next().value);break}}return q}
 
 /* ================= rendu d'une carte question ================= */
 const PRAISE=[["เก่งมาก!","Bravo !"],["ถูกต้อง!","C'est juste !"],["ยอดเยี่ยม!","Excellent !"],["สุดยอดเลย!","Super !"]];
 function showQ(box,q,onDone,headExtra=""){
- const sb=SUB[q.s];const showFr=S.cfg.showFr;
+ const sb=SUB[q.s];const showFr=S.cfg.showFr,pc=DEV()==="pc";
  const thBtn=`<button data-say="th">${SPK} ฟัง</button>`;
  const lBtn=q.sayL?`<button data-say="L">${SPK} ${q.s==="fr"?"Français":"English"}</button>`:"";
+ const sBtn=q.snd?`<button data-snd="1">🎵 ฟังเสียงดนตรี</button>`:"";
  const help=q.s==="elec"?`<button data-help="1">📋 ตารางสี</button>`:"";
- box.innerHTML=`<div class="qcard"><div class="qhead" style="background:${sb.col}"><span>${sb.th} <small style="opacity:.85">· ${sb.fr}</small></span><span>${sb.age?GRADES[q.d-1]:"ขั้น "+q.d}${headExtra}</span></div><div class="qbody">
+ const lvl=q.d>=6?"⭐ ท้าทาย":sb.age?GRADES[q.d-1]:"ขั้น "+q.d;
+ const typed=pc&&typeof q.num==="number"&&(q.s==="math"||q.s==="logic"||q.s==="measure")&&Math.random()<.4;
+ const [eth,efr]=explain(q);
+ box.innerHTML=`<div class="qcard"><div class="qhead" style="background:${sb.col}"><span>${sb.th} <small style="opacity:.85">· ${sb.fr}</small></span><span class="qhr">${lvl}${headExtra}<button class="qhelp" data-ex="1" aria-label="Explication" title="ครูช่วยอธิบาย · explication">?</button></span></div><div class="qbody">
+ ${q.d>=6?`<div class="defi">⭐ โจทย์ท้าทาย เกินหลักสูตร <span class="fr">· défi au-delà du programme</span></div>`:""}
  ${q.vis?`<div class="vis">${q.vis}</div>`:""}<div class="qth">${q.th}</div>${showFr&&q.fr?`<div class="qfr fr">${esc(q.fr)}</div>`:""}
- <div class="say">${q.sayOnly?"":thBtn}${q.sayOnly?`<button data-say="th">${SPK} ฟังอีกครั้ง</button>`:""}${lBtn}${help}</div>
+ <div class="say">${q.sayOnly?"":thBtn}${q.sayOnly?`<button data-say="th">${SPK} ฟังอีกครั้ง</button>`:""}${lBtn}${sBtn}${help}</div>
  ${help?`<div class="rhelp hide">${colorTable()}</div>`:""}
- <div class="chs">${q.ch.map((c,i)=>`<button class="ch${c.e?" emo":""}${c.r?" rs":""}" data-i="${i}">${c.h}${showFr&&c.f?`<span class="f">${esc(c.f)}</span>`:""}</button>`).join("")}</div><div class="fbx"></div></div></div>`;
+ <div class="exbox hide">${elephant("happy","mini")}<div><b class="ext">ครูช้างอธิบาย <span class="fr">· l'explication</span></b><div class="exth">${eth}</div>${showFr?`<div class="fr">${esc(efr)}</div>`:""}<button class="exsay">${SPK} ฟังครูอธิบาย</button></div></div>
+ ${typed?`<div class="typ"><input id="tin" inputmode="numeric" autocomplete="off" aria-label="คำตอบ" placeholder="?"><button class="btn" id="tok">ตรวจคำตอบ ✔</button></div>`:`<div class="chs">${q.ch.map((c,i)=>`<button class="ch${c.e?" emo":""}${c.r?" rs":""}" data-i="${i}">${pc?`<span class="kn">${i+1}</span>`:""}${c.h}${showFr&&c.f?`<span class="f">${esc(c.f)}</span>`:""}</button>`).join("")}</div>`}
+ ${pc?`<div class="kbd">⌨️ ${typed?"พิมพ์ตัวเลขแล้วกด Enter":"กด 1–"+q.ch.length+" เพื่อตอบ"} · ? = ครูช่วย · Entrée = suivant</div>`:""}
+ <div class="fbx"></div></div></div>`;
  const sayTh=()=>say(q.sayOnly?q.say:(q.say||q.th),"th");
  box.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>b.dataset.say==="L"?say(q.sayL,q.s):sayTh());
+ const snb=box.querySelector("[data-snd]");if(snb)snb.onclick=()=>playSeq(q.snd);
  const hb=box.querySelector("[data-help]");if(hb)hb.onclick=()=>box.querySelector(".rhelp").classList.toggle("hide");
- if(q.auto==="th"||(q.auto!==q.s&&!q.sayL&&S.cfg.autoTh&&!q.sayOnly))setTimeout(sayTh,350);
+ const exb=box.querySelector(".exbox");const sayEx=()=>say(stripE(eth),"th");
+ const toggleEx=()=>{const hid=exb.classList.toggle("hide");if(!hid){sayEx();try{exb.scrollIntoView({block:"nearest",behavior:"smooth"})}catch(e){}}else{try{speechSynthesis.cancel()}catch(e){}}};
+ box.querySelector("[data-ex]").onclick=toggleEx;box.querySelector(".exsay").onclick=sayEx;
+ if(q.snd&&!q.sndManual)setTimeout(()=>{if(box.isConnected)playSeq(q.snd)},450);
+ else if(q.auto==="th"||(q.auto!==q.s&&!q.sayL&&S.cfg.autoTh&&!q.sayOnly))setTimeout(sayTh,350);
  else if(q.auto===q.s)setTimeout(()=>say(q.sayL,q.s),350);
  let done=false;
- box.querySelectorAll(".ch").forEach(b=>b.onclick=()=>{if(done)return;done=true;const i=+b.dataset.i,good=i===q.a;
-  box.querySelectorAll(".ch").forEach(x=>x.disabled=true);b.classList.add(good?"ok":"no");if(!good)box.querySelector(`.ch[data-i="${q.a}"]`).classList.add("ok");
-  record(q,good);good?SFX.ok():SFX.bad();if(good)confetti(40);
-  const pr=pick(PRAISE);const rv=q.reveal?`<span class="fr" style="color:inherit">${esc(q.reveal)}</span>`:"";
-  box.querySelector(".fbx").innerHTML=`<div class="fb ${good?"good":"bad"}">${elephant(good?"happy":"sad","mini")}<div><b>${good?pr[0]:"ไม่เป็นไรนะ ลองใหม่!"}</b>${good?pr[1]:"Pas grave, on continue !"} ${rv}</div><button class="next">ต่อไป ➜</button></div>`;
+ const finish=good=>{done=true;record(q,good);good?SFX.ok():SFX.bad();if(good)confetti(40);
+  const pr=pick(PRAISE);const rv=q.reveal?`<span class="fr" style="color:inherit">${esc(q.reveal)}</span>`:(typed&&!good?`<span class="fr" style="color:inherit">= ${q.num}</span>`:"");
+  box.querySelector(".fbx").innerHTML=`<div class="fb ${good?"good":"bad"}">${elephant(good?"happy":"sad","mini")}<div><b>${good?pr[0]:"ไม่เป็นไรนะ ลองใหม่!"}</b>${good?pr[1]:"Pas grave, on continue !"} ${rv}</div><button class="exq">❓ ทำไม?</button><button class="next">ต่อไป ➜</button></div>`;
+  box.querySelector(".exq").onclick=()=>{if(exb.classList.contains("hide"))toggleEx();else sayEx()};
+  if(!good)exb.classList.remove("hide");
   if(q.sayL&&(q.s==="fr"||q.s==="en"))setTimeout(()=>say(q.sayL,q.s),500);
-  box.querySelector(".next").onclick=()=>onDone(good);box.querySelector(".next").focus({preventScroll:true})})}
+  if(q.after)try{q.after(box,good)}catch(e){}
+  const nx=box.querySelector(".next");let gone=false;nx.onclick=()=>{if(gone)return;gone=true;onDone(good)};nx.focus({preventScroll:true})};
+ if(typed){const inp=box.querySelector("#tin");const chk=()=>{if(done)return;const v=parseInt(inp.value.replace(/[−–]/g,"-").replace(/[\s,]/g,""),10);if(isNaN(v)){inp.focus();return}const good=v===q.num;inp.classList.add(good?"ok":"no");inp.disabled=true;finish(good)};
+  box.querySelector("#tok").onclick=chk;inp.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();e.stopPropagation();chk()}};setTimeout(()=>{if(inp.isConnected)inp.focus({preventScroll:true})},300)}
+ else box.querySelectorAll(".ch").forEach(b=>b.onclick=()=>{if(done)return;const i=+b.dataset.i,good=i===q.a;box.querySelectorAll(".ch").forEach(x=>x.disabled=true);b.classList.add(good?"ok":"no");if(!good)box.querySelector(`.ch[data-i="${q.a}"]`).classList.add("ok");finish(good)});
+ KEYH=e=>{if(!box.isConnected){KEYH=null;return}const k=e.key;if(e.target&&e.target.tagName==="INPUT"&&!done)return;
+  if(k==="?"){e.preventDefault();toggleEx();return}
+  if(!done&&!typed&&/^[1-9]$/.test(k)){const b=box.querySelector(`.ch[data-i="${+k-1}"]`);if(b){e.preventDefault();b.click()}return}
+  if(done&&(k==="Enter"||k===" ")){const n=box.querySelector(".next");if(n){e.preventDefault();n.click()}}}}
 
 /* ================= écrans ================= */
 const app=$("#app");
-function go(v){try{window.speechSynthesis&&speechSynthesis.cancel()}catch(e){}window.scrollTo(0,0);V[v]()}
+function go(v){KEYH=null;try{window.speechSynthesis&&speechSynthesis.cancel()}catch(e){}window.scrollTo(0,0);V[v]()}
 let cur=null;
 const V={};
 V.home=()=>{
  const ga=globalAge();
- app.innerHTML=`<div class="top"><div class="wrap">${elephant("happy","mascot")}<div><h1>สวัสดี ${esc(S.name)}! <span class="av-s">${S.av}</span></h1><div class="fr">Bonjour ${esc(S.name)} ! Choisis un jeu.</div><div class="stars">⭐ ${S.stars} ดาว</div><div class="who"><button class="chip-b" data-g="players">👥 เปลี่ยนผู้เล่น <span class="fr">· changer de joueur</span></button><button class="chip-b" data-g="scores">🏆 ตารางคะแนน <span class="fr">· scores</span></button></div></div></div></div>
+ app.innerHTML=`<div class="top"><div class="wrap">${elephant("happy","mascot")}<div><h1>สวัสดี ${esc(S.name)}! <span class="av-s">${S.av}</span></h1><div class="fr">Bonjour ${esc(S.name)} ! Choisis un jeu.</div><div class="stars">⭐ ${S.stars} ดาว</div><div class="who"><button class="chip-b" data-g="players">👥 เปลี่ยนผู้เล่น <span class="fr">· changer de joueur</span></button><button class="chip-b" data-g="scores">🏆 ตารางคะแนน <span class="fr">· scores</span></button><button class="chip-b" data-g="device">${(DEVS.find(x=>x[0]===DEV())||DEVS[0])[1]} <span class="fr">· appareil</span></button></div></div></div></div>
  <div class="wrap"><div class="games">
   <button class="game g-trv" data-g="trivial"><svg viewBox="0 0 100 100">${[0,1,2,3,4,5].map(i=>{const a0=i*60*Math.PI/180,a1=(i+1)*60*Math.PI/180;return `<path d="M50 50L${50+44*Math.cos(a0)} ${50+44*Math.sin(a0)}A44 44 0 0 1 ${50+44*Math.cos(a1)} ${50+44*Math.sin(a1)}Z" fill="${SUBJ[i].hex}" stroke="#fff" stroke-width="3"/>`}).join("")}</svg><b>เกมกระดานสีรุ้ง</b><span>ทอยลูกเต๋า เก็บชิ้นสีให้ครบ 6 สี · Plateau arc-en-ciel</span></button>
   <button class="game g-mem" data-g="memory"><svg viewBox="0 0 100 100"><rect x="12" y="20" width="34" height="46" rx="7" fill="#ffd23f" stroke="#fff" stroke-width="3" transform="rotate(-10 29 43)"/><rect x="50" y="26" width="34" height="46" rx="7" fill="#06a77d" stroke="#fff" stroke-width="3" transform="rotate(8 67 49)"/></svg><b>เกมจับคู่การ์ด</b><span>เปิดการ์ดหาคู่ให้ครบ · Memory</span></button>
-  <button class="game g-mix" data-g="mix" style="grid-column:1/-1;min-height:calc(96px*var(--k))"><b>ภารกิจรวม 14 ข้อ</b><span>ทุกวิชา · Test mélangé (pour l'âge estimé)</span></button></div>
+  <button class="game g-wr" data-g="write"><svg viewBox="0 0 100 100"><g transform="rotate(35 50 50)"><rect x="40" y="8" width="20" height="62" rx="3" fill="#ffd23f" stroke="#fff" stroke-width="3"/><rect x="40" y="8" width="20" height="12" rx="3" fill="#ef476f" stroke="#fff" stroke-width="3"/><path d="M40 70L50 92L60 70Z" fill="#f3d9b5" stroke="#fff" stroke-width="3"/></g><path d="M8 88q14-14 26 0t26 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg><b>ฝึกเขียน</b><span>เขียนด้วย${DEV()==="pc"?"เมาส์":"นิ้ว"} · Écrire avec ${DEV()==="pc"?"la souris":"le doigt"}</span></button>
+  <button class="game g-mix" data-g="mix"><b>ภารกิจรวม 14 ข้อ</b><span>ทุกวิชา · Test mélangé (pour l'âge estimé)</span></button></div>
  <h2 class="sec">ฝึกทีละวิชา <span class="fr">· Une matière</span></h2>
  <div class="subs">${SUBJ.map(s=>`<button class="sub" style="background:${s.col}" data-s="${s.id}"><span class="chip">${s.age?gradeOf(S.skill[s.id]):"ขั้น "+clamp(Math.round(S.skill[s.id]),1,5)}</span><span><b>${s.th}</b><br><small>${s.fr}</small></span></button>`).join("")}</div>
  <button class="parent-btn" data-g="gate">🔒 <span>ผู้ปกครอง · Espace parents${ga?` <span class="fr">— อายุโดยประมาณ ${fmtAgeTh(ga)} · âge estimé ${fmtAge(ga)}</span>`:""}</span></button></div>`;
@@ -700,7 +1166,7 @@ V.elec=()=>{
  $("#lis").onclick=()=>say(lessonTh,"th");$("#go").onclick=()=>startQuiz("elec")};
 
 /* --- quiz --- */
-function startQuiz(s){const list=s==="mix"?shuf(SUBJ.filter(x=>x.id!=="elec").flatMap(x=>[x.id,x.id])):Array(8).fill(s);cur={g:s==="mix"?"mix":"quiz",s:s==="mix"?"":s,t:Date.now(),list,i:0,ok:0};quizStep()}
+function startQuiz(s){const list=s==="mix"?shuf(SUBJ.filter(x=>MIXS.includes(x.id)).flatMap(x=>[x.id,x.id])):Array(8).fill(s);cur={g:s==="mix"?"mix":"quiz",s:s==="mix"?"":s,t:Date.now(),list,i:0,ok:0};quizStep()}
 V.mix=()=>startQuiz("mix");
 function quizStep(){const c=cur;if(c.i>=c.list.length)return quizEnd();
  app.innerHTML=`<div class="wrap"><div class="bar"><button class="x" aria-label="Retour">✕</button><div class="prog"><i style="width:${c.i/c.list.length*100}%"></i></div><b>⭐ ${S.stars}</b></div><div id="qb"></div></div>`;
@@ -786,6 +1252,76 @@ function trvWin(){const c=cur;S.trvWins++;endSession({g:"trivial",s:"",t:c.t,ok:
  <div class="btns"><button class="btn" id="again">เล่นอีก ↻</button><button class="btn alt" id="home">หน้าแรก</button></div></div>`;
  $("#again").onclick=()=>go("trivial");$("#home").onclick=()=>go("home")}
 
+/* --- v3.0 : choix de l'appareil --- */
+const DEVS=[["phone","📱","โทรศัพท์","Téléphone","เขียนด้วยนิ้ว · on écrit avec le doigt"],["tablet","📲","แท็บเล็ต","Tablette","เขียนด้วยนิ้วหรือปากกา · doigt ou stylet"],["pc","💻","คอมพิวเตอร์","Ordinateur","เมาส์และแป้นพิมพ์ · souris et clavier"]];
+const devGuess=()=>{try{if(matchMedia("(pointer:coarse)").matches)return Math.min(screen.width,screen.height)>=600?"tablet":"phone"}catch(e){}return "pc"};
+V.device=()=>{const g=DEV()||devGuess();
+ app.innerHTML=`<div class="top"><div class="wrap">${elephant("happy","mascot")}<div><h1>เล่นด้วยอะไร?</h1><div class="fr">Sur quel appareil joues-tu ? Cela sert à savoir si tu écris avec le doigt ou avec la souris.</div></div></div></div>
+ <div class="wrap"><div class="plist">${DEVS.map(d=>`<button class="pl${d[0]===g?" sug":""}" data-dv="${d[0]}"><span class="pav">${d[1]}</span><span class="pinfo"><b>${d[2]}</b><small>${d[3]}</small><small>${d[4]}</small></span>${d[0]===g?'<span class="badge">✓</span>':""}</button>`).join("")}</div>
+ <p class="note-s" style="text-align:center">เปลี่ยนได้ภายหลังในหน้าผู้ปกครอง · Modifiable ensuite dans l'espace parents.</p></div>`;
+ app.querySelectorAll("[data-dv]").forEach(b=>b.onclick=()=>{ac();ls.set(DKEY,b.dataset.dv);go(profileOK()?"home":"players")})};
+
+/* --- v3.0 : écrire avec le doigt ou la souris --- */
+const TH_CONS=[["ก","ก ไก่"],["ข","ข ไข่"],["ค","ค ควาย"],["ง","ง งู"],["จ","จ จาน"],["ฉ","ฉ ฉิ่ง"],["ช","ช ช้าง"],["ซ","ซ โซ่"],["ด","ด เด็ก"],["ต","ต เต่า"],["ถ","ถ ถุง"],["ท","ท ทหาร"],["น","น หนู"],["บ","บ ใบไม้"],["ป","ป ปลา"],["ผ","ผ ผึ้ง"],["ฝ","ฝ ฝา"],["พ","พ พาน"],["ฟ","ฟ ฟัน"],["ม","ม ม้า"],["ย","ย ยักษ์"],["ร","ร เรือ"],["ล","ล ลิง"],["ว","ว แหวน"],["ส","ส เสือ"],["ห","ห หีบ"],["อ","อ อ่าง"],["ฮ","ฮ นกฮูก"]];
+const TH_DIG=["๐","๑","๒","๓","๔","๕","๖","๗","๘","๙"],TH_NUMW=["ศูนย์","หนึ่ง","สอง","สาม","สี่","ห้า","หก","เจ็ด","แปด","เก้า"];
+const WR_TXT=[null,["ใช้นิ้วเขียนตามเส้นประ","Trace la lettre en suivant les pointillés."],["เขียนทับตัวอักษรจาง ๆ","Écris par-dessus la lettre pâle."],["จำตัวอักษรไว้ แล้วเขียนเองโดยไม่มีตัวช่วย","Mémorise la lettre, puis écris-la toute seule."]];
+function wrItems(lv){const it=sample(TH_CONS,lv===1?4:3).map(c=>({c:c[0],say:c[1],l:"th"}));const n=R(0,9);it.push({c:TH_DIG[n],say:TH_NUMW[n],l:"th"});const m=R(0,9);it.push({c:String(m),say:TH_NUMW[m],l:"th"});
+ if(lv>=2){const L=String.fromCharCode(65+R(0,25));it.push({c:L,say:L,l:"en"})}return shuf(it)}
+V.write=()=>{const lv=clamp(S.wr||1,1,3);cur={g:"write",s:"",t:Date.now(),i:0,items:wrItems(lv),lv,ok:0,sc:[]};wrStep()};
+function glyphY(ctx,ch,N){const m=ctx.measureText(ch);const a=m.actualBoundingBoxAscent||N*.5,d=m.actualBoundingBoxDescent||0;return N/2+(a-d)/2}
+const WFONT=N=>`700 ${Math.round(N*.7)}px Mali, "Noto Sans Thai", Tahoma, sans-serif`;
+function wrStep(){const c=cur;if(c.i>=c.items.length)return wrEnd();const it=c.items[c.i],dv=DEV()||"phone",pc=dv==="pc";
+ const size=Math.max(200,Math.min(dv==="phone"?340:dv==="tablet"?500:430,innerWidth-84));const T=WR_TXT[c.lv];
+ app.innerHTML=`<div class="wrap"><div class="bar"><button class="x" aria-label="Retour">✕</button><div class="prog"><i style="width:${c.i/c.items.length*100}%"></i></div><b>⭐ ${S.stars}</b></div>
+ <div class="qcard" style="max-width:${size+60}px"><div class="qhead" style="background:#00897b"><span>ฝึกเขียน <small style="opacity:.85">· écrire</small></span><span>ขั้น ${c.lv} · ${c.i+1}/${c.items.length}</span></div><div class="qbody">
+ <div class="qth">${T[0]} “${it.c}”</div><div class="qfr fr">${T[1]} ${pc?"Souris : clique, garde le bouton appuyé et trace.":"Avec ton doigt."}</div>
+ <canvas class="wcan" style="width:${size}px;height:${size}px" aria-label="zone d'écriture"></canvas>
+ <div class="wtools"><button class="btn alt" id="wsay">${SPK} ฟัง</button><button class="btn alt" id="wclr">🧽 ลบ</button>${c.lv===3?'<button class="btn alt" id="wshow">👀 ดูอีกครั้ง</button>':""}<button class="btn" id="wok">ตรวจ ✔</button></div>
+ ${pc?'<div class="kbd">⌨️ Entrée = vérifier · Suppr = effacer</div>':""}<div class="fbx"></div></div></div></div>`;
+ app.querySelector(".x").onclick=()=>{KEYH=null;if(c.i)endSession({g:"write",s:"",t:c.t,ok:c.ok,n:c.i});go("home")};
+ const cv2=app.querySelector(".wcan"),dpr=Math.min(2,devicePixelRatio||1);cv2.width=size*dpr;cv2.height=size*dpr;const g=cv2.getContext("2d");g.scale(dpr,dpr);
+ let strokes=[],cur2=null,guide=c.lv<3,done=false;
+ const draw=()=>{g.clearRect(0,0,size,size);g.strokeStyle="rgba(0,0,0,.06)";g.lineWidth=1;g.setLineDash([]);g.beginPath();g.moveTo(0,size/2);g.lineTo(size,size/2);g.moveTo(size/2,0);g.lineTo(size/2,size);g.stroke();
+  if(guide){g.font=WFONT(size);g.textAlign="center";const y=glyphY(g,it.c,size);if(c.lv===1){g.fillStyle="rgba(17,138,178,.16)";g.fillText(it.c,size/2,y);g.setLineDash([5,7]);g.lineWidth=2.5;g.strokeStyle="rgba(17,138,178,.85)";g.strokeText(it.c,size/2,y);g.setLineDash([])}else{g.fillStyle=c.lv===2?"rgba(17,138,178,.17)":"rgba(17,138,178,.3)";g.fillText(it.c,size/2,y)}}
+  g.strokeStyle="#22214a";g.lineCap=g.lineJoin="round";g.lineWidth=size*.055;strokes.forEach(s=>{g.beginPath();s.forEach((p,i)=>i?g.lineTo(p[0]*size,p[1]*size):g.moveTo(p[0]*size,p[1]*size));if(s.length===1)g.lineTo(s[0][0]*size+.5,s[0][1]*size);g.stroke()})};
+ const pos=e=>{const r=cv2.getBoundingClientRect();return [clamp((e.clientX-r.left)/r.width,0,1),clamp((e.clientY-r.top)/r.height,0,1)]};
+ cv2.onpointerdown=e=>{if(done)return;e.preventDefault();try{cv2.setPointerCapture(e.pointerId)}catch(x){}cur2=[pos(e)];strokes.push(cur2);draw()};
+ cv2.onpointermove=e=>{if(!cur2)return;e.preventDefault();cur2.push(pos(e));draw()};
+ cv2.onpointerup=cv2.onpointercancel=()=>{cur2=null};
+ const say2=()=>say(it.say,it.l);
+ const showG=()=>{guide=true;draw();setTimeout(()=>{if(cv2.isConnected&&!done){guide=false;draw()}},2500)};
+ if(c.lv===3)showG();draw();
+ (document.fonts&&document.fonts.load?document.fonts.load(WFONT(size),it.c):Promise.resolve()).then(()=>{if(cv2.isConnected)draw()}).catch(()=>{});
+ setTimeout(say2,300);
+ $("#wsay").onclick=say2;$("#wclr").onclick=()=>{if(!done){strokes=[];draw()}};if($("#wshow"))$("#wshow").onclick=showG;
+ const check=()=>{if(done)return;if(!strokes.length){say("ลองเขียนก่อนนะ","th");return}done=true;const r=wrScore(it.c,strokes,c.lv===3);const st=r.st;c.sc.push(st);if(st>0)c.ok++;
+  recordWrite(st>0,st);guide=true;draw();st>=2?SFX.ok():st===1?SFX.flip():SFX.bad();if(st>=2)confetti(40);
+  const msg=st===3?["สวยมาก!","Magnifique !"]:st===2?["เก่งมาก!","Très bien !"]:st===1?["ดีแล้ว ลองให้ตรงเส้นกว่านี้นะ","Pas mal, essaie de suivre mieux la lettre."]:["ไม่เป็นไรนะ ลองใหม่!","Pas grave, on réessaie !"];
+  box2.innerHTML=`<div class="fb ${st?"good":"bad"}">${elephant(st?"happy":"sad","mini")}<div><b>${msg[0]} ${"⭐".repeat(st)}</b>${msg[1]}</div>${st?"":'<button class="btn alt" id="wre">↻ ลองอีกครั้ง</button>'}<button class="next">ต่อไป ➜</button></div>`;
+  const re=$("#wre");if(re)re.onclick=()=>{done=false;strokes=[];guide=c.lv<3;box2.innerHTML="";draw();if(c.lv===3)showG()};
+  const nx=box2.querySelector(".next");let gone=false;nx.onclick=()=>{if(gone)return;gone=true;c.i++;wrStep()};nx.focus({preventScroll:true})};
+ const box2=app.querySelector(".fbx");$("#wok").onclick=check;
+ KEYH=e=>{if(!cv2.isConnected){KEYH=null;return}if(e.key==="Enter"){e.preventDefault();if(!done)check();else{const n=box2.querySelector(".next");if(n)n.click()}}else if((e.key==="Delete"||e.key==="Backspace")&&!done){e.preventDefault();strokes=[];draw()}}}
+function wrScore(ch,strokes,norm){const N=96;const mk=()=>{const c=document.createElement("canvas");c.width=c.height=N;return c.getContext("2d",{willReadFrequently:true})};
+ const Tm=mk(),Td=mk(),U=mk(),Ud=mk();
+ const put=(ctx,w)=>{ctx.font=WFONT(N);ctx.textAlign="center";const y=glyphY(ctx,ch,N);ctx.fillStyle="#000";ctx.fillText(ch,N/2,y);if(w){ctx.lineWidth=w;ctx.lineJoin="round";ctx.strokeStyle="#000";ctx.strokeText(ch,N/2,y)}};
+ put(Tm,0);put(Td,N*.1);const t=Tm.getImageData(0,0,N,N).data,td=Td.getImageData(0,0,N,N).data;
+ let pts=strokes.map(s=>s.map(p=>[p[0]*N,p[1]*N]));
+ if(norm){let gx0=N,gy0=N,gx1=0,gy1=0;for(let i=0;i<N*N;i++)if(t[i*4+3]>100){const x=i%N,y=(i-x)/N;gx0=Math.min(gx0,x);gx1=Math.max(gx1,x);gy0=Math.min(gy0,y);gy1=Math.max(gy1,y)}
+  let ux0=N,uy0=N,ux1=0,uy1=0;pts.flat().forEach(([x,y])=>{ux0=Math.min(ux0,x);ux1=Math.max(ux1,x);uy0=Math.min(uy0,y);uy1=Math.max(uy1,y)});
+  const sx=(gx1-gx0)/Math.max(4,ux1-ux0),sy=(gy1-gy0)/Math.max(4,uy1-uy0);pts=pts.map(s=>s.map(([x,y])=>[gx0+(x-ux0)*sx,gy0+(y-uy0)*sy]))}
+ const dr=(ctx,w)=>{ctx.strokeStyle="#000";ctx.lineCap=ctx.lineJoin="round";ctx.lineWidth=w;pts.forEach(s=>{ctx.beginPath();s.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));if(s.length===1)ctx.lineTo(s[0][0]+.3,s[0][1]);ctx.stroke()})};
+ dr(U,N*.055);dr(Ud,N*.17);const u=U.getImageData(0,0,N,N).data,ud=Ud.getImageData(0,0,N,N).data;
+ let nt=0,cov=0,nu=0,pre=0;for(let i=3;i<t.length;i+=4){if(t[i]>100){nt++;if(ud[i]>100)cov++}if(u[i]>100){nu++;if(td[i]>100)pre++}}
+ if(!nu||!nt)return {st:0,cov:0,pre:0};const C=cov/nt,Pp=pre/nu;const sc=Math.min(1,C/.75)*.55+Math.min(1,Pp/.85)*.45;
+ let st=0;if(C>=.45&&Pp>=.5)st=1;if(C>=.62&&Pp>=.65)st=2;if(C>=.78&&Pp>=.75)st=3;return {st,cov:C,pre:Pp,sc}}
+function recordWrite(good,st){const tk="thai.write";const T=S.topics[tk]||(S.topics[tk]={c:0,t:0});T.t++;if(good)T.c++;const dk=dayKey(Date.now());const D=S.days[dk]||(S.days[dk]={n:0,ok:0,ms:0});D.n++;if(good)D.ok++;S.stars+=st;save()}
+function wrEnd(){KEYH=null;const c=cur,avg=c.sc.reduce((a,b)=>a+b,0)/c.sc.length,old=S.wr||1;S.wr=clamp(old+(avg>=2.3?1:avg<1?-1:0),1,3);
+ endSession({g:"write",s:"",t:c.t,ok:c.ok,n:c.items.length});SFX.win();confetti(180);
+ app.innerHTML=`<div class="wrap res">${elephant("happy","mascot joy")}<div class="big">✍️</div><h2>เขียนเก่งมาก!</h2><p class="qth">ได้ ${c.sc.reduce((a,b)=>a+b,0)} ดาว จาก ${c.items.length} ตัว</p><p class="fr">${c.sc.reduce((a,b)=>a+b,0)} étoiles pour ${c.items.length} lettres${S.wr>old?" — niveau suivant débloqué !":""}</p>${S.wr>old?`<p class="qth">🎉 ปลดล็อกขั้น ${S.wr}!</p>`:""}
+ <div class="btns"><button class="btn" id="again">เล่นอีก ↻</button><button class="btn alt" id="home">หน้าแรก</button></div></div>`;
+ $("#again").onclick=()=>go("write");$("#home").onclick=()=>go("home")}
+
 /* ================= espace parents (français + thaï) ================= */
 V.gate=()=>{const a=R(6,9),b=R(6,9);app.innerHTML=`<div class="gate"><h2>${B("Espace parents","สำหรับผู้ปกครอง")}</h2><p>${B(`Pour entrer, combien font <b>${a} × ${b}</b> ?`,`เพื่อเข้าสู่หน้านี้ กรุณาตอบ <b>${a} × ${b}</b> เท่ากับเท่าไร`)}</p><form id="gf"><input type="number" inputmode="numeric" id="gi" aria-label="Réponse"><br><button class="pbtn" type="submit">Entrer · เข้า</button> <button class="pbtn alt" type="button" id="gb">Retour · กลับ</button></form><p class="note-s" id="ge"></p></div>`;
  $("#gf").onsubmit=e=>{e.preventDefault();if(+$("#gi").value===a*b)go("parents");else $("#ge").innerHTML=B("Ce n'est pas la bonne réponse.","คำตอบไม่ถูกต้อง")};$("#gb").onclick=()=>go("home");$("#gi").focus()};
@@ -806,6 +1342,26 @@ const TOPIC_TH={math:{count:"การนับ",add1:"การบวกจา�
  elec:{c2d:"สี → ตัวเลข",d2c:"ตัวเลข → สี",val2:"ค่าสองหลัก",mult:"ตัวคูณ (แถบที่ 3)",val3:"ค่าพร้อมตัวคูณ",tol:"ค่าความคลาดเคลื่อน (แถบที่ 4)",find:"หาตัวต้านทาน"}};
 const GAMEFR={quiz:"Exercices",mix:"Test mélangé",trivial:"Plateau arc-en-ciel",memory:"Memory"};
 const GAMETH={quiz:"แบบฝึกหัด",mix:"ภารกิจรวม",trivial:"เกมกระดานสีรุ้ง",memory:"เกมจับคู่การ์ด"};
+/* v3.0 : libellés des nouvelles compétences */
+Object.assign(TOPIC_FR.math,{mulbig:"Multiplication 2 × 2 chiffres (défi)",neg:"Nombres négatifs (défi)",sqrt:"Carrés (défi)",pct:"Pourcentages (défi)"});
+Object.assign(TOPIC_TH.math,{mulbig:"การคูณเลขสองหลัก (ท้าทาย)",neg:"จำนวนลบ (ท้าทาย)",sqrt:"จำนวนยกกำลังสอง (ท้าทาย)",pct:"ร้อยละ (ท้าทาย)"});
+Object.assign(TOPIC_FR.thai,{proverb:"Proverbes (défi)",write:"Écriture (tracé)"});Object.assign(TOPIC_TH.thai,{proverb:"สำนวนไทย (ท้าทาย)",write:"การเขียนตัวอักษร"});
+TOPIC_FR.sci.espace="Espace (défi)";TOPIC_TH.sci.espace="อวกาศ (ท้าทาย)";
+Object.assign(TOPIC_FR,{
+ code:{move1:"Directions",path:"Écrire un programme",where:"Exécuter un programme",loop:"Boucles",bug:"Trouver le bug",binary:"Binaire (défi)"},
+ circ:{lit:"Circuit ouvert ou fermé",use:"Appareils électriques",cond:"Conducteurs et isolants",safe:"Sécurité électrique",which:"Choisir le bon circuit",volt:"Piles en série",series:"Ampoules en série",led:"LED et énergie",ohm:"Loi d'Ohm",ohm2:"Loi d'Ohm (défi)",rsum:"Résistances série et parallèle (défi)",power:"Puissance (défi)"},
+ music:{high:"Aigu ou grave",long:"Long ou court",instr:"Familles d'instruments",count:"Compter les sons",updown:"Monte ou descend",staff:"Lire les notes",value:"Durée des notes",thaiins:"Instruments thaïs",sum:"Additionner les temps",same:"Mélodies pareilles ?",octave:"Octaves (défi)",which:"Reconnaître une note (défi)"},
+ health:{hyg:"Hygiène",food:"Alimentation",safe:"Sécurité",body:"Corps humain",emo:"Émotions",aid:"Premiers secours"},
+ measure:{long:"Comparer des longueurs",heavy:"Balance à plateaux",ruler0:"Lire une règle",ruler:"Règle (sans partir de 0)",thermohc:"Chaud ou froid",thermo:"Thermomètre",fuel:"Jauge à carburant",scale:"Balance à cadran",unit1:"Mètres et centimètres",unit2:"Conversions",hdg4:"Points cardinaux (compas)",hdg:"Cap en degrés",cup:"Volumes",asi:"Anémomètre",att:"Horizon artificiel",alt:"Altimètre",vsi:"Variomètre",rpm:"Compte-tours",sdt:"Vitesse, distance, temps (défi)",turn:"Virages et caps (défi)"},
+ flags:{name:"Reconnaître un drapeau",flag:"Retrouver un drapeau",cap:"Capitales",cont:"Continents",border:"Voisins de la Thaïlande",asean:"ASEAN"}});
+Object.assign(TOPIC_TH,{
+ code:{move1:"ทิศทาง",path:"เขียนโปรแกรม",where:"ทำตามโปรแกรม",loop:"การทำซ้ำ",bug:"หาจุดผิด",binary:"เลขฐานสอง (ท้าทาย)"},
+ circ:{lit:"วงจรเปิดและวงจรปิด",use:"เครื่องใช้ไฟฟ้า",cond:"ตัวนำและฉนวน",safe:"ความปลอดภัยเรื่องไฟฟ้า",which:"เลือกวงจรที่ถูก",volt:"การต่อถ่านไฟฉาย",series:"หลอดไฟต่ออนุกรม",led:"LED และพลังงาน",ohm:"กฎของโอห์ม",ohm2:"กฎของโอห์ม (ท้าทาย)",rsum:"การต่อตัวต้านทาน (ท้าทาย)",power:"กำลังไฟฟ้า (ท้าทาย)"},
+ music:{high:"เสียงสูงต่ำ",long:"เสียงยาวสั้น",instr:"วิธีเล่นเครื่องดนตรี",count:"นับเสียง",updown:"ไล่ขึ้นไล่ลง",staff:"อ่านตัวโน้ต",value:"ค่าตัวโน้ต",thaiins:"เครื่องดนตรีไทย",sum:"รวมจังหวะ",same:"เปรียบเทียบทำนอง",octave:"ช่วงทบเสียง (ท้าทาย)",which:"ฟังแล้วบอกโน้ต (ท้าทาย)"},
+ health:{hyg:"สุขอนามัย",food:"อาหาร",safe:"ความปลอดภัย",body:"ร่างกายของเรา",emo:"อารมณ์",aid:"การปฐมพยาบาล"},
+ measure:{long:"เปรียบเทียบความยาว",heavy:"ตาชั่งสองแขน",ruler0:"อ่านไม้บรรทัด",ruler:"ไม้บรรทัด (ไม่เริ่มที่ 0)",thermohc:"ร้อนหรือหนาว",thermo:"เทอร์โมมิเตอร์",fuel:"มาตรวัดน้ำมัน",scale:"ตาชั่งแบบเข็ม",unit1:"เมตรและเซนติเมตร",unit2:"การแปลงหน่วย",hdg4:"ทิศบนเข็มทิศ",hdg:"ทิศทางเป็นองศา",cup:"ปริมาตร",asi:"มาตรวัดความเร็ว",att:"เครื่องวัดท่าทางการบิน",alt:"มาตรวัดความสูง",vsi:"มาตรวัดอัตราไต่",rpm:"มาตรวัดรอบเครื่องยนต์",sdt:"ความเร็ว ระยะทาง เวลา (ท้าทาย)",turn:"การเลี้ยวและองศา (ท้าทาย)"},
+ flags:{name:"ธงชาติ",flag:"หาธงชาติ",cap:"เมืองหลวง",cont:"ทวีป",border:"ประเทศเพื่อนบ้าน",asean:"อาเซียน"}});
+GAMEFR.write="Écriture";GAMETH.write="ฝึกเขียน";
 V.parents=()=>{
  const now=Date.now(),ra=ageAt(now),ga=globalAge();const totN=Object.values(S.n).reduce((a,b)=>a+b,0),totOk=Object.values(S.ok).reduce((a,b)=>a+b,0);
  const ses=S.sessions;const last=ses.length?ses[ses.length-1].end:null;
@@ -840,12 +1396,13 @@ V.parents=()=>{
  <h2>${B("Âge estimé au fil des séances","อายุโดยประมาณในแต่ละครั้ง")}</h2><div class="panel"><div class="fig" id="f1"><svg></svg></div><p class="note-s">${B(`Ligne colorée : âge estimé après chaque séance. Ligne pointillée : âge réel de ${NM}.`,`เส้นสี: อายุโดยประมาณหลังเล่นแต่ละครั้ง · เส้นประ: อายุจริงของ ${NM}`)}</p></div>
  <h2>${B("Réussite par jour","อัตราการตอบถูกรายวัน")}</h2><div class="panel"><div class="fig" id="f2" style="min-height:calc(200px*var(--k))"><svg></svg></div></div>
  <h2>${B("Par matière","รายวิชา")}</h2><div class="panel scroll"><table class="stack"><thead><tr><th>${B("Matière","วิชา")}</th><th>${B("Niveau","ระดับ")}</th><th class="n">${B("Âge estimé","อายุโดยประมาณ")}</th><th>${B("Réussite","ตอบถูก")}</th><th class="n">${B("Questions","จำนวนข้อ")}</th><th class="n">${B("Progrès 14 j","ความก้าวหน้า 14 วัน")}</th></tr></thead><tbody>${subRows}</tbody></table>
- <p class="note-s">${B("Progrès = évolution du niveau (en années de classe) sur les 14 derniers jours. Pour le français, l'anglais et les résistances, on affiche une étape d'apprentissage plutôt qu'un âge.","ความก้าวหน้า = การเปลี่ยนแปลงของระดับ (เป็นปีชั้นเรียน) ใน 14 วันที่ผ่านมา สำหรับภาษาฝรั่งเศส ภาษาอังกฤษ และรหัสสีตัวต้านทาน จะแสดงเป็นขั้นการเรียนแทนอายุ")}</p></div>
+ <p class="note-s">${B("Progrès = évolution du niveau (en années de classe) sur les 14 derniers jours. Pour le français, l'anglais, les résistances et les 6 nouvelles matières (programmation, électricité, musique, santé, mesures, drapeaux), on affiche une étape d'apprentissage plutôt qu'un âge.","ความก้าวหน้า = การเปลี่ยนแปลงของระดับ (เป็นปีชั้นเรียน) ใน 14 วันที่ผ่านมา สำหรับภาษาฝรั่งเศส ภาษาอังกฤษ รหัสสีตัวต้านทาน และ 6 วิชาใหม่ จะแสดงเป็นขั้นการเรียนแทนอายุ")}</p></div>
  <div class="two"><div><h2>${B("Points forts","จุดแข็ง")}</h2><div class="panel"><ul style="margin:0;padding-left:18px">${tl(strong)}</ul></div></div><div><h2>${B("À travailler","สิ่งที่ควรฝึกเพิ่ม")}</h2><div class="panel"><ul style="margin:0;padding-left:18px">${tl(weak)}</ul></div></div></div>
  <h2>${B("Par jour","รายวัน")}</h2><div class="panel scroll"><table class="stack"><thead><tr><th>${B("Date","วันที่")}</th><th class="n">${B("Questions","จำนวนข้อ")}</th><th class="n">${B("Réussite","ตอบถูก")}</th><th class="n">${B("Temps","เวลา")}</th></tr></thead><tbody>${dayRows||`<tr><td colspan="4" class="note-s">${BI("Aucune donnée pour l'instant.","ยังไม่มีข้อมูล")}</td></tr>`}</tbody></table></div>
  <h2>${B("Journal des séances","บันทึกการเล่น")}</h2><div class="panel scroll"><table class="stack"><thead><tr><th>${B("Date","วันที่")}</th><th>${B("Jeu","เกม")}</th><th class="n">${B("Score","คะแนน")}</th><th class="n">${B("Âge estimé","อายุโดยประมาณ")}</th><th class="n">${B("Durée","ระยะเวลา")}</th></tr></thead><tbody>${sesRows||`<tr><td colspan="5" class="note-s">${BI("Aucune séance pour l'instant.","ยังไม่มีการเล่น")}</td></tr>`}</tbody></table></div>
  <h2>${B("Réglages","การตั้งค่า")}</h2><div class="panel set">
   <label class="row"><span>${B("Taille du texte","ขนาดตัวอักษร")}</span><select id="zm">${Z.map(z=>`<option value="${z[0]}"${+S.cfg.zoom===z[0]?" selected":""}>${z[1]} · ${z[2]}</option>`).join("")}</select></label>
+  <label class="row"><span>${B("Appareil (écriture au doigt ou à la souris)","อุปกรณ์ (เขียนด้วยนิ้วหรือเมาส์)")}</span><select id="dv">${DEVS.map(d=>`<option value="${d[0]}"${DEV()===d[0]?" selected":""}>${d[1]} ${d[3]} · ${d[2]}</option>`).join("")}</select></label>
   <div class="row"><button class="pbtn" id="prof">Modifier le profil (prénom, âge, classe)<span class="th2" style="color:inherit">แก้ไขข้อมูลผู้เล่น (ชื่อ อายุ ชั้นเรียน)</span></button><button class="pbtn alt" id="sw">Changer de joueur<span class="th2">เปลี่ยนผู้เล่น</span></button><button class="pbtn warn" id="del">Supprimer ce joueur · ลบผู้เล่นนี้</button></div>
   <label class="row"><span>${B("Classe actuelle","ชั้นเรียนปัจจุบัน")}</span><select id="cls">${[1,2,3,4,5,6,7].map(i=>`<option value="${i}"${S.cls===i?" selected":""}>${GRADES_FR[i-1]} · ${GRADES_TH[i-1]}</option>`).join("")}</select></label>
   <label class="row"><input type="checkbox" id="c1" ${S.cfg.autoTh?"checked":""}> <span>${B("Lire les questions en thaï à voix haute automatiquement","อ่านคำถามภาษาไทยออกเสียงอัตโนมัติ")}</span></label>
@@ -857,11 +1414,14 @@ V.parents=()=>{
  <h2>${B("Comment l'âge est estimé","วิธีประมาณอายุ")}</h2><div class="panel note-s" style="font-size:calc(14px*var(--k))">
  <p>Chaque matière a un niveau de 1 (อนุบาล 3) à 5 (ป.4), calé sur les indicateurs du programme thaï officiel (หลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน 2551, révisé en 2560 pour les maths et les sciences). Après chaque réponse, le niveau monte ou descend selon la difficulté de la question (méthode de type Elo), et les questions suivantes s'adaptent.<span class="th2">แต่ละวิชามีระดับตั้งแต่ 1 (อนุบาล 3) ถึง 5 (ป.4) ตามตัวชี้วัดของหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พ.ศ. 2551 (ฉบับปรับปรุง พ.ศ. 2560 สำหรับคณิตศาสตร์และวิทยาศาสตร์) หลังตอบแต่ละข้อ ระดับจะขึ้นหรือลงตามความยากของคำถาม และคำถามต่อไปจะปรับตามระดับ</span></p>
  <p>L'âge estimé est l'âge moyen des élèves thaïs qui étudient ce niveau en milieu d'année : ป.1 ≈ 7 ans 5 mois, ป.2 ≈ 8 ans 5 mois. Un enfant né en fin d'année est parmi les plus jeunes de sa promotion : un âge estimé un peu au-dessus de son âge réel veut alors simplement dire qu'il suit le rythme de sa classe. L'équivalent français (CP, CE1…) vient de l'âge moyen de chaque classe en France.<span class="th2">อายุโดยประมาณคืออายุเฉลี่ยของนักเรียนไทยที่เรียนระดับนั้นในช่วงกลางปีการศึกษา: ป.1 ≈ 7 ปี 5 เดือน ป.2 ≈ 8 ปี 5 เดือน เด็กที่เกิดปลายปีจะเป็นหนึ่งในเด็กที่อายุน้อยที่สุดในรุ่น ถ้าอายุโดยประมาณสูงกว่าอายุจริงเล็กน้อย แปลว่าเขาเรียนทันเพื่อนในชั้น ส่วนชั้นเรียนของฝรั่งเศส (CP, CE1…) มาจากอายุเฉลี่ยของแต่ละชั้นในฝรั่งเศส</span></p>
- <p>Le code couleur des résistances n'est pas au programme du primaire : il est suivi à part, en étapes, et ne compte pas dans l'âge estimé.<span class="th2">รหัสสีตัวต้านทานไม่อยู่ในหลักสูตรประถมศึกษา จึงติดตามแยกเป็นขั้น และไม่นำมาคิดอายุโดยประมาณ</span></p>
+ <p>Les résistances, la programmation, l'électricité, la musique, la santé, les mesures (avec les cadrans d'avion) et les drapeaux ne sont pas tous au programme du primaire thaï : ils sont suivis à part, en étapes, et ne comptent pas dans l'âge estimé. Le test mélangé reste sur les 7 matières de départ.<span class="th2">รหัสสีตัวต้านทาน การเขียนโปรแกรม ไฟฟ้า ดนตรี สุขภาพ การวัด (รวมเครื่องวัดในเครื่องบิน) และธงชาติ ติดตามแยกเป็นขั้น และไม่นำมาคิดอายุโดยประมาณ ภารกิจรวมยังใช้ 7 วิชาเดิม</span></p>
+ <p>Défis « ⭐ ท้าทาย » : quand un enfant est très à l'aise dans une matière (niveau au-dessus de ป.4), environ une question sur trois vient d'au-delà du programme (nombres négatifs, pourcentages, proverbes thaïs, nombres premiers, binaire, loi d'Ohm, altimètre…). Les réussir fait monter le niveau au-delà de ป.4.<span class="th2">โจทย์ท้าทาย: เมื่อเด็กเก่งมากในวิชาใด (สูงกว่า ป.4) ประมาณ 1 ใน 3 ข้อจะเป็นโจทย์เกินหลักสูตร</span></p>
+ <p>Bouton « ? » : sur chaque question, il ouvre une explication de méthode en thaï (lue à voix haute), sans donner directement la réponse. Elle s'affiche aussi automatiquement après une erreur.<span class="th2">ปุ่ม ? : เปิดคำอธิบายวิธีคิดเป็นภาษาไทยพร้อมเสียงอ่าน โดยไม่บอกคำตอบตรง ๆ และจะแสดงเองเมื่อตอบผิด</span></p>
  <p>Ces chiffres donnent une tendance et ne remplacent pas un bilan scolaire. Ils deviennent fiables après une vingtaine de questions par matière.<span class="th2">ตัวเลขเหล่านี้แสดงแนวโน้มเท่านั้น ไม่ใช่การประเมินของโรงเรียน และจะเชื่อถือได้มากขึ้นหลังทำประมาณ 20 ข้อต่อวิชา</span></p></div>
  </div></div>`;
  const msg=(fr,th)=>{$("#pmsg").innerHTML=B(fr,th)};
  $("#back").onclick=()=>go("home");
+ $("#dv").onchange=e=>{ls.set(DKEY,e.target.value);V.parents()};
  $("#zm").onchange=e=>{S.cfg.zoom=+e.target.value;applyZoom();save();V.parents()};
  $("#cls").onchange=e=>{S.cls=+e.target.value;for(const s of SUBJ)if(s.age&&(S.n[s.id]||0)<4)S.skill[s.id]=Math.min(S.cls,5)-.3;save();V.parents()};
  $("#prof").onclick=()=>go("profile");$("#sw").onclick=()=>go("players");
@@ -896,8 +1456,8 @@ function drawCharts(){
   f2.innerHTML=g};
  d1();d2();const ro=new ResizeObserver(()=>{if(f1.isConnected){d1();d2()}else ro.disconnect()});ro.observe(f1)}
 
-go(profileOK()?"home":"players");
-window.__NOA={gen,S:()=>S,P:()=>P,SUBJ};
+go(!DEV()?"device":profileOK()?"home":"players");
+window.__NOA={gen,S:()=>S,P:()=>P,SUBJ,explain,wrScore,V,go,pickD};
 }
 </script>
 </body>
