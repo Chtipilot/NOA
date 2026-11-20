@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- fond mangue, comme l'en-tête du jeu -->
+  <rect width="512" height="512" rx="112" fill="#ff9f1c"/>
+  <circle cx="256" cy="272" r="196" fill="#ffb84d"/>
+  <!-- queue en panache -->
+  <path d="M300 410 C420 400 470 300 430 210 C400 140 330 120 300 170 C280 205 320 230 345 215 C370 200 395 250 380 290 C360 340 310 350 290 330 Z" fill="#8d5a2b"/>
+  <path d="M318 382 C405 370 440 300 412 232 C395 190 360 175 342 195 C365 205 392 250 378 298 C362 345 330 362 300 352 Z" fill="#b97a45"/>
+  <!-- corps -->
+  <ellipse cx="236" cy="350" rx="92" ry="98" fill="#a86b36"/>
+  <ellipse cx="220" cy="368" rx="56" ry="68" fill="#f3d9b5"/>
+  <!-- pattes arrière -->
+  <ellipse cx="190" cy="438" rx="52" ry="22" fill="#8d5a2b"/>
+  <ellipse cx="282" cy="438" rx="52" ry="22" fill="#8d5a2b"/>
+  <!-- tête -->
+  <ellipse cx="206" cy="206" rx="92" ry="84" fill="#a86b36"/>
+  <!-- oreilles -->
+  <path d="M168 140 L150 64 L212 122 Z" fill="#a86b36"/>
+  <path d="M172 130 L162 88 L198 122 Z" fill="#f7b6c6"/>
+  <path d="M236 128 L262 58 L282 140 Z" fill="#a86b36"/>
+  <path d="M244 126 L262 84 L272 134 Z" fill="#f7b6c6"/>
+  <!-- joues et museau -->
+  <ellipse cx="168" cy="236" rx="46" ry="36" fill="#f3d9b5"/>
+  <ellipse cx="236" cy="240" rx="40" ry="32" fill="#f3d9b5"/>
+  <circle cx="200" cy="222" r="11" fill="#22214a"/>
+  <path d="M184 246 Q200 262 216 246" stroke="#22214a" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <rect x="192" y="252" width="16" height="16" rx="4" fill="#fff"/>
+  <!-- yeux -->
+  <circle cx="160" cy="190" r="16" fill="#22214a"/>
+  <circle cx="246" cy="190" r="16" fill="#22214a"/>
+  <circle cx="165" cy="184" r="5.5" fill="#fff"/>
+  <circle cx="251" cy="184" r="5.5" fill="#fff"/>
+  <circle cx="140" cy="232" r="12" fill="#f7a1b5" opacity=".8"/>
+  <circle cx="268" cy="234" r="12" fill="#f7a1b5" opacity=".8"/>
+  <!-- gland tenu dans les pattes -->
+  <ellipse cx="212" cy="330" rx="34" ry="40" fill="#c8892f"/>
+  <path d="M174 312 Q212 270 250 312 Q212 300 174 312 Z" fill="#6b4220"/>
+  <rect x="207" y="276" width="10" height="20" rx="4" fill="#6b4220"/>
+  <ellipse cx="176" cy="336" rx="20" ry="15" fill="#8d5a2b"/>
+  <ellipse cx="248" cy="336" rx="20" ry="15" fill="#8d5a2b"/>
+</svg>

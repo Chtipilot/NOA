@@ -21,3 +21,4 @@ Les scores sont enregistrés **dans le navigateur de l'appareil** (stockage loca
 ## Fichiers
 
 - `index.html` : tout le jeu, dans un seul fichier, sans dépendance (seule la police Mali vient de Google Fonts).
+- `icon.svg`, `icon-*.png`, `apple-touch-icon.png`, `favicon-48.png`, `manifest.json` : l'icône écureuil 🐿️, utilisée par « Ajouter à l'écran d'accueil » sur téléphone.
