@@ -4,13 +4,17 @@ Petit jeu d'apprentissage pour les enfants de l'école primaire thaïe (อน�
 
 **Jouer :** https://chtipilot.github.io/NOA/
 
-**Version en ligne : 3.2** (affichée dans le titre de l'accueil, en bas de l'écran et dans l'espace parents)
+**Version en ligne : 3.3** (affichée dans le titre de l'accueil, en bas de l'écran et dans l'espace parents)
+
+## Nouveautés de la version 3.3
+
+- **Médailles plus exigeantes** : or à partir de 95 % de bonnes réponses, argent à partir de 85 %, bronze à partir de 80 %. Le compte de médailles est recalculé sur toutes les parties déjà jouées.
 
 ## Nouveautés de la version 3.2
 
 - **Titre « Jeu NOA » avec la version** en haut de l'accueil et de l'écran « Qui joue ? », sous-titre en français, puis une ligne en thaï.
 - **Coupes 🏆** : une coupe par plateau arc-en-ciel gagné et par record battu.
-- **Médailles 🥇 🥈 🥉** à la fin de chaque exercice complet (matière, test mélangé, écriture) : or à partir de 90 % de réussite, argent à partir de 60 %, bronze à partir de 30 %. Les parties déjà jouées comptent aussi.
+- **Médailles 🥇 🥈 🥉** à la fin de chaque exercice complet (matière, test mélangé, écriture) : seuils modifiés en v3.3 (voir plus haut). Les parties déjà jouées comptent aussi.
 - Coupes et médailles affichées sur l'accueil, sur l'écran « Qui joue ? » et dans le tableau des scores.
 
 ## Nouveautés de la version 3.1

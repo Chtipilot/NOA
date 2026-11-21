@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jeu NOA v3.2</title>
+<title>Jeu NOA v3.3</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -297,7 +297,7 @@ input[type=checkbox]{width:calc(20px*var(--k));height:calc(20px*var(--k))}
 <script>
 {
 /* ================= utilitaires ================= */
-const VERSION="3.2";
+const VERSION="3.3";
 const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -425,10 +425,10 @@ function recLine(st,k,unit=""){const b=bestOf(k);if(st==="new")return `<p class=
 const verTag=()=>`<p class="ver">Jeu NOA · v${VERSION}</p>`;
 /* v3.2 : médailles et coupes.
    Médaille à la fin d'un exercice complet (quiz ≥ 8 questions, test mélangé, écriture ≥ 5 lettres) :
-   or ≥ 90 % de réussite, argent ≥ 60 %, bronze ≥ 30 % (comme les 3, 2, 1 étoiles de fin de partie).
+   or ≥ 95 % de réussite, argent ≥ 85 %, bronze ≥ 80 % (règle v3.3).
    Calculées depuis l'historique des séances : les anciennes parties comptent aussi.
    Coupes = plateaux arc-en-ciel gagnés + records battus (S.recs, compté à partir de la v3.2). */
-const medalOf=x=>{if(!x||!x.n)return 0;const full=x.g==="write"?x.n>=5:(x.g==="quiz"||x.g==="mix")&&x.n>=8;if(!full)return 0;const r=x.ok/x.n;return r>=.9?3:r>=.6?2:r>=.3?1:0};
+const medalOf=x=>{if(!x||!x.n)return 0;const full=x.g==="write"?x.n>=5:(x.g==="quiz"||x.g==="mix")&&x.n>=8;if(!full)return 0;const r=x.ok/x.n;return r>=.95?3:r>=.85?2:r>=.8?1:0};
 function medalsOf(d){const m={g:0,s:0,b:0};for(const x of (d&&d.sessions)||[]){const k=medalOf(x);if(k===3)m.g++;else if(k===2)m.s++;else if(k===1)m.b++}return m}
 const cupsOf=d=>((d&&d.trvWins)||0)+((d&&d.recs)||0);
 const MED=[null,["🥉","เหรียญทองแดง","médaille de bronze"],["🥈","เหรียญเงิน","médaille d'argent"],["🥇","เหรียญทอง","médaille d'or"]];
