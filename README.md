@@ -1,10 +1,17 @@
-# Noa เรียนสนุก
+# Jeu NOA
 
 Petit jeu d'apprentissage pour les enfants de l'école primaire thaïe (อนุบาล 3 à ป.6) : maths, thaï, sciences, le monde, logique, français, anglais, code couleur des résistances, programmation, électricité, musique, santé et sécurité, mesures et cadrans d'aviation, drapeaux et pays. Les questions sont en thaï, avec une traduction française.
 
 **Jouer :** https://chtipilot.github.io/NOA/
 
-**Version en ligne : 3.1** (affichée en bas de l'écran d'accueil et dans l'espace parents)
+**Version en ligne : 3.2** (affichée dans le titre de l'accueil, en bas de l'écran et dans l'espace parents)
+
+## Nouveautés de la version 3.2
+
+- **Titre « Jeu NOA » avec la version** en haut de l'accueil et de l'écran « Qui joue ? », sous-titre en français, puis une ligne en thaï.
+- **Coupes 🏆** : une coupe par plateau arc-en-ciel gagné et par record battu.
+- **Médailles 🥇 🥈 🥉** à la fin de chaque exercice complet (matière, test mélangé, écriture) : or à partir de 90 % de réussite, argent à partir de 60 %, bronze à partir de 30 %. Les parties déjà jouées comptent aussi.
+- Coupes et médailles affichées sur l'accueil, sur l'écran « Qui joue ? » et dans le tableau des scores.
 
 ## Nouveautés de la version 3.1
 

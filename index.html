@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Noa เรียนสนุก v3.1</title>
+<title>Jeu NOA v3.2</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -174,7 +174,7 @@ h1,h2,h3{margin:0;line-height:1.1;text-wrap:balance}
 .rk{font-size:calc(30px*var(--k));min-width:1.4em;text-align:center;font-weight:700}
 .sname{display:flex;flex-direction:column}.sname b{font-size:calc(22px*var(--k))}.sname small,.st small{font-size:calc(13px*var(--k));color:var(--muted);line-height:1.3}
 .st{display:flex;flex-direction:column;align-items:center;text-align:center}.st b{font-size:calc(20px*var(--k))}
-.sh{display:flex;align-items:center;gap:10px}.sts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.sh{display:flex;align-items:center;gap:10px}.sts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
 @media(max-width:900px){.srow{grid-template-columns:minmax(0,1fr)}.sts{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:420px){.sts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* v3.1 : version, score en cours et record */
@@ -186,6 +186,14 @@ h1,h2,h3{margin:0;line-height:1.1;text-wrap:balance}
 .grec{position:relative;align-self:flex-start;font-style:normal;font-size:calc(13px*var(--k));font-weight:700;background:rgba(255,255,255,.92);color:#22214a;border-radius:99px;padding:1px 10px;margin-top:6px}
 .subrec{display:block;font-weight:700;margin-top:2px}
 @media(max-width:600px){.scb{padding:2px 7px}.scb small{display:none}}
+/* v3.2 : titre, sous-titre, coupes et médailles */
+.top h1 .vh{font-size:.45em;font-weight:700;background:#fff;color:#22214a;border-radius:99px;padding:2px 12px;vertical-align:middle;margin-left:6px}
+.top .sub-fr{font-size:calc(20px*var(--k));font-weight:700;color:#22214a;margin-top:4px}
+.trow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}.trow .stars{margin-top:0}
+.troph{display:flex;flex-wrap:wrap;gap:8px}.troph span{display:inline-flex;gap:6px;align-items:center;background:#fff;color:#22214a;border-radius:99px;padding:4px 14px;font-weight:700}
+.troph small{font-size:calc(12px*var(--k));color:#5b3a00;font-weight:600}
+.med-new{font-size:calc(24px*var(--k));font-weight:700;margin:6px 0}
+@media(max-width:600px){.troph small{display:none}.troph span{padding:3px 10px}}
 canvas#conf{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
 /* parents : facteur de taille un peu plus modéré, texte en français + thaï */
 .par{--k:calc(1 + (var(--z) - 1)*.5);background:light-dark(#fbfaf7,#17162a);min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:calc(16px*var(--k))}
@@ -289,7 +297,7 @@ input[type=checkbox]{width:calc(20px*var(--k));height:calc(20px*var(--k))}
 <script>
 {
 /* ================= utilitaires ================= */
-const VERSION="3.1";
+const VERSION="3.2";
 const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -376,7 +384,7 @@ const SPK='<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><p
    L'ancienne clé "noa-learn-v1" est lue une fois pour créer le premier joueur, jamais effacée. */
 const KEY="noa-learn-v1",IDX="noa-players-v2",PK=id=>"noa-player-"+id;
 function DEF(){return {v:2,created:Date.now(),upd:Date.now(),cls:3,name:"",av:"🐘",birth:null,
- skill:{math:2.7,thai:2.7,sci:2.7,world:2.7,logic:2.7,fr:1,en:1.5,elec:1,code:1.5,circ:1.5,music:1.5,health:2,measure:1.5,flags:1.5},n:{},ok:{},topics:{},days:{},sessions:[],stars:0,mem:1,trvWins:0,wr:1,best:{},
+ skill:{math:2.7,thai:2.7,sci:2.7,world:2.7,logic:2.7,fr:1,en:1.5,elec:1,code:1.5,circ:1.5,music:1.5,health:2,measure:1.5,flags:1.5},n:{},ok:{},topics:{},days:{},sessions:[],stars:0,mem:1,trvWins:0,wr:1,best:{},recs:0,
  cfg:{sound:true,autoTh:true,showFr:true,zoom:1.4,zv:2}}}
 const ZOOMS=[1,1.2,1.4,1.7];
 function fixS(){const D=DEF();const c=S.cfg||{};if(!c.zv){c.zoom=c.zoom>=2||c.zoom==null?1.4:c.zoom;c.zv=2}c.zoom=ZOOMS.reduce((b,z)=>Math.abs(z-c.zoom)<Math.abs(b-c.zoom)?z:b,1.4);S.cfg=Object.assign(D.cfg,c);S.skill=Object.assign(D.skill,S.skill||{})}
@@ -410,11 +418,22 @@ function record(q,good){
 const BKEY=(g,s,lv)=>g==="quiz"?"quiz."+s:g==="memory"?"memory."+lv:g==="write"?"write."+lv:g;
 const LOWER=k=>k.startsWith("memory.");
 const bestOf=k=>{const b=(S.best||{})[k];return b?b.v:null};
-function recScore(k,v){if(v==null||isNaN(v))return false;S.best=S.best||{};const b=S.best[k];if(b&&!(LOWER(k)?v<b.v:v>b.v))return false;if(!b&&!LOWER(k)&&v<=0)return false;S.best[k]={v,t:Date.now()};save();return b?"new":"first"}
+function recScore(k,v){if(v==null||isNaN(v))return false;S.best=S.best||{};const b=S.best[k];if(b&&!(LOWER(k)?v<b.v:v>b.v))return false;if(!b&&!LOWER(k)&&v<=0)return false;S.best[k]={v,t:Date.now()};if(b)S.recs=(S.recs||0)+1;save();return b?"new":"first"}
 const isHot=(k,v)=>{const b=bestOf(k);return b!=null&&(LOWER(k)?v<b:v>b)};
 function scoreChips(k,v,unit=""){const b=bestOf(k);return `<span class="scb${isHot(k,v)?" hot":""}" title="score en cours">🎯 <b>${v}${unit}</b><small>คะแนน · score</small></span><span class="scb" title="record">🏆 <b>${b==null?"—":b+unit}</b><small>${LOWER(k)?"สถิติ · record":"สูงสุด · max"}</small></span>`}
 function recLine(st,k,unit=""){const b=bestOf(k);if(st==="new")return `<p class="rec-new">🏆 สถิติใหม่! <span class="fr">· Nouveau record !</span></p>`;if(st==="first")return `<p class="rec-new">🏆 สถิติแรก: ${b}${unit} <span class="fr">· premier record</span></p>`;return b==null?"":`<p class="fr">${LOWER(k)?"สถิติ":"คะแนนสูงสุด"} ${b}${unit} · ${LOWER(k)?"record":"score max"} ${b}${unit}</p>`}
-const verTag=()=>`<p class="ver">Noa เรียนสนุก · v${VERSION}</p>`;
+const verTag=()=>`<p class="ver">Jeu NOA · v${VERSION}</p>`;
+/* v3.2 : médailles et coupes.
+   Médaille à la fin d'un exercice complet (quiz ≥ 8 questions, test mélangé, écriture ≥ 5 lettres) :
+   or ≥ 90 % de réussite, argent ≥ 60 %, bronze ≥ 30 % (comme les 3, 2, 1 étoiles de fin de partie).
+   Calculées depuis l'historique des séances : les anciennes parties comptent aussi.
+   Coupes = plateaux arc-en-ciel gagnés + records battus (S.recs, compté à partir de la v3.2). */
+const medalOf=x=>{if(!x||!x.n)return 0;const full=x.g==="write"?x.n>=5:(x.g==="quiz"||x.g==="mix")&&x.n>=8;if(!full)return 0;const r=x.ok/x.n;return r>=.9?3:r>=.6?2:r>=.3?1:0};
+function medalsOf(d){const m={g:0,s:0,b:0};for(const x of (d&&d.sessions)||[]){const k=medalOf(x);if(k===3)m.g++;else if(k===2)m.s++;else if(k===1)m.b++}return m}
+const cupsOf=d=>((d&&d.trvWins)||0)+((d&&d.recs)||0);
+const MED=[null,["🥉","เหรียญทองแดง","médaille de bronze"],["🥈","เหรียญเงิน","médaille d'argent"],["🥇","เหรียญทอง","médaille d'or"]];
+const medLine=k=>k?`<p class="med-new">${MED[k][0]} ได้${MED[k][1]}! <span class="fr">· ${MED[k][2]} !</span></p>`:"";
+const trophyBar=d=>{const m=medalsOf(d);return `<div class="troph"><span title="coupes">🏆 <b>${cupsOf(d)}</b> <small>ถ้วย · coupes</small></span><span title="médailles">🥇 <b>${m.g}</b> 🥈 <b>${m.s}</b> 🥉 <b>${m.b}</b> <small>เหรียญ · médailles</small></span></div>`};
 function endSession(o){o.end=Date.now();o.k=Object.fromEntries(Object.entries(S.skill).map(([a,b])=>[a,Math.round(b*100)/100]));o.ga=globalAge();o.ra=ageAt(o.end);
  const dk=dayKey(o.end);if(S.days[dk])S.days[dk].ms+=Math.min(o.end-o.t,3600e3);
  S.sessions.push(o);if(S.sessions.length>600)S.sessions=S.sessions.slice(-600);save()}
@@ -1106,7 +1125,7 @@ const V={};
 const recBadge=(k,unit="")=>{const b=bestOf(k);return b==null?"":`<em class="grec">🏆 ${LOWER(k)?"สถิติ":"สูงสุด"} ${b}${unit}</em>`};
 V.home=()=>{
  const ga=globalAge();
- app.innerHTML=`<div class="top"><div class="wrap">${elephant("happy","mascot")}<div><h1>สวัสดี ${esc(S.name)}! <span class="av-s">${S.av}</span></h1><div class="fr">Bonjour ${esc(S.name)} ! Choisis un jeu.</div><div class="stars">⭐ ${S.stars} ดาว</div><div class="who"><button class="chip-b" data-g="players">👥 เปลี่ยนผู้เล่น <span class="fr">· changer de joueur</span></button><button class="chip-b" data-g="scores">🏆 ตารางคะแนน <span class="fr">· scores</span></button><button class="chip-b" data-g="device">${(DEVS.find(x=>x[0]===DEV())||DEVS[0])[1]} <span class="fr">· appareil</span></button></div></div></div></div>
+ app.innerHTML=`<div class="top"><div class="wrap">${elephant("happy","mascot")}<div><h1>Jeu NOA <span class="vh">v${VERSION}</span></h1><div class="sub-fr">Bonjour ${esc(S.name)} ${S.av} ! Choisis un jeu.</div><div class="fr">สวัสดี ${esc(S.name)}! เลือกเกมได้เลย</div><div class="trow"><div class="stars">⭐ ${S.stars} ดาว</div>${trophyBar(S)}</div><div class="who"><button class="chip-b" data-g="players">👥 เปลี่ยนผู้เล่น <span class="fr">· changer de joueur</span></button><button class="chip-b" data-g="scores">🏆 ตารางคะแนน <span class="fr">· scores</span></button><button class="chip-b" data-g="device">${(DEVS.find(x=>x[0]===DEV())||DEVS[0])[1]} <span class="fr">· appareil</span></button></div></div></div></div>
  <div class="wrap"><div class="games">
   <button class="game g-trv" data-g="trivial"><svg viewBox="0 0 100 100">${[0,1,2,3,4,5].map(i=>{const a0=i*60*Math.PI/180,a1=(i+1)*60*Math.PI/180;return `<path d="M50 50L${50+44*Math.cos(a0)} ${50+44*Math.sin(a0)}A44 44 0 0 1 ${50+44*Math.cos(a1)} ${50+44*Math.sin(a1)}Z" fill="${SUBJ[i].hex}" stroke="#fff" stroke-width="3"/>`}).join("")}</svg><b>เกมกระดานสีรุ้ง</b><span>ทอยลูกเต๋า เก็บชิ้นสีให้ครบ 6 สี · Plateau arc-en-ciel</span>${recBadge("trivial")}</button>
   <button class="game g-mem" data-g="memory"><svg viewBox="0 0 100 100"><rect x="12" y="20" width="34" height="46" rx="7" fill="#ffd23f" stroke="#fff" stroke-width="3" transform="rotate(-10 29 43)"/><rect x="50" y="26" width="34" height="46" rx="7" fill="#06a77d" stroke="#fff" stroke-width="3" transform="rotate(8 67 49)"/></svg><b>เกมจับคู่การ์ด</b><span>เปิดการ์ดหาคู่ให้ครบ · Memory</span>${recBadge("memory."+clamp(S.mem,1,5)," ครั้ง")}</button>
@@ -1123,8 +1142,8 @@ V.home=()=>{
 const AVS=["🐘","🐯","🐼","🐰","🦊","🐸","🦄","🐵","🐱","🐶","🦁","🐧"];
 const ageOfP=d=>d&&d.birth?(Date.now()-d.birth)/YMS:null;
 V.players=()=>{
- const L=P.list.map(p=>{const d=p.id===P.cur?S:readPlayer(p.id);const a=ageOfP(d);return `<button class="pl" data-p="${p.id}"><span class="pav">${d.av||"🐘"}</span><span class="pinfo"><b>${esc(d.name||"?")}</b><small>${a!=null?fmtAgeTh(a):"—"} · ${CLS_SHORT[(d.cls||3)-1]||""}</small><small>⭐ ${d.stars||0}</small></span></button>`}).join("");
- app.innerHTML=`<div class="top"><div class="wrap">${elephant("happy","mascot")}<div><h1>ใครจะเล่น?</h1><div class="fr">Qui joue ? Touche ton nom.</div></div></div></div>
+ const L=P.list.map(p=>{const d=p.id===P.cur?S:readPlayer(p.id);const a=ageOfP(d);return `<button class="pl" data-p="${p.id}"><span class="pav">${d.av||"🐘"}</span><span class="pinfo"><b>${esc(d.name||"?")}</b><small>${a!=null?fmtAgeTh(a):"—"} · ${CLS_SHORT[(d.cls||3)-1]||""}</small><small>⭐ ${d.stars||0} · 🏆 ${cupsOf(d)} · 🥇 ${medalsOf(d).g}</small></span></button>`}).join("");
+ app.innerHTML=`<div class="top"><div class="wrap">${elephant("happy","mascot")}<div><h1>Jeu NOA <span class="vh">v${VERSION}</span></h1><div class="sub-fr">Qui joue ? Touche ton nom.</div><div class="fr">ใครจะเล่น?</div></div></div></div>
  <div class="wrap"><div class="plist">${L}<button class="pl add" data-new="1"><span class="pav">➕</span><span class="pinfo"><b>ผู้เล่นใหม่</b><small>Nouveau joueur</small></span></button></div>
  ${P.list.length?`<div class="btns"><button class="btn alt" id="sc">🏆 ตารางคะแนน · Scores</button></div>`:""}${verTag()}</div>`;
  app.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{ac();loadPlayer(b.dataset.p);go(profileOK()?"home":"profile")});
@@ -1160,7 +1179,8 @@ V.scores=()=>{
  <div class="board2">${rows.length?rows.map((r,i)=>`<div class="srow${r.p.id===P.cur?" me":""}"><div class="sh"><span class="rk">${med[i]||i+1}</span><span class="pav">${r.d.av||"🐘"}</span><span class="sname"><b>${esc(r.d.name||"?")}</b><small>${r.a!=null?fmtAgeTh(r.a):"—"} · ${CLS_SHORT[(r.d.cls||3)-1]||""}</small></span></div><div class="sts">
   <span class="st"><b>⭐ ${r.d.stars||0}</b><small>ดาว · étoiles</small></span>
   <span class="st"><b>${r.pr==null?"—":r.pr+" %"}</b><small>ตอบถูก ${r.n} ข้อ · réussite</small></span>
-  <span class="st"><b>🏆 ${r.d.trvWins||0}</b><small>ชนะเกมกระดาน · plateaux</small></span>
+  <span class="st"><b>🏆 ${cupsOf(r.d)}</b><small>ถ้วย · coupes</small></span>
+  <span class="st"><b>🥇${medalsOf(r.d).g} 🥈${medalsOf(r.d).s} 🥉${medalsOf(r.d).b}</b><small>เหรียญ · médailles</small></span>
   <span class="st"><b>${r.ga?gradeOf(r.ga-AGE_OFF):"—"}</b><small>ระดับ · niveau${r.ga?" ≈ "+fmtAge(r.ga):""}</small></span>
   <span class="st"><b>${r.days}</b><small>วันที่เล่น · jours${r.last?" · "+fmtDate(r.last):""}</small></span></div></div>`).join(""):`<p class="hint">ยังไม่มีผู้เล่น · Aucun joueur</p>`}</div>
  <p class="note-s" style="text-align:center">คะแนนบันทึกไว้ในเครื่องนี้เท่านั้น · Les scores sont enregistrés sur cet appareil seulement.</p>
@@ -1192,11 +1212,11 @@ function quizStep(){const c=cur;if(c.i>=c.list.length)return quizEnd();
  app.innerHTML=`<div class="wrap"><div class="bar"><button class="x" aria-label="Retour">✕</button><div class="prog"><i style="width:${c.i/c.list.length*100}%"></i></div>${scoreChips(BKEY(c.g,c.s),c.ok)}</div><div id="qb"></div></div>`;
  app.querySelector(".x").onclick=()=>{if(c.i>0){endSession({g:c.g,s:c.s,t:c.t,ok:c.ok,n:c.i});recScore(BKEY(c.g,c.s),c.ok)}go("home")};
  const q=nextQ(c.list[c.i]);showQ($("#qb"),q,good=>{c.i++;if(good)c.ok++;quizStep()},` · ${c.i+1}/${c.list.length}`)}
-function quizEnd(){const c=cur;endSession({g:c.g,s:c.s,t:c.t,ok:c.ok,n:c.list.length});const bk=BKEY(c.g,c.s),rs=recScore(bk,c.ok);const r=c.ok/c.list.length;if(rs==="new")setTimeout(()=>{SFX.wedge();confetti(160)},700);
+function quizEnd(){const c=cur;endSession({g:c.g,s:c.s,t:c.t,ok:c.ok,n:c.list.length});const md=medalOf({g:c.g,ok:c.ok,n:c.list.length});const bk=BKEY(c.g,c.s),rs=recScore(bk,c.ok);const r=c.ok/c.list.length;if(rs==="new")setTimeout(()=>{SFX.wedge();confetti(160)},700);
  const st=r>=.9?3:r>=.6?2:r>=.3?1:0;if(st>=2){SFX.win();confetti(200)}else SFX.ok();
  const sb=c.s?SUB[c.s]:null;
  app.innerHTML=`<div class="wrap res">${elephant("happy","mascot joy")}<div class="big">${"⭐".repeat(st)||"💪"}</div><h2>${st===3?"สุดยอด! ได้ 3 ดาว":st===2?"เก่งมาก!":st===1?"ดีแล้ว! ฝึกต่อนะ":"ไม่เป็นไร ลองอีกครั้ง!"}</h2>
- <p class="qth">ตอบถูก ${c.ok} จาก ${c.list.length} ข้อ</p>${recLine(rs,bk)}<p class="fr">${c.ok} bonnes réponses sur ${c.list.length}${sb?` · niveau actuel : ${sb.age?gradeOf(S.skill[c.s]):"étape "+clamp(Math.round(S.skill[c.s]),1,5)}`:""}</p>
+ <p class="qth">ตอบถูก ${c.ok} จาก ${c.list.length} ข้อ</p>${medLine(md)}${recLine(rs,bk)}<p class="fr">${c.ok} bonnes réponses sur ${c.list.length}${sb?` · niveau actuel : ${sb.age?gradeOf(S.skill[c.s]):"étape "+clamp(Math.round(S.skill[c.s]),1,5)}`:""}</p>
  <div class="btns"><button class="btn" id="again">เล่นอีก ↻</button>${c.s==="elec"?'<button class="btn alt" id="les">📋 บทเรียน</button>':""}<button class="btn alt" id="home">หน้าแรก</button></div></div>`;
  $("#again").onclick=()=>startQuiz(c.g==="mix"?"mix":c.s);$("#home").onclick=()=>go("home");if($("#les"))$("#les").onclick=()=>go("elec")}
 
@@ -1268,7 +1288,7 @@ function trvAsk(){const c=cur,cell=CELLS[c.pos],cat=TRVC[cell.c];
   trvDraw(good?(c.w[cell.c]===2?`ได้ชิ้นสี${cat.th}แล้ว! 🎉<br><span class="fr">Part ${cat.fr} gagnée !</span>`:`ได้ครึ่งชิ้น! ทอยต่อเลย<br><span class="fr">Demi-part ! Relance le dé</span>`):`ทอยใหม่อีกครั้ง!<br><span class="fr">Relance le dé !</span>`)},cell.hq?" · ★":"");
  const head=ov.querySelector(".qhead");if(head)head.style.background=cat.hex}
 function trvWin(){const c=cur;S.trvWins++;endSession({g:"trivial",s:"",t:c.t,ok:c.ok,n:c.n,w:6,win:1});const rs=recScore("trivial",c.ok);SFX.win();confetti(320);setTimeout(()=>confetti(200),900);
- app.innerHTML=`<div class="wrap res">${elephant("happy","mascot joy")}<div class="big">🏆</div><h2>ชนะแล้ว! เก็บครบ 6 สี</h2><p class="qth">ตอบถูก ${c.ok} จาก ${c.n} ข้อ</p>${recLine(rs,"trivial")}<p class="fr">Gagné ! Les 6 couleurs sont réunies — ${c.ok}/${c.n} bonnes réponses.</p>
+ app.innerHTML=`<div class="wrap res">${elephant("happy","mascot joy")}<div class="big">🏆</div><h2>ชนะแล้ว! เก็บครบ 6 สี</h2><p class="med-new">🏆 ได้ถ้วยรางวัล! <span class="fr">· une coupe de plus !</span></p><p class="qth">ตอบถูก ${c.ok} จาก ${c.n} ข้อ</p>${recLine(rs,"trivial")}<p class="fr">Gagné ! Les 6 couleurs sont réunies — ${c.ok}/${c.n} bonnes réponses.</p>
  <div class="btns"><button class="btn" id="again">เล่นอีก ↻</button><button class="btn alt" id="home">หน้าแรก</button></div></div>`;
  $("#again").onclick=()=>go("trivial");$("#home").onclick=()=>go("home")}
 
@@ -1336,9 +1356,9 @@ function wrScore(ch,strokes,norm){const N=96;const mk=()=>{const c=document.crea
  if(!nu||!nt)return {st:0,cov:0,pre:0};const C=cov/nt,Pp=pre/nu;const sc=Math.min(1,C/.75)*.55+Math.min(1,Pp/.85)*.45;
  let st=0;if(C>=.45&&Pp>=.5)st=1;if(C>=.62&&Pp>=.65)st=2;if(C>=.78&&Pp>=.75)st=3;return {st,cov:C,pre:Pp,sc}}
 function recordWrite(good,st){const tk="thai.write";const T=S.topics[tk]||(S.topics[tk]={c:0,t:0});T.t++;if(good)T.c++;const dk=dayKey(Date.now());const D=S.days[dk]||(S.days[dk]={n:0,ok:0,ms:0});D.n++;if(good)D.ok++;S.stars+=st;save()}
-function wrEnd(){KEYH=null;const c=cur,avg=c.sc.reduce((a,b)=>a+b,0)/c.sc.length,old=S.wr||1;const wk="write."+c.lv,rs=recScore(wk,c.sc.reduce((a,b)=>a+b,0));S.wr=clamp(old+(avg>=2.3?1:avg<1?-1:0),1,3);
+function wrEnd(){KEYH=null;const c=cur,avg=c.sc.reduce((a,b)=>a+b,0)/c.sc.length,old=S.wr||1;const wk="write."+c.lv,rs=recScore(wk,c.sc.reduce((a,b)=>a+b,0)),md=medalOf({g:"write",ok:c.ok,n:c.items.length});S.wr=clamp(old+(avg>=2.3?1:avg<1?-1:0),1,3);
  endSession({g:"write",s:"",t:c.t,ok:c.ok,n:c.items.length});SFX.win();confetti(180);
- app.innerHTML=`<div class="wrap res">${elephant("happy","mascot joy")}<div class="big">✍️</div><h2>เขียนเก่งมาก!</h2><p class="qth">ได้ ${c.sc.reduce((a,b)=>a+b,0)} ดาว จาก ${c.items.length} ตัว</p>${recLine(rs,wk," ⭐")}<p class="fr">${c.sc.reduce((a,b)=>a+b,0)} étoiles pour ${c.items.length} lettres${S.wr>old?" — niveau suivant débloqué !":""}</p>${S.wr>old?`<p class="qth">🎉 ปลดล็อกขั้น ${S.wr}!</p>`:""}
+ app.innerHTML=`<div class="wrap res">${elephant("happy","mascot joy")}<div class="big">✍️</div><h2>เขียนเก่งมาก!</h2><p class="qth">ได้ ${c.sc.reduce((a,b)=>a+b,0)} ดาว จาก ${c.items.length} ตัว</p>${medLine(md)}${recLine(rs,wk," ⭐")}<p class="fr">${c.sc.reduce((a,b)=>a+b,0)} étoiles pour ${c.items.length} lettres${S.wr>old?" — niveau suivant débloqué !":""}</p>${S.wr>old?`<p class="qth">🎉 ปลดล็อกขั้น ${S.wr}!</p>`:""}
  <div class="btns"><button class="btn" id="again">เล่นอีก ↻</button><button class="btn alt" id="home">หน้าแรก</button></div></div>`;
  $("#again").onclick=()=>go("write");$("#home").onclick=()=>go("home")}
 
@@ -1404,7 +1424,7 @@ V.parents=()=>{
  const vTh=hasVoice("th"),vFr=hasVoice("fr"),vEn=hasVoice("en");
  const Z=[[1,"Petite","เล็ก"],[1.2,"Moyenne","กลาง"],[1.4,"Grande (conseillée)","ใหญ่ (แนะนำ)"],[1.7,"Très grande","ใหญ่มาก"]];
  app.innerHTML=`<div class="par"><div class="wrap">
- <div class="row" style="justify-content:space-between"><button class="pbtn alt" id="back">← Retour au jeu · กลับไปที่เกม</button><span class="note-s">Noa เรียนสนุก — version ${VERSION}</span></div>
+ <div class="row" style="justify-content:space-between"><button class="pbtn alt" id="back">← Retour au jeu · กลับไปที่เกม</button><span class="note-s">Jeu NOA — version ${VERSION}</span></div>
  <h1>${B(`${S.av} Suivi de ${NM}`,`ติดตามพัฒนาการของ ${NM}`)}</h1>
  <p class="note-s">Âge réel ${fmtAge(ra)} · classe déclarée : ${GRADES_FR[S.cls-1]} · ${last?"dernière séance le "+fmtDT(last):"aucune séance pour l'instant"}<span class="th2">อายุจริง ${fmtAgeTh(ra)} · ชั้นเรียน: ${GRADES_TH[S.cls-1]} · ${last?"เล่นล่าสุด "+fmtDTth(last):"ยังไม่มีการเล่น"}</span></p>
  <div class="kpis"><div class="kpi hl"><b>${ga?fmtAge(ga):"—"}</b><span>${B("âge estimé (Thaï, maths, sciences, monde, logique)",`อายุโดยประมาณ ${ga?fmtAgeTh(ga):""} (ไทย คณิต วิทย์ โลก ตรรกะ)`)}</span></div>
