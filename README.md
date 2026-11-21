@@ -4,6 +4,15 @@ Petit jeu d'apprentissage pour les enfants de l'école primaire thaïe (อน�
 
 **Jouer :** https://chtipilot.github.io/NOA/
 
+**Version en ligne : 3.1** (affichée en bas de l'écran d'accueil et dans l'espace parents)
+
+## Nouveautés de la version 3.1
+
+- **Numéro de version** affiché dans le jeu : en bas de l'accueil, sur l'écran « Qui joue ? » et dans l'espace parents.
+- **Score en cours 🎯 et record 🏆** en haut de chaque jeu : exercices par matière et test mélangé (bonnes réponses), plateau (bonnes réponses), écriture (étoiles gagnées), memory (nombre de coups par niveau : moins = mieux). Le cadre du score devient jaune quand l'enfant bat son record.
+- **« Nouveau record ! »** à la fin de la partie, avec confettis. Les records de chaque joueur apparaissent sur les cartes de l'accueil.
+- Les records sont propres à chaque joueur et partent avec ses sauvegardes (export / import).
+
 ## Nouveautés de la version 3.0
 
 - **Au démarrage**, le jeu demande l'appareil utilisé (téléphone, tablette ou ordinateur) pour savoir si l'enfant écrit avec le doigt ou avec la souris. Modifiable dans l'espace parents.
