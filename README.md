@@ -4,7 +4,13 @@ Petit jeu d'apprentissage pour les enfants de l'école primaire thaïe (อน�
 
 **Jouer :** https://chtipilot.github.io/NOA/
 
-**Version en ligne : 3.3** (affichée dans le titre de l'accueil, en bas de l'écran et dans l'espace parents)
+**Version en ligne : 3.4** (affichée dans le titre de l'accueil, en bas de l'écran et dans l'espace parents)
+
+## Nouveautés de la version 3.4
+
+- **10 questions partout** : exercices par matière, test mélangé (les 7 matières de base, plus 3 tirées au hasard), test des résistances, et 10 tracés au jeu d'écriture.
+- **Médailles** : 10/10 = or 🥇, 9/10 = argent 🥈, 8/10 = bronze 🥉. Pour les parties jouées avant (8 ou 14 questions) : or à 100 %, argent à partir de 90 %, bronze à partir de 80 %.
+- Les records des exercices, du test mélangé et de l'écriture repartent de zéro, sur 10.
 
 ## Nouveautés de la version 3.3
 

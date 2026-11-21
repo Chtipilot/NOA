@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jeu NOA v3.3</title>
+<title>Jeu NOA v3.4</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -297,7 +297,7 @@ input[type=checkbox]{width:calc(20px*var(--k));height:calc(20px*var(--k))}
 <script>
 {
 /* ================= utilitaires ================= */
-const VERSION="3.3";
+const VERSION="3.4";
 const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -415,7 +415,7 @@ function record(q,good){
  save()}
 /* v3.1 : score en cours et record (score max) par joueur et par jeu.
    Clés : quiz.<matière>, mix, trivial, write.<niveau> (étoiles), memory.<niveau> (nombre de coups : plus petit = mieux). */
-const BKEY=(g,s,lv)=>g==="quiz"?"quiz."+s:g==="memory"?"memory."+lv:g==="write"?"write."+lv:g;
+const BKEY=(g,s,lv)=>g==="quiz"?"q10."+s:g==="mix"?"mix10":g==="memory"?"memory."+lv:g==="write"?"w10."+lv:g; /* v3.4 : nouvelles clés, records sur 10 */
 const LOWER=k=>k.startsWith("memory.");
 const bestOf=k=>{const b=(S.best||{})[k];return b?b.v:null};
 function recScore(k,v){if(v==null||isNaN(v))return false;S.best=S.best||{};const b=S.best[k];if(b&&!(LOWER(k)?v<b.v:v>b.v))return false;if(!b&&!LOWER(k)&&v<=0)return false;S.best[k]={v,t:Date.now()};if(b)S.recs=(S.recs||0)+1;save();return b?"new":"first"}
@@ -425,10 +425,10 @@ function recLine(st,k,unit=""){const b=bestOf(k);if(st==="new")return `<p class=
 const verTag=()=>`<p class="ver">Jeu NOA · v${VERSION}</p>`;
 /* v3.2 : médailles et coupes.
    Médaille à la fin d'un exercice complet (quiz ≥ 8 questions, test mélangé, écriture ≥ 5 lettres) :
-   or ≥ 95 % de réussite, argent ≥ 85 %, bronze ≥ 80 % (règle v3.3).
+   v3.4 : 10 questions par exercice ; 10/10 = or, 9/10 = argent, 8/10 = bronze (100 %, 90 %, 80 % pour les anciennes parties de 8 ou 14 questions).
    Calculées depuis l'historique des séances : les anciennes parties comptent aussi.
    Coupes = plateaux arc-en-ciel gagnés + records battus (S.recs, compté à partir de la v3.2). */
-const medalOf=x=>{if(!x||!x.n)return 0;const full=x.g==="write"?x.n>=5:(x.g==="quiz"||x.g==="mix")&&x.n>=8;if(!full)return 0;const r=x.ok/x.n;return r>=.95?3:r>=.85?2:r>=.8?1:0};
+const medalOf=x=>{if(!x||!x.n)return 0;const full=x.g==="write"?x.n>=5:(x.g==="quiz"||x.g==="mix")&&x.n>=8;if(!full)return 0;const r=x.ok/x.n;return r>=.999?3:r>=.9?2:r>=.8?1:0};
 function medalsOf(d){const m={g:0,s:0,b:0};for(const x of (d&&d.sessions)||[]){const k=medalOf(x);if(k===3)m.g++;else if(k===2)m.s++;else if(k===1)m.b++}return m}
 const cupsOf=d=>((d&&d.trvWins)||0)+((d&&d.recs)||0);
 const MED=[null,["🥉","เหรียญทองแดง","médaille de bronze"],["🥈","เหรียญเงิน","médaille d'argent"],["🥇","เหรียญทอง","médaille d'or"]];
@@ -1129,10 +1129,10 @@ V.home=()=>{
  <div class="wrap"><div class="games">
   <button class="game g-trv" data-g="trivial"><svg viewBox="0 0 100 100">${[0,1,2,3,4,5].map(i=>{const a0=i*60*Math.PI/180,a1=(i+1)*60*Math.PI/180;return `<path d="M50 50L${50+44*Math.cos(a0)} ${50+44*Math.sin(a0)}A44 44 0 0 1 ${50+44*Math.cos(a1)} ${50+44*Math.sin(a1)}Z" fill="${SUBJ[i].hex}" stroke="#fff" stroke-width="3"/>`}).join("")}</svg><b>เกมกระดานสีรุ้ง</b><span>ทอยลูกเต๋า เก็บชิ้นสีให้ครบ 6 สี · Plateau arc-en-ciel</span>${recBadge("trivial")}</button>
   <button class="game g-mem" data-g="memory"><svg viewBox="0 0 100 100"><rect x="12" y="20" width="34" height="46" rx="7" fill="#ffd23f" stroke="#fff" stroke-width="3" transform="rotate(-10 29 43)"/><rect x="50" y="26" width="34" height="46" rx="7" fill="#06a77d" stroke="#fff" stroke-width="3" transform="rotate(8 67 49)"/></svg><b>เกมจับคู่การ์ด</b><span>เปิดการ์ดหาคู่ให้ครบ · Memory</span>${recBadge("memory."+clamp(S.mem,1,5)," ครั้ง")}</button>
-  <button class="game g-wr" data-g="write"><svg viewBox="0 0 100 100"><g transform="rotate(35 50 50)"><rect x="40" y="8" width="20" height="62" rx="3" fill="#ffd23f" stroke="#fff" stroke-width="3"/><rect x="40" y="8" width="20" height="12" rx="3" fill="#ef476f" stroke="#fff" stroke-width="3"/><path d="M40 70L50 92L60 70Z" fill="#f3d9b5" stroke="#fff" stroke-width="3"/></g><path d="M8 88q14-14 26 0t26 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg><b>ฝึกเขียน</b><span>เขียนด้วย${DEV()==="pc"?"เมาส์":"นิ้ว"} · Écrire avec ${DEV()==="pc"?"la souris":"le doigt"}</span>${recBadge("write."+clamp(S.wr||1,1,3)," ⭐")}</button>
-  <button class="game g-mix" data-g="mix"><b>ภารกิจรวม 14 ข้อ</b><span>ทุกวิชา · Test mélangé (pour l'âge estimé)</span>${recBadge("mix","/14")}</button></div>
+  <button class="game g-wr" data-g="write"><svg viewBox="0 0 100 100"><g transform="rotate(35 50 50)"><rect x="40" y="8" width="20" height="62" rx="3" fill="#ffd23f" stroke="#fff" stroke-width="3"/><rect x="40" y="8" width="20" height="12" rx="3" fill="#ef476f" stroke="#fff" stroke-width="3"/><path d="M40 70L50 92L60 70Z" fill="#f3d9b5" stroke="#fff" stroke-width="3"/></g><path d="M8 88q14-14 26 0t26 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg><b>ฝึกเขียน</b><span>เขียนด้วย${DEV()==="pc"?"เมาส์":"นิ้ว"} · Écrire avec ${DEV()==="pc"?"la souris":"le doigt"}</span>${recBadge(BKEY("write","",clamp(S.wr||1,1,3))," ⭐")}</button>
+  <button class="game g-mix" data-g="mix"><b>ภารกิจรวม 10 ข้อ</b><span>ทุกวิชา · Test mélangé (pour l'âge estimé)</span>${recBadge("mix10","/10")}</button></div>
  <h2 class="sec">ฝึกทีละวิชา <span class="fr">· Une matière</span></h2>
- <div class="subs">${SUBJ.map(s=>`<button class="sub" style="background:${s.col}" data-s="${s.id}"><span class="chip">${s.age?gradeOf(S.skill[s.id]):"ขั้น "+clamp(Math.round(S.skill[s.id]),1,5)}</span><span><b>${s.th}</b><br><small>${s.fr}</small>${bestOf("quiz."+s.id)!=null?`<small class="subrec">🏆 ${bestOf("quiz."+s.id)}/8</small>`:""}</span></button>`).join("")}</div>
+ <div class="subs">${SUBJ.map(s=>`<button class="sub" style="background:${s.col}" data-s="${s.id}"><span class="chip">${s.age?gradeOf(S.skill[s.id]):"ขั้น "+clamp(Math.round(S.skill[s.id]),1,5)}</span><span><b>${s.th}</b><br><small>${s.fr}</small>${bestOf("q10."+s.id)!=null?`<small class="subrec">🏆 ${bestOf("q10."+s.id)}/10</small>`:""}</span></button>`).join("")}</div>
  <button class="parent-btn" data-g="gate">🔒 <span>ผู้ปกครอง · Espace parents${ga?` <span class="fr">— อายุโดยประมาณ ${fmtAgeTh(ga)} · âge estimé ${fmtAge(ga)}</span>`:""}</span></button>${verTag()}</div>`;
  app.querySelectorAll("[data-g]").forEach(b=>b.onclick=()=>{ac();go(b.dataset.g)});
  app.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{ac();b.dataset.s==="elec"?go("elec"):startQuiz(b.dataset.s)})};
@@ -1201,12 +1201,12 @@ V.elec=()=>{
   <li>แถบที่ 4 = ค่าความคลาดเคลื่อน: สีทอง ±5% สีเงิน ±10% <span class="fr">· 4e bande = tolérance : or ±5 %, argent ±10 %</span></li></ol>
   <div class="ex"><div class="qth">ตัวอย่าง: สีเหลือง 4 · สีม่วง 7 · สีแดง เติม 00</div><div class="eq">4 7 00 = 4700 Ω = 4.7 kΩ</div><div class="fr">Exemple : jaune 4 · violet 7 · rouge = ajouter 2 zéros → 4 700 Ω = 4,7 kΩ (±5 % avec la bande dorée). 1 kΩ (กิโลโอห์ม) = 1 000 Ω.</div></div>
   ${colorTable()}
-  <div class="btns"><button class="btn" id="go">เริ่มทดสอบ 8 ข้อ ➜</button><button class="btn alt" id="lis">${SPK} ฟัง</button><button class="btn alt" id="home">หน้าแรก</button></div></div></div>`;
+  <div class="btns"><button class="btn" id="go">เริ่มทดสอบ 10 ข้อ ➜</button><button class="btn alt" id="lis">${SPK} ฟัง</button><button class="btn alt" id="home">หน้าแรก</button></div></div></div>`;
  app.querySelector(".x").onclick=()=>go("home");$("#home").onclick=()=>go("home");
  $("#lis").onclick=()=>say(lessonTh,"th");$("#go").onclick=()=>startQuiz("elec")};
 
 /* --- quiz --- */
-function startQuiz(s){const list=s==="mix"?shuf(SUBJ.filter(x=>MIXS.includes(x.id)).flatMap(x=>[x.id,x.id])):Array(8).fill(s);cur={g:s==="mix"?"mix":"quiz",s:s==="mix"?"":s,t:Date.now(),list,i:0,ok:0};quizStep()}
+function startQuiz(s){const list=s==="mix"?shuf(MIXS.concat(sample(MIXS,3))):Array(10).fill(s);cur={g:s==="mix"?"mix":"quiz",s:s==="mix"?"":s,t:Date.now(),list,i:0,ok:0};quizStep()}
 V.mix=()=>startQuiz("mix");
 function quizStep(){const c=cur;if(c.i>=c.list.length)return quizEnd();
  app.innerHTML=`<div class="wrap"><div class="bar"><button class="x" aria-label="Retour">✕</button><div class="prog"><i style="width:${c.i/c.list.length*100}%"></i></div>${scoreChips(BKEY(c.g,c.s),c.ok)}</div><div id="qb"></div></div>`;
@@ -1305,20 +1305,20 @@ V.device=()=>{const g=DEV()||devGuess();
 const TH_CONS=[["ก","ก ไก่"],["ข","ข ไข่"],["ค","ค ควาย"],["ง","ง งู"],["จ","จ จาน"],["ฉ","ฉ ฉิ่ง"],["ช","ช ช้าง"],["ซ","ซ โซ่"],["ด","ด เด็ก"],["ต","ต เต่า"],["ถ","ถ ถุง"],["ท","ท ทหาร"],["น","น หนู"],["บ","บ ใบไม้"],["ป","ป ปลา"],["ผ","ผ ผึ้ง"],["ฝ","ฝ ฝา"],["พ","พ พาน"],["ฟ","ฟ ฟัน"],["ม","ม ม้า"],["ย","ย ยักษ์"],["ร","ร เรือ"],["ล","ล ลิง"],["ว","ว แหวน"],["ส","ส เสือ"],["ห","ห หีบ"],["อ","อ อ่าง"],["ฮ","ฮ นกฮูก"]];
 const TH_DIG=["๐","๑","๒","๓","๔","๕","๖","๗","๘","๙"],TH_NUMW=["ศูนย์","หนึ่ง","สอง","สาม","สี่","ห้า","หก","เจ็ด","แปด","เก้า"];
 const WR_TXT=[null,["ใช้นิ้วเขียนตามเส้นประ","Trace la lettre en suivant les pointillés."],["เขียนทับตัวอักษรจาง ๆ","Écris par-dessus la lettre pâle."],["จำตัวอักษรไว้ แล้วเขียนเองโดยไม่มีตัวช่วย","Mémorise la lettre, puis écris-la toute seule."]];
-function wrItems(lv){const it=sample(TH_CONS,lv===1?4:3).map(c=>({c:c[0],say:c[1],l:"th"}));const n=R(0,9);it.push({c:TH_DIG[n],say:TH_NUMW[n],l:"th"});const m=R(0,9);it.push({c:String(m),say:TH_NUMW[m],l:"th"});
- if(lv>=2){const L=String.fromCharCode(65+R(0,25));it.push({c:L,say:L,l:"en"})}return shuf(it)}
+function wrItems(lv){/* v3.4 : 10 tracés par partie */const it=sample(TH_CONS,lv===1?7:6).map(c=>({c:c[0],say:c[1],l:"th"}));const td=sample([0,1,2,3,4,5,6,7,8,9],lv===1?1:1);td.forEach(n=>it.push({c:TH_DIG[n],say:TH_NUMW[n],l:"th"}));sample([0,1,2,3,4,5,6,7,8,9],lv===1?2:1).forEach(m=>it.push({c:String(m),say:TH_NUMW[m],l:"th"}));
+ if(lv>=2)sample("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),2).forEach(L=>it.push({c:L,say:L,l:"en"}));return shuf(it)}
 V.write=()=>{const lv=clamp(S.wr||1,1,3);cur={g:"write",s:"",t:Date.now(),i:0,items:wrItems(lv),lv,ok:0,sc:[]};wrStep()};
 function glyphY(ctx,ch,N){const m=ctx.measureText(ch);const a=m.actualBoundingBoxAscent||N*.5,d=m.actualBoundingBoxDescent||0;return N/2+(a-d)/2}
 const WFONT=N=>`700 ${Math.round(N*.7)}px Mali, "Noto Sans Thai", Tahoma, sans-serif`;
 function wrStep(){const c=cur;if(c.i>=c.items.length)return wrEnd();const it=c.items[c.i],dv=DEV()||"phone",pc=dv==="pc";
  const size=Math.max(200,Math.min(dv==="phone"?340:dv==="tablet"?500:430,innerWidth-84));const T=WR_TXT[c.lv];
- app.innerHTML=`<div class="wrap"><div class="bar"><button class="x" aria-label="Retour">✕</button><div class="prog"><i style="width:${c.i/c.items.length*100}%"></i></div>${scoreChips("write."+c.lv,c.sc.reduce((a,b)=>a+b,0)," ⭐")}</div>
+ app.innerHTML=`<div class="wrap"><div class="bar"><button class="x" aria-label="Retour">✕</button><div class="prog"><i style="width:${c.i/c.items.length*100}%"></i></div>${scoreChips(BKEY("write","",c.lv),c.sc.reduce((a,b)=>a+b,0)," ⭐")}</div>
  <div class="qcard" style="max-width:${size+60}px"><div class="qhead" style="background:#00897b"><span>ฝึกเขียน <small style="opacity:.85">· écrire</small></span><span>ขั้น ${c.lv} · ${c.i+1}/${c.items.length}</span></div><div class="qbody">
  <div class="qth">${T[0]} “${it.c}”</div><div class="qfr fr">${T[1]} ${pc?"Souris : clique, garde le bouton appuyé et trace.":"Avec ton doigt."}</div>
  <canvas class="wcan" style="width:${size}px;height:${size}px" aria-label="zone d'écriture"></canvas>
  <div class="wtools"><button class="btn alt" id="wsay">${SPK} ฟัง</button><button class="btn alt" id="wclr">🧽 ลบ</button>${c.lv===3?'<button class="btn alt" id="wshow">👀 ดูอีกครั้ง</button>':""}<button class="btn" id="wok">ตรวจ ✔</button></div>
  ${pc?'<div class="kbd">⌨️ Entrée = vérifier · Suppr = effacer</div>':""}<div class="fbx"></div></div></div></div>`;
- app.querySelector(".x").onclick=()=>{KEYH=null;if(c.i){endSession({g:"write",s:"",t:c.t,ok:c.ok,n:c.i});recScore("write."+c.lv,c.sc.reduce((a,b)=>a+b,0))}go("home")};
+ app.querySelector(".x").onclick=()=>{KEYH=null;if(c.i){endSession({g:"write",s:"",t:c.t,ok:c.ok,n:c.i});recScore(BKEY("write","",c.lv),c.sc.reduce((a,b)=>a+b,0))}go("home")};
  const cv2=app.querySelector(".wcan"),dpr=Math.min(2,devicePixelRatio||1);cv2.width=size*dpr;cv2.height=size*dpr;const g=cv2.getContext("2d");g.scale(dpr,dpr);
  let strokes=[],cur2=null,guide=c.lv<3,done=false;
  const draw=()=>{g.clearRect(0,0,size,size);g.strokeStyle="rgba(0,0,0,.06)";g.lineWidth=1;g.setLineDash([]);g.beginPath();g.moveTo(0,size/2);g.lineTo(size,size/2);g.moveTo(size/2,0);g.lineTo(size/2,size);g.stroke();
@@ -1356,7 +1356,7 @@ function wrScore(ch,strokes,norm){const N=96;const mk=()=>{const c=document.crea
  if(!nu||!nt)return {st:0,cov:0,pre:0};const C=cov/nt,Pp=pre/nu;const sc=Math.min(1,C/.75)*.55+Math.min(1,Pp/.85)*.45;
  let st=0;if(C>=.45&&Pp>=.5)st=1;if(C>=.62&&Pp>=.65)st=2;if(C>=.78&&Pp>=.75)st=3;return {st,cov:C,pre:Pp,sc}}
 function recordWrite(good,st){const tk="thai.write";const T=S.topics[tk]||(S.topics[tk]={c:0,t:0});T.t++;if(good)T.c++;const dk=dayKey(Date.now());const D=S.days[dk]||(S.days[dk]={n:0,ok:0,ms:0});D.n++;if(good)D.ok++;S.stars+=st;save()}
-function wrEnd(){KEYH=null;const c=cur,avg=c.sc.reduce((a,b)=>a+b,0)/c.sc.length,old=S.wr||1;const wk="write."+c.lv,rs=recScore(wk,c.sc.reduce((a,b)=>a+b,0)),md=medalOf({g:"write",ok:c.ok,n:c.items.length});S.wr=clamp(old+(avg>=2.3?1:avg<1?-1:0),1,3);
+function wrEnd(){KEYH=null;const c=cur,avg=c.sc.reduce((a,b)=>a+b,0)/c.sc.length,old=S.wr||1;const wk=BKEY("write","",c.lv),rs=recScore(wk,c.sc.reduce((a,b)=>a+b,0)),md=medalOf({g:"write",ok:c.ok,n:c.items.length});S.wr=clamp(old+(avg>=2.3?1:avg<1?-1:0),1,3);
  endSession({g:"write",s:"",t:c.t,ok:c.ok,n:c.items.length});SFX.win();confetti(180);
  app.innerHTML=`<div class="wrap res">${elephant("happy","mascot joy")}<div class="big">✍️</div><h2>เขียนเก่งมาก!</h2><p class="qth">ได้ ${c.sc.reduce((a,b)=>a+b,0)} ดาว จาก ${c.items.length} ตัว</p>${medLine(md)}${recLine(rs,wk," ⭐")}<p class="fr">${c.sc.reduce((a,b)=>a+b,0)} étoiles pour ${c.items.length} lettres${S.wr>old?" — niveau suivant débloqué !":""}</p>${S.wr>old?`<p class="qth">🎉 ปลดล็อกขั้น ${S.wr}!</p>`:""}
  <div class="btns"><button class="btn" id="again">เล่นอีก ↻</button><button class="btn alt" id="home">หน้าแรก</button></div></div>`;
